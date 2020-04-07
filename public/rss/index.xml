@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:cc="http://web.resource.org/cc/" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:media="http://search.yahoo.com/mrss/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <channel>
+        <title>Commuteless</title>
+        <link>https://commuteless.fm</link>
+        <language>en</language>
+        <description>a show about working from home, </description>
+        <managingEditor>mail@commuteless.fm (mail@commuteless.fm)</managingEditor>
+        <pubDate>Tue, 07 Apr 2020 02:42:32 GMT</pubDate>
+        <lastBuildDate>Tue, 07 Apr 2020 02:42:32 GMT</lastBuildDate>
+        <docs>https://commuteless.fm</docs>
+        <generator>https://github.com/sw-yx/react-static-typescript-starter</generator>
+        <itunes:summary>Commuteless</itunes:summary>
+        <itunes:author>Commuteless</itunes:author>
+        <itunes:keywords>Technology</itunes:keywords>
+        <itunes:category text="Technology"/>
+        <itunes:category text="Technology">
+            <itunes:category text="Tech News"/>
+        </itunes:category>
+        <itunes:image href="https://placekitten.com/g/1400/1400"/>
+        <itunes:explicit>clean</itunes:explicit>
+        <itunes:owner>
+            <itunes:name><![CDATA[Commuteless]]></itunes:name>
+            <itunes:email>mail@commuteless.fm</itunes:email>
+        </itunes:owner>
+        <itunes:type>episodic</itunes:type>
+        <copyright>copyright REACTSTATICPODCAST_YOURNAMEHERE</copyright>
+        <atom:link href="https://commuteless.fm/atom.xml" rel="self" type="application/rss+xml"/>
+        <item>
+            <title><![CDATA[Commuteless Intro Song]]></title>
+            <link><![CDATA[https://commuteless.fm/episodes/intro-song.mp3]]></link>
+            <guid>https://commuteless.fm/episodes/intro-song.mp3</guid>
+            <pubDate>Sun, 05 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Welcome to <strong>Commuteless</strong>, a show about mastering working from home for beginners and veterans alike. Hosted by Kyle Adams and Cory Miller.</p>
+]]></description>
+            <content:encoded><![CDATA[<p>Welcome to <strong>Commuteless</strong>, a show about mastering working from home for beginners and veterans alike. Hosted by Kyle Adams and Cory Miller.</p>
+]]></content:encoded>
+            <author>mail@commuteless.fm (Commuteless)</author>
+            <enclosure length="1281484" type="audio/mpeg" url="https://commuteless.fm/episodes/intro-song.mp3"/>
+            <itunes:duration>01:04</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:subtitle><![CDATA[the first episode]]></itunes:subtitle>
+            <itunes:episodeType>full</itunes:episodeType>
+        </item>
+    </channel>
+</rss>
