@@ -1,13 +1,16 @@
 /* * {
   box-sizing: border-box;
 } */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+
 body {
-  font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue',
+  font-family: 'Lato', 'Helvetica Neue',
     Helvetica, Arial, 'Lucida Grande', sans-serif;
   font-weight: 300;
   font-size: 10px;
   margin: 0;
   padding: 0;
+  letter-spacing: 0.025em;
   background-color: #f9f9f9;
   color: #3f3f3f;
 }
