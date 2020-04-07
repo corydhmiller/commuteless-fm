@@ -43,7 +43,7 @@ function Header({
     <AHeader>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>{titleHead}</title>
+        <title>Commuteless - {titleHead}</title>
         <meta property="og:type" content="article" />
         <meta property="og:title" content={titleHead} />
         <meta property="og:description" content={desc} />
