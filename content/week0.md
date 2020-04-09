@@ -6,4 +6,6 @@ mp3URL: episodes/intro-song.mp3
 description: the first episode
 ---
 
-Welcome to **Commuteless**, a show about mastering working from home for beginners and veterans alike. Hosted by Kyle Adams and Cory Miller.
+Welcome to **Commuteless**, a show about working from home with less stress and more freedom so you can live life on your terms. Hosted by Kyle Adams and Cory Miller.
+
+We're still in the recording phase of this podcast 

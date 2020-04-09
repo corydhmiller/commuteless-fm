@@ -45,7 +45,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
   //   if (lp) lastPlayed = JSON.parse(lp).lastPlayed
   // }
   const [state, _setState] = React.useState({
-    progressTime: 50,
+    progressTime: 1,
     playing: false,
     duration: 1,
     currentTime: lastPlayed,

@@ -1,23 +1,26 @@
 import React from 'react'
 import { withSiteData } from 'react-static'
 // import { Link } from '@reach/router'
-import { Episode, FMType } from '../types'
+import { Episode, 
+  //FMType 
+} from '../types'
 import Header from '@src/components/Header'
-import Player from '@src/components/Player'
+import ComingSoon from '@src/components/ComingSoon'
+// import Player from '@src/components/Player'
+// import ShowList from '@src/components/ShowList'
+// import ShowNotes from '@src/components/ShowNotes'
 import Footer from '@src/components/Footer'
-import ShowList from '@src/components/ShowList'
-import ShowNotes from '@src/components/ShowNotes'
 import styled from 'styled-components'
 
 const Main = styled('main')`
-  background: #fff;
-  box-shadow: 3px 3px 10px rgba(0,0,0,.25);
+  // background: #fff;
+  // box-shadow: 3px 3px 10px rgba(0,0,0,.25);
   display: flex;
   flex-wrap: wrap;
 `
 
 type Props = {
-  frontmatters: FMType[]
+  // frontmatters: FMType[]
   mostRecentEpisode: Episode
   title: string
   description: string
@@ -26,7 +29,7 @@ type Props = {
 }
 export default withSiteData(
   ({
-    frontmatters,
+    // frontmatters,
     mostRecentEpisode,
     title,
     description,
@@ -45,9 +48,10 @@ export default withSiteData(
           mostRecentEpisode={mostRecentEpisode}
         />
         <Main>
-          <Player mostRecentEpisode={mostRecentEpisode} />
+          <ComingSoon />
+          {/* <Player mostRecentEpisode={mostRecentEpisode} />
           <ShowList frontmatters={frontmatters} />
-          <ShowNotes mostRecentEpisode={mostRecentEpisode} />
+          <ShowNotes mostRecentEpisode={mostRecentEpisode} /> */}
         </Main>
         <Footer />
       </>

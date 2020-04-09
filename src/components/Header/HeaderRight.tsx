@@ -19,11 +19,19 @@ const HRDiv = styled('div')`
     margin: 0;
   }
 `
+
+const HostDiv = styled('div')`
+display: flex; 
+flex-grow: 1; 
+align-items: center;
+justify-content: center;
+padding: 20px
+`
 export default function HeaderRight() {
   return (
     <HRDiv>
       <div id="hosts" style={{ display: 'flex' }}>
-        <div style={{ display: 'flex', flexGrow: 1, alignItems: 'center' }}>
+        <HostDiv>
           <img
             src="https://pbs.twimg.com/profile_images/1198467933221064704/IoP19MdS_400x400.jpg"
             alt="Kyle Adams"
@@ -38,8 +46,9 @@ export default function HeaderRight() {
               @itskyleadams
             </a>
           </div>
-        </div>
-        <div style={{ display: 'flex', flexGrow: 1, alignItems: 'center' }}>
+          </HostDiv>
+
+        <HostDiv>
           <img
             src="https://pbs.twimg.com/profile_images/834494800837672968/mEcsko5C_400x400.jpg"
             alt="Cory Miller"
@@ -54,7 +63,7 @@ export default function HeaderRight() {
               @corydhmiller
             </a>
           </div>
-        </div>
+        </HostDiv>
       </div>
     </HRDiv>
   )
