@@ -17,7 +17,6 @@ type SiteData = {
 }
 
 const HLDiv = styled('div')`
-  flex: 1 1 0;
   padding: 1rem;
   text-align: center;
   display: grid;
@@ -25,8 +24,11 @@ const HLDiv = styled('div')`
   font-size: 1.5rem;
 `
 const AHeader = styled('header')`
-  flex-wrap: wrap;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 740px) {
+    grid-template-columns: 1fr 1fr;
+  }
 `
 function Header({
   siteData,

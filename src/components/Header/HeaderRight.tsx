@@ -2,35 +2,42 @@ import React from 'react'
 import styled from 'styled-components'
 
 const HRDiv = styled('div')`
-  flex: 1 1 0;
-  display: flex;
   padding: 1rem 2rem;
   flex-direction: column;
   justify-content: center;
-  img {
-    max-width: 80px;
-    max-height: 80px;
-    border-radius: 50%;
-    float: left;
-    margin-right: 20px;
-    border: 3px solid #fff;
-  }
   * {
     margin: 0;
+  }
+  `
+  
+  const HostsDiv = styled('div')`
+    img {
+      max-width: 80px;
+      max-height: 80px;
+      border-radius: 50%;
+      float: left;
+      margin-right: 20px;
+      border: 3px solid #fff;
+    }
+  display: grid;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 1024px) {
+    grid-template-columns: 1fr 1fr;
   }
 `
 
 const HostDiv = styled('div')`
-display: flex; 
-flex-grow: 1; 
-align-items: center;
-justify-content: center;
-padding: 20px
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 `
 export default function HeaderRight() {
   return (
     <HRDiv>
-      <div id="hosts" style={{ display: 'flex' }}>
+        <p style={{ textAlign: 'center' }}>Hosted By</p>
+      <HostsDiv id="hosts">
         <HostDiv>
           <img
             src="https://pbs.twimg.com/profile_images/1198467933221064704/IoP19MdS_400x400.jpg"
@@ -46,7 +53,7 @@ export default function HeaderRight() {
               @itskyleadams
             </a>
           </div>
-          </HostDiv>
+        </HostDiv>
 
         <HostDiv>
           <img
@@ -64,7 +71,7 @@ export default function HeaderRight() {
             </a>
           </div>
         </HostDiv>
-      </div>
+      </HostsDiv>
     </HRDiv>
   )
 }
