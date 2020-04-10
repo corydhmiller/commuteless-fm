@@ -29,7 +29,7 @@ class ComingSoon extends Component {
       <AHeader>
         <CSDiv id="coming_soon">
           <Paragraph>
-            Welcome to Commuteless,
+            Welcome to Commuteless, 
             <strong>
               a show about working from home with less stress and more freedom
               so you can live life on your terms.
