@@ -1,7 +1,6 @@
 import React from 'react'
 import { FaPlay, FaPause } from 'react-icons/fa'
 // import { formatTime } from '../utils/formatTime'
-import './player.css'
 import { Episode } from '../types'
 
 import { withRouteData } from 'react-static'

@@ -15,10 +15,8 @@ const rss = myURL + '/rss/index.xml'
 const itURL =
   'https://itunes.apple.com/us/podcast/this-week-in-r-reactjs/id1448641675?mt=2&uo=4'
 const spotifyURL = 'https://open.spotify.com/show/null'
-const googlepodURL =
-  'https://www.google.com/podcasts?feed=null'
-const overcastURL =
-  'https://overcast.fm/itunes1448641675/null'
+const googlepodURL = 'https://www.google.com/podcasts?feed=null'
+const overcastURL = 'https://overcast.fm/itunes1448641675/null'
 
 const contentFolder = 'content'
 const author = {
@@ -57,17 +55,17 @@ const iTunesChannelFields = {
 
 // preprocessing'
 const filenames = fs.readdirSync(contentFolder).reverse() // reverse chron
-const filepaths = filenames.map(file =>
+const filepaths = filenames.map((file) =>
   path.join(process.cwd(), contentFolder, file),
 )
 const contents = grabContents(filepaths, myURL)
-const frontmatters = contents.map(c => c.frontmatter)
+const frontmatters = contents.map((c) => c.frontmatter)
 mkDir('/public/rss/')
 
 // generate HTML
 export default {
   plugins: [
-    'react-static-plugin-styled-components',
+    require.resolve('react-static-plugin-sass'),
     'react-static-plugin-typescript',
   ],
   entry: path.join(__dirname, 'src', 'index.tsx'),
@@ -107,7 +105,7 @@ export default {
         getData: () => ({
           contents,
         }),
-        children: contents.map(content => ({
+        children: contents.map((content) => ({
           path: `/${content.frontmatter.slug}`,
           component: 'src/pages/episode',
           getData: () => ({
