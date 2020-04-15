@@ -8023,11 +8023,6 @@ react-static-plugin-source-filesystem@^7.2.3:
     chokidar "^3.0.2"
     glob "^7.1.4"
 
-react-static-plugin-styled-components@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/react-static-plugin-styled-components/-/react-static-plugin-styled-components-6.3.0.tgz#228050d349be0d5ac4481942c510039f90181f53"
-  integrity sha512-kyzWgHBcLLsP2giOtzvdeeAZZh8C0LpqwOQV8DBqGZr3eTnzpjMBsQbJMCK5LlOdtL9Mt+QJVyUbDoH4ggmt5g==
-
 react-static-plugin-typescript@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/react-static-plugin-typescript/-/react-static-plugin-typescript-3.1.0.tgz#97b1d7bc7e5ff7a344d5c811f329c5e3d9a994ed"

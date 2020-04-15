@@ -8,27 +8,16 @@ type A = { isActive: boolean }
 const LI = styled('div')`
   border-right: 1px solid #e4e4e4;
   border-bottom: 1px solid #e4e4e4;
-  border-left: 10px solid #e4e4e4;
   box-shadow: 0px 2px 8px rgba(0,0,0,.125);
+  padding-left: 1rem;
+  border-left: ${({ isActive }: A) => (isActive ? '5px solid #614f87' : '5px solid transparent')};
   background: ${({ isActive }: A) => (isActive ? '#fff' : '#f9f9f9')};
   ${({ isActive }: A) =>
     isActive &&
     `
   border-right-color: #fff;
-  border-left: 0;
-  padding-left: 1rem;
   :hover {
     background: #fefefe;
-  }
-  :before {
-    display: block;
-    background: #309397;
-    width: 10px;
-    height: 100%;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 
   `};

@@ -26,6 +26,7 @@ export default ({ mostRecentEpisode }: { mostRecentEpisode: Episode }) => {
 }
 
 type Props = { content?: Episode }
+
 const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
   const curEp = content || mostRecentEpisode
   if (!curEp) return 'no content'
@@ -58,7 +59,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
     playing,
     progressTime,
     currentTime,
-    duration,
+    // duration,
     showTooltip,
     tooltipPosition,
     tooltipTime,
@@ -160,7 +161,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
 
   // // currently this is a bug only in produciton - duration is always infinity in git LFS
   // const playerTime = `${formatTime(currentTime)}`
-  const playerTime = `${formatTime(currentTime)} / ${formatTime(duration)}`
+  // const playerTime = `${formatTime(currentTime)} / ${formatTime(duration)}`
   return (
     <div className="player">
       <div className="player__section player__section--left">
@@ -168,6 +169,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
           onClick={togglePlay}
           aria-label={playing ? 'pause' : 'play'}
           type="button"
+          className={`${playing ? 'playing' : 'paused'}`}
         >
           <p className="player__icon">{playing ? <FaPause /> : <FaPlay />}</p>
         </button>
@@ -192,12 +194,6 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
             className="progress__time"
             style={{ width: `${progressTime}%` }}
           />
-        </div>
-        <div style={{ padding: '.5rem 1rem 0' }}>
-          <h3 className="player__title">
-            {show.displayNumber}: {show.title}
-          </h3>
-          <p style={{ marginTop: '.5rem' }}>{playerTime}</p>
         </div>
         <div
           className="player__tooltip"

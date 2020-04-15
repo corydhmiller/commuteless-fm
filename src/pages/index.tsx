@@ -3,7 +3,7 @@ import { withSiteData } from 'react-static'
 // import { Link } from '@reach/router'
 import { Episode, FMType } from '../types'
 import Header from '@src/components/Header'
-import Player from '@src/components/Player'
+// import Player from '@src/components/Player'
 import ShowList from '@src/components/ShowList'
 import ShowNotes from '@src/components/ShowNotes'
 import Footer from '@src/components/Footer'
@@ -23,6 +23,8 @@ type Props = {
   description: string
   myURL: string
   image: string
+  episodeimage: string
+  hosts: string
 }
 export default withSiteData(
   ({
@@ -32,6 +34,8 @@ export default withSiteData(
     description,
     myURL,
     image,
+    episodeimage,
+    hosts
   }: Props) => {
     return (
       <>
@@ -41,11 +45,12 @@ export default withSiteData(
             description,
             myURL,
             image,
+            episodeimage,
+            hosts
           }}
           mostRecentEpisode={mostRecentEpisode}
         />
         <Main>
-          <Player mostRecentEpisode={mostRecentEpisode} />
           <ShowList frontmatters={frontmatters} />
           <ShowNotes mostRecentEpisode={mostRecentEpisode} />
         </Main>

@@ -6,7 +6,7 @@ import {
 } from 'react-static'
 // import { Link } from '@reach/router'
 import './normalize.css'
-import './app.css'
+import '../public/css/app.css'
 
 function App() {
   return (

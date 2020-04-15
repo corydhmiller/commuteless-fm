@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import HeaderLeft from './HeaderLeft'
 import HeaderRight from './HeaderRight'
+import Player from '@src/components/Player'
 // import SubscribeBar from './SubscribeBar'
 import { Helmet } from 'react-helmet'
 import { withRouteData } from 'react-static'
@@ -15,26 +17,42 @@ type SiteData = {
   image: string
 }
 
-const HLDiv = styled('div')`
-  padding: 1rem;
-  text-align: center;
+const EpisodeInfo = styled('div')`
+  padding: 3rem 1rem;
   display: grid;
-  align-items: center;
+  grid-template-columns: 1fr;
+  justify-items: center;
   font-size: 1.5rem;
+  max-width: 1180px;
+  @media screen and (min-width: 740px) {
+    justify-items: left;
+    grid-template-columns: minmax(250px, 1fr) 2fr;
+  }
 `
 const AHeader = styled('header')`
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr;
-  @media screen and (min-width: 740px) {
-    grid-template-columns: 1fr 1fr;
+  padding: 1rem 3rem 4rem;
+  @media (max-width: 650px) {
+    padding: 1rem 0 4rem;
   }
+  width: 100%;
+  color: white;
 `
+const HeaderNav = styled('div')`
+  width: 100%;
+`
+
 function Header({
   siteData,
 }: { siteData: SiteData } & Props) {
   const { description, myURL, image } = siteData
-  const titleHead = "Commuteless.fm"
-  const desc = description
+  const curEp = content || mostRecentEpisode
+  const titleHead = curEp.frontmatter.episode
+    ? `Ep ${curEp.frontmatter.episode}: ${curEp.frontmatter.title}`
+    : curEp.frontmatter.title
+  const desc = content ? description : mostRecentEpisode.frontmatter.description
   return (
     <AHeader>
       <Helmet>
@@ -51,14 +69,35 @@ function Header({
         <meta name="twitter:image" content={image} />
         <meta name="twitter:site" content="@commutelessfm" />
         <meta name="twitter:creator" content="@commutelessfm" />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
-      <HLDiv>
-        <h1>
+      <HeaderNav>
+        <h2>
           <a href={myURL}>Commuteless.fm</a>
-        </h1>
-        {/* <img src="https://sw-yx.tinytake.com/media/952085?filename=1548652201152_27-01-2019-19-10-00.png&sub_type=thumbnail_preview&type=attachment&width=282&height=207&&salt=MzI2MjE2OV85NzczMTg5" /> */}
-      </HLDiv>
-      <HeaderRight />
+        </h2>
+      </HeaderNav>
+      <EpisodeInfo>
+        <HeaderLeft mostRecentEpisode={mostRecentEpisode} />
+        <HeaderRight mostRecentEpisode={mostRecentEpisode} />
+      </EpisodeInfo>
+      <Player mostRecentEpisode={mostRecentEpisode} />
       {/* <SubscribeBar /> */}
     </AHeader>
   )

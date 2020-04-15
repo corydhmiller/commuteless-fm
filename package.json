@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "start": "react-static start",
-    "build": "yarn run react-static build"
+    "build": "yarn run react-static build",
+    "build:css": "node-sass src/app.scss -o public/css",
+    "watch:css": "node-sass src/app.scss -o public/css --watch --recursive"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",

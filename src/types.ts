@@ -11,9 +11,11 @@ export type FMType = {
   title: string
   mp3URL: string
   date: string
+  hosts?: string
   description: string
+  episodeimage?: string
   episodeType?: 'full' | 'trailer' | 'bonus'
   episode?: number
   season?: number
   slug?: string
-}
+} 

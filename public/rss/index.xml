@@ -7,12 +7,17 @@
         <description>A show about working from home with less stress and more freedom so you can live life on your terms.</description>
         <managingEditor>mail@commuteless.fm (mail@commuteless.fm)</managingEditor>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <pubDate>Thu, 16 Apr 2020 14:46:49 GMT</pubDate>
         <lastBuildDate>Thu, 16 Apr 2020 14:46:49 GMT</lastBuildDate>
 =======
         <pubDate>Tue, 14 Apr 2020 15:00:26 GMT</pubDate>
         <lastBuildDate>Tue, 14 Apr 2020 15:00:26 GMT</lastBuildDate>
 >>>>>>> Start adding support for scss
+=======
+        <pubDate>Wed, 15 Apr 2020 13:37:44 GMT</pubDate>
+        <lastBuildDate>Wed, 15 Apr 2020 13:37:44 GMT</lastBuildDate>
+>>>>>>> Add sass, hosts, headers, and restyle
         <docs>https://commuteless.fm</docs>
         <generator>https://github.com/sw-yx/react-static-typescript-starter</generator>
         <itunes:summary>Commuteless</itunes:summary>
@@ -32,22 +37,66 @@
         <copyright>copyright REACTSTATICPODCAST_YOURNAMEHERE</copyright>
         <atom:link href="https://commuteless.fm/atom.xml" rel="self" type="application/rss+xml"/>
         <item>
-            <title><![CDATA[Commuteless Intro Song]]></title>
-            <link><![CDATA[https://commuteless.fm/episodes/intro-song.mp3]]></link>
-            <guid>https://commuteless.fm/episodes/intro-song.mp3</guid>
+            <title><![CDATA[A New Show to Help You Work From Home]]></title>
+            <link><![CDATA[https://commuteless.fm/episodes/commuteless-001.mp3]]></link>
+            <guid>https://commuteless.fm/episodes/commuteless-001.mp3</guid>
             <pubDate>Sun, 05 Apr 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Welcome to <strong>Commuteless</strong>, a show about working from home with less stress and more freedom so you can live life on your terms. Hosted by Kyle Adams and Cory Miller.</p>
-<p>We’re still in the recording phase of this podcast</p>
+            <description><![CDATA[<p>Welcome to Commuteless, a show about working from home with less stress and more freedom so you can live life on your terms.</p>
+<p>Who are we?
+Kyle
+Who you
+Cory
+Web developer at ConvertKit
+Been working remotely in various capacities for 5+ years
+Why are we making this podcast?
+Wanted to have another show! 😂
+We have X/Y years of experience working from home
+Cory: Lots of people have been asking me questions about it
+What can listeners expect to get out of this?
+Tangible, practical tips to help you figure out how to work from home if you’re just starting with it
+How to improve your workflow if you’ve been doing it a while
+Help listeners in management positions understand how to better help and support their team</p>
 ]]></description>
-            <content:encoded><![CDATA[<p>Welcome to <strong>Commuteless</strong>, a show about working from home with less stress and more freedom so you can live life on your terms. Hosted by Kyle Adams and Cory Miller.</p>
-<p>We’re still in the recording phase of this podcast</p>
+            <content:encoded><![CDATA[<p>Welcome to Commuteless, a show about working from home with less stress and more freedom so you can live life on your terms.</p>
+<p>Who are we?
+Kyle
+Who you
+Cory
+Web developer at ConvertKit
+Been working remotely in various capacities for 5+ years
+Why are we making this podcast?
+Wanted to have another show! 😂
+We have X/Y years of experience working from home
+Cory: Lots of people have been asking me questions about it
+What can listeners expect to get out of this?
+Tangible, practical tips to help you figure out how to work from home if you’re just starting with it
+How to improve your workflow if you’ve been doing it a while
+Help listeners in management positions understand how to better help and support their team</p>
 ]]></content:encoded>
             <author>mail@commuteless.fm (Commuteless)</author>
-            <enclosure length="1281484" type="audio/mpeg" url="https://commuteless.fm/episodes/intro-song.mp3"/>
-            <itunes:duration>01:04</itunes:duration>
+            <enclosure length="19659028" type="audio/mpeg" url="https://commuteless.fm/episodes/commuteless-001.mp3"/>
+            <itunes:duration>20:10</itunes:duration>
             <itunes:explicit>no</itunes:explicit>
             <itunes:subtitle><![CDATA[the first episode]]></itunes:subtitle>
             <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>1</itunes:episode>
+        </item>
+        <item>
+            <title><![CDATA[Define Your Spaces for Better Separation and Balance]]></title>
+            <link><![CDATA[https://commuteless.fm/episodes/commuteless-002.mp3]]></link>
+            <guid>https://commuteless.fm/episodes/commuteless-002.mp3</guid>
+            <pubDate>Mon, 06 Apr 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[<p>Looking at the overall schedule of working from home at a high level. How do we manage everything and get things done? The main premise here is that we divide our time up between work and rest.</p>
+]]></description>
+            <content:encoded><![CDATA[<p>Looking at the overall schedule of working from home at a high level. How do we manage everything and get things done? The main premise here is that we divide our time up between work and rest.</p>
+]]></content:encoded>
+            <author>mail@commuteless.fm (Commuteless)</author>
+            <enclosure length="35602099" type="audio/mpeg" url="https://commuteless.fm/episodes/commuteless-002.mp3"/>
+            <itunes:duration>37:05</itunes:duration>
+            <itunes:explicit>no</itunes:explicit>
+            <itunes:subtitle><![CDATA[the first episode]]></itunes:subtitle>
+            <itunes:episodeType>full</itunes:episodeType>
+            <itunes:episode>2</itunes:episode>
         </item>
     </channel>
 </rss>
