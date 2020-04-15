@@ -178,7 +178,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
       <div className="player__section player__section--middle">
         {/* eslint-disable */}
         <div
-          className="progress"
+          className={`progress ${playing ? 'playing' : 'paused'}`}
           onClick={scrub}
           onMouseMove={seekTime}
           onMouseEnter={() => {

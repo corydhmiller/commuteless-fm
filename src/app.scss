@@ -162,7 +162,7 @@ nav {
 }
 @media (max-width: 650px) {
   .player__section--middle {
-    position:unset;
+    position: unset;
     order: 1;
     width: 100%;
     min-height: 30px;
@@ -290,12 +290,25 @@ nav {
   border-radius: 1rem;
   background: linear-gradient(0deg, #464646, #383838);
   box-shadow: inset 2px 2px 5px #222, inset 0 -3px 13px #333;
+  &.playing {
+    .progress__time {
+      background: linear-gradient(0deg, #72599c, #886ab9);
+      box-shadow: inset 2px 2px 3px darken($purple, 18%),
+        inset 0 -3px 13px darken($purple, 4%);
+    }
+  }
+  &.paused {
+    .progress__time {
+      background: linear-gradient(0deg, $red, darken($red, 10%));
+      box-shadow: inset 2px 2px 3px darken($red, 18%),
+        inset 0 -3px 13px darken($red, 4%);
+    }
+  }
 }
 .progress__time {
-  background: linear-gradient(0deg, #72599c, #886ab9);
-  box-shadow: inset 2px 2px 3px darken($purple, 18%),
-    inset 0 -3px 13px darken($purple, 4%);
   min-width: 8px;
   height: 100%;
-  transition: 0.1s width ease;
+  transition-property: box-shadow, background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }

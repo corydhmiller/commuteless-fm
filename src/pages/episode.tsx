@@ -9,9 +9,9 @@ import ShowNotes from '@src/components/ShowNotes'
 import styled from 'styled-components'
 
 const Main = styled('main')`
-background: linear-gradient(135deg, #222 0%, #333 100%);
   display: flex;
   flex-wrap: wrap;
+  padding:0 1rem;
 `
 
 type Props = {

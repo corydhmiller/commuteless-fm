@@ -8,6 +8,7 @@
         <managingEditor>mail@commuteless.fm (mail@commuteless.fm)</managingEditor>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <pubDate>Thu, 16 Apr 2020 14:46:49 GMT</pubDate>
         <lastBuildDate>Thu, 16 Apr 2020 14:46:49 GMT</lastBuildDate>
 =======
@@ -18,6 +19,10 @@
         <pubDate>Wed, 15 Apr 2020 13:37:44 GMT</pubDate>
         <lastBuildDate>Wed, 15 Apr 2020 13:37:44 GMT</lastBuildDate>
 >>>>>>> Add sass, hosts, headers, and restyle
+=======
+        <pubDate>Wed, 15 Apr 2020 13:50:37 GMT</pubDate>
+        <lastBuildDate>Wed, 15 Apr 2020 13:50:37 GMT</lastBuildDate>
+>>>>>>> Some adjustments to the progress bar
         <docs>https://commuteless.fm</docs>
         <generator>https://github.com/sw-yx/react-static-typescript-starter</generator>
         <itunes:summary>Commuteless</itunes:summary>

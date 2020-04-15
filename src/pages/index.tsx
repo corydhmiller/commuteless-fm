@@ -10,10 +10,9 @@ import Footer from '@src/components/Footer'
 import styled from 'styled-components'
 
 const Main = styled('main')`
-  // background: #fff;
-  // box-shadow: 3px 3px 10px rgba(0,0,0,.25);
   display: flex;
   flex-wrap: wrap;
+  padding: 0 1rem;
 `
 
 type Props = {
