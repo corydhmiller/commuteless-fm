@@ -33,13 +33,13 @@ function Header({
   siteData,
 }: { siteData: SiteData } & Props) {
   const { description, myURL, image } = siteData
-  const titleHead = "Commuteless.fm"
+  const titleHead = "Commuteless"
   const desc = description
   return (
     <AHeader>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Commuteless</title>
+        <title>Commuteless - A show about working from home</title>
         <meta property="og:type" content="article" />
         <meta property="og:title" content={titleHead} />
         <meta property="og:description" content={desc} />
