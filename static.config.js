@@ -8,8 +8,8 @@ import { buildFeed, grabContents } from 'podcats'
 const myURL = 'https://commuteless.fm'
 
 const description =
-  'a show about working from home, '
-// const image = 'https://placekitten.com/g/1400/1400' // TODO: itunes cover and opengraph image. you should customise this!
+  'A show about working from home with less stress and more freedom so you can live life on your terms.'
+const image = 'images/commuteless-artwork.jpg'
 const ghURL = 'https://github.com/corydhmiller/commuteless-fm'
 const rss = myURL + '/rss/index.xml'
 const itURL =
@@ -49,7 +49,7 @@ const iTunesChannelFields = {
     { cat: 'Technology' },
     { cat: 'Technology', child: 'Tech News' },
   ],
-  // image,
+  image,
   explicit: false,
   owner: author,
   type: 'episodic',
@@ -89,7 +89,7 @@ export default {
       frontmatters,
       ghURL,
       myURL,
-      // image,
+      image,
       mostRecentEpisode: contents[0], // necessary evil to show on '/'
       subscribeLinks: [
         { type: 'iTunes', url: itURL },
