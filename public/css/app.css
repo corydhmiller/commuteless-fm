@@ -129,7 +129,7 @@ nav {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 0 1rem; }
 
 @media (max-width: 650px) {
@@ -170,6 +170,7 @@ nav {
 
 .player__tooltip {
   position: absolute;
+  z-index: 50;
   bottom: -5px;
   transform: translate(-50%);
   opacity: 0;
@@ -213,39 +214,19 @@ nav {
 .player__speed__display {
   height: 1.5rem; }
 
-.player__inputs {
-  font-size: 0; }
-
 .player__volume {
   width: 120px;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 0 1rem;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
   outline: none; }
-
-.player__volume label {
-  cursor: pointer; }
-
-.player__volume p {
-  width: 100%;
-  margin: 0; }
-
-.player__volume input ~ label {
-  background: #ee4060;
-  display: inline-block;
-  width: 8px;
-  height: 1.5rem; }
-
-.player__volume input:checked ~ label {
-  background: #555; }
-
-.player__volume input:checked + label {
-  background: #ee4060; }
+  .player__volume svg {
+    opacity: 0.3;
+    stroke: #fff;
+    fill: #fff;
+    transition: 0.2s all ease; }
+  .player__volume:hover svg {
+    opacity: 0.6; }
 
 .progress {
   height: 100%;
@@ -268,3 +249,124 @@ nav {
   transition-property: box-shadow, background-color;
   transition-duration: 0.3s;
   transition-timing-function: ease; }
+
+.slider-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 58px; }
+
+.fill {
+  position: absolute;
+  box-sizing: border-box;
+  display: inline-block;
+  left: 0;
+  top: 24px;
+  border-radius: 8px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: calc(100% - 5px);
+  z-index: 55;
+  height: 10px;
+  background: linear-gradient(0deg, #999, gray);
+  box-shadow: inset 2px 2px 3px #6b6b6b, inset 0 -3px 13px #8f8f8f; }
+
+.volume-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-appearance: none;
+  width: 100%;
+  height: 58px;
+  background: transparent;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer; }
+  .volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none; }
+  .volume-slider::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent; }
+  .volume-slider:focus {
+    outline: none; }
+  .volume-slider::-moz-focus-outer {
+    border: 0; }
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #999, gray);
+  z-index: 66;
+  position: relative;
+  cursor: pointer;
+  margin-top: -11px; }
+
+.volume-slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: linear-gradient(0deg, #383838, #535353);
+  border-radius: 8px; }
+
+.volume-slider::-moz-range-thumb {
+  border: 3px solid #282d32;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #999, gray);
+  z-index: 66;
+  position: relative;
+  cursor: pointer; }
+
+.volume-slider::-moz-range-track {
+  box-sizing: border-box;
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: YELLOW;
+  border-radius: 8px; }
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .fill {
+    display: none; } }
+
+.volume-slider::-ms-thumb {
+  box-shadow: 0 0 0 3px #282d32;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #999, gray);
+  z-index: 66;
+  position: relative;
+  cursor: pointer;
+  margin-top: 2px;
+  box-sizing: border-box;
+  border: 0; }
+
+.volume-slider:focus::-ms-thumb {
+  border: 0; }
+
+.volume-slider::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: yellow;
+  border-radius: 8px;
+  color: transparent;
+  box-sizing: border-box; }
+
+.volume-slider::-ms-fill-lower {
+  background: linear-gradient(0deg, #999, gray);
+  box-shadow: inset 2px 2px 3px #6b6b6b, inset 0 -3px 13px #8f8f8f;
+  border-radius: 8px; }
+
+.volume-slider::-ms-fill-upper {
+  background: linear-gradient(0deg, #383838, #535353); }
+
+.volume-slider::-ms-tooltip {
+  display: none; }

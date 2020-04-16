@@ -10,14 +10,11 @@ const LI = styled('div')`
   border-bottom: 1px solid #e4e4e4;
   box-shadow: 0px 2px 8px rgba(0,0,0,.125);
   padding-left: 1rem;
-  border-left: ${({ isActive }: A) => (isActive ? '5px solid #614f87' : '5px solid transparent')};
-  background: ${({ isActive }: A) => (isActive ? '#fff' : '#f9f9f9')};
+  background: ${({ isActive }: A) => (isActive ? '#fff' : '#efefef')};
   ${({ isActive }: A) =>
     isActive &&
     `
-  border-right-color: #fff;
   :hover {
-    background: #fefefe;
   }
 
   `};
@@ -82,8 +79,8 @@ function ListItem({ frontmatter, isActive }: Props) {
 
 const UL = styled('div')`
   width: 38%;
-  overflow: hidden;
-  background: #efefef;
+
+
   display: flex;
   flex-direction: column;
   padding: 0;

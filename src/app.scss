@@ -157,7 +157,7 @@ nav {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   padding: 0 1rem;
 }
 @media (max-width: 650px) {
@@ -200,6 +200,7 @@ nav {
 }
 .player__tooltip {
   position: absolute;
+  z-index: 50;
   bottom: -5px;
   transform: translate(-50%);
   opacity: 0;
@@ -243,45 +244,25 @@ nav {
 .player__speed__display {
   height: 1.5rem;
 }
-.player__inputs {
-  font-size: 0;
-}
 .player__volume {
   width: 120px;
-  text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  padding: 0 1rem;
-  flex-wrap: wrap;
-  flex: 1 0 auto;
   outline: none;
+  svg {
+    opacity: 0.3;
+    stroke: $white;
+    fill: $white;
+    transition: 0.2s all ease;
+  }
+  &:hover {
+    svg {
+      opacity: 0.6;
+    }
+  }
 }
-.player__volume:focus-within {
-  // outline: #ee4060 auto 5px;
-}
-.player__volume label {
-  cursor: pointer;
-}
-.player__volume label:hover ~ label {
-}
-.player__volume p {
-  width: 100%;
-  margin: 0;
-}
-.player__volume input ~ label {
-  background: #ee4060;
-  display: inline-block;
-  width: 8px;
-  height: 1.5rem;
-}
-.player__volume input:checked ~ label {
-  background: #555;
-}
-.player__volume input:checked + label {
-  background: #ee4060;
-}
+
 .progress {
   height: 100%;
   cursor: pointer;
@@ -311,4 +292,185 @@ nav {
   transition-property: box-shadow, background-color;
   transition-duration: 0.3s;
   transition-timing-function: ease;
+}
+
+$background-color: #282d32;
+
+$width: 100%;
+$height: 58px;
+
+$bar-height: 10px;
+$border-radius: 8px;
+$bar-color: linear-gradient(0deg, #383838, #535353);
+$bar-fill: linear-gradient(0deg, #999, darken(#999, 10%));
+$bar-shadow: inset 2px 2px 3px darken(#999, 18%),
+  inset 0 -3px 13px darken(#999, 4%);
+
+$cursor-size: 30px;
+$cursor-color: linear-gradient(145deg, #999, darken(#999, 10%));
+$cursor-color-hover: linear-gradient(145deg, $red, darken($red, 10%));
+$cursor-shadow: 4px 5px 11px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba($white, 0.3),
+  -3px -3px 8px lighten($black, 20%);
+$cursor-border-size: 3px;
+$cursor-border: $background-color;
+
+.slider-container {
+  position: relative;
+  display: inline-block;
+  width: $width;
+  height: $height;
+}
+
+.fill {
+  position: absolute;
+  box-sizing: border-box;
+  display: inline-block;
+  left: 0;
+  top: $height/2 - $bar-height/2;
+  border-radius: $border-radius;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: calc(100% - 5px);
+  z-index: 55;
+  height: $bar-height;
+  background: $bar-fill;
+  box-shadow: $bar-shadow;
+}
+
+// reset styles
+.volume-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-appearance: none;
+  width: $width;
+  height: $height;
+  background: transparent;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+  }
+
+  &::-ms-track {
+    width: $width;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &::-moz-focus-outer {
+    border: 0;
+  }
+}
+
+// webkit browsers
+.volume-slider {
+  &::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: $cursor-size;
+    width: $cursor-size;
+    border-radius: 50%;
+    background: $cursor-color;
+
+    z-index: 66;
+    position: relative;
+    cursor: pointer;
+    margin-top: -11px;
+  }
+
+  &::-webkit-slider-runnable-track {
+    width: $width;
+    height: $bar-height;
+    cursor: pointer;
+    background: $bar-color;
+    border-radius: $border-radius;
+    //Track
+  }
+}
+
+// Firefox
+.volume-slider {
+  &::-moz-range-thumb {
+    border: $cursor-border-size solid $cursor-border;
+    height: $cursor-size;
+    width: $cursor-size;
+    border-radius: 50%;
+    background: $cursor-color;
+
+    z-index: 66;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &::-moz-range-track {
+    box-sizing: border-box;
+    width: $width;
+    height: $bar-height;
+    cursor: pointer;
+    background: YELLOW;
+    border-radius: $border-radius;
+    //Track
+  }
+}
+
+// Internet Explorer
+.fill {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    display: none;
+  }
+}
+
+.volume-slider {
+  &::-ms-thumb {
+    box-shadow: 0 0 0 $cursor-border-size $cursor-border;
+    height: $cursor-size;
+    width: $cursor-size;
+    border-radius: 50%;
+    background: $cursor-color;
+
+    z-index: 66;
+    position: relative;
+    cursor: pointer;
+    margin-top: 2px;
+    box-sizing: border-box;
+    border: 0;
+  }
+
+  &:focus::-ms-thumb {
+    border: 0;
+  }
+
+  &::-ms-track {
+    width: $width;
+    height: $bar-height;
+    cursor: pointer;
+    background: yellow;
+    border-radius: $border-radius;
+    //Track
+    color: transparent;
+    box-sizing: border-box;
+  }
+
+  &::-ms-fill-lower {
+    background: $bar-fill;
+    box-shadow: $bar-shadow;
+    border-radius: $border-radius;
+    //Track
+  }
+
+  &::-ms-fill-upper {
+    background: $bar-color;
+  }
+
+  &::-ms-tooltip {
+    display: none;
+  }
 }
