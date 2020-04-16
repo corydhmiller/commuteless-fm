@@ -12,6 +12,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <pubDate>Thu, 16 Apr 2020 14:46:49 GMT</pubDate>
         <lastBuildDate>Thu, 16 Apr 2020 14:46:49 GMT</lastBuildDate>
 =======
@@ -38,6 +39,10 @@
         <pubDate>Thu, 16 Apr 2020 12:06:52 GMT</pubDate>
         <lastBuildDate>Thu, 16 Apr 2020 12:06:52 GMT</lastBuildDate>
 >>>>>>> Futz about with some more volume stuff
+=======
+        <pubDate>Thu, 16 Apr 2020 13:37:21 GMT</pubDate>
+        <lastBuildDate>Thu, 16 Apr 2020 13:37:21 GMT</lastBuildDate>
+>>>>>>> Remove slider fill
         <docs>https://commuteless.fm</docs>
         <generator>https://github.com/sw-yx/react-static-typescript-starter</generator>
         <itunes:summary>Commuteless</itunes:summary>

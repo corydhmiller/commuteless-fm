@@ -140,15 +140,6 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
     const volume = +__Slider.value / 100
     setState({ sliderValue: +__Slider.value })
     audio.current.volume = volume
-    changeRange(__Slider)
-  }
-  const changeRange = (element: any) => {
-    var percent = +element.value
-
-    if (percent > 95) percent -= 5
-    if (percent < 5) percent += 5
-
-    document.getElementById('range-fill').style.width = percent + '%'
   }
 
   // const speed = (change: number) => {
@@ -245,7 +236,6 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
             ></path>
           </svg>
           <div className="slider-container">
-            <div className="fill" id="range-fill"></div>
             <input
               onChange={volume}
               className="volume-slider"

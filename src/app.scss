@@ -322,22 +322,6 @@ $cursor-border: $background-color;
   height: $height;
 }
 
-.fill {
-  position: absolute;
-  box-sizing: border-box;
-  display: inline-block;
-  left: 0;
-  top: $height/2 - $bar-height/2;
-  border-radius: $border-radius;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  width: calc(100% - 5px);
-  z-index: 55;
-  height: $bar-height;
-  background: $bar-fill;
-  box-shadow: $bar-shadow;
-}
-
 // reset styles
 .volume-slider {
   position: absolute;
@@ -417,7 +401,8 @@ $cursor-border: $background-color;
     width: $width;
     height: $bar-height;
     cursor: pointer;
-    background: transparent;
+    background: $bar-color;
+    box-shadow: $bar-shadow;
     border-radius: $border-radius;
     //Track
   }
@@ -462,7 +447,7 @@ $cursor-border: $background-color;
   }
 
   &::-ms-fill-lower {
-    background: $bar-fill;
+    background: $bar-color;
     box-shadow: $bar-shadow;
     border-radius: $border-radius;
     //Track
@@ -476,4 +461,38 @@ $cursor-border: $background-color;
   &::-ms-tooltip {
     display: none;
   }
+}
+
+
+//////////boop
+
+
+#volume {
+  position: absolute;
+  left: 24px;
+  margin: 0 auto;
+  height: 5px;
+  width: 300px;
+  background: #555;
+  border-radius: 15px;
+}
+#volume .ui-slider-range-min {
+  height: 5px;
+  width: 300px;
+  position: absolute;
+  background: #2ecc71;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+}
+#volume .ui-slider-handle {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background: #FFF;
+  position: absolute;
+  margin-left: -8px;
+  margin-top: -8px;
+  cursor: pointer;
+  outline: none;
 }
