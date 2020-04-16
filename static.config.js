@@ -114,6 +114,20 @@ export default {
           }),
         })),
       },
+      {
+        path: 'contact',
+        getData: () => ({
+          contents,
+        }),
+        children: contents.map((content) => ({
+          path: `/contact`,
+          component: 'src/pages/contact',
+          getData: () => ({
+            content,
+            myURL,
+          }),
+        })),
+      },
     ]
   },
 }
