@@ -9,7 +9,7 @@ const myURL = 'https://commuteless.fm'
 
 const description =
   'A show about working from home with less stress and more freedom so you can live life on your terms.'
-const image = 'images/commuteless-artwork.jpg'
+const image = 'https://commuteless.fm/images/commuteless-artwork.jpg'
 const ghURL = 'https://github.com/corydhmiller/commuteless-fm'
 const rss = myURL + '/rss/index.xml'
 const itURL =
