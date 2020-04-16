@@ -217,7 +217,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
         >
           {tooltipTime}
         </div>
-        <div style={{ opacity: 0.7, marginTop: '5px', marginLeft: '10px' }}>
+        <div style={{ opacity: 0.7, marginTop: '10px', marginLeft: '10px' }}>
           {formatTime(currentTime)} / {formatTime(duration)}
         </div>
       </div>
@@ -232,7 +232,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
               display: 'inline-block',
               width: 38,
               height: 25,
-              strokeWidth: 0
+              strokeWidth: 0,
             }}
           >
             <path

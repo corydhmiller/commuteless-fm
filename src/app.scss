@@ -273,14 +273,14 @@ nav {
   box-shadow: inset 2px 2px 5px #222, inset 0 -3px 13px #333;
   &.playing {
     .progress__time {
-      background: linear-gradient(0deg, #72599c, #886ab9);
+      background: linear-gradient(0deg, darken($purple, 10%) 3px, #72599c 60%, lighten($purple, 15%) 21px, #886ab9);
       box-shadow: inset 2px 2px 3px darken($purple, 18%),
-        inset 0 -3px 13px darken($purple, 4%);
+        inset 0 -3px 13px darken($purple, 10%);
     }
   }
   &.paused {
     .progress__time {
-      background: linear-gradient(0deg, $red, darken($red, 10%));
+      background: linear-gradient(0deg, $red 50%, lighten($red, 12%), darken($red, 10%));
       box-shadow: inset 2px 2px 3px darken($red, 32%),
         inset 0 -3px 13px darken($red, 14%);
     }

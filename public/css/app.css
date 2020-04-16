@@ -237,10 +237,10 @@ nav {
   background: linear-gradient(0deg, #464646, #383838);
   box-shadow: inset 2px 2px 5px #222, inset 0 -3px 13px #333; }
   .progress.playing .progress__time {
-    background: linear-gradient(0deg, #72599c, #886ab9);
-    box-shadow: inset 2px 2px 3px #372d4d, inset 0 -3px 13px #58477a; }
+    background: linear-gradient(0deg, #4a3c67 3px, #72599c 60%, #8775ae 21px, #886ab9);
+    box-shadow: inset 2px 2px 3px #372d4d, inset 0 -3px 13px #4a3c67; }
   .progress.paused .progress__time {
-    background: linear-gradient(0deg, #ee4060, #e6153b);
+    background: linear-gradient(0deg, #ee4060 50%, #f3788f, #e6153b);
     box-shadow: inset 2px 2px 3px #7f0b21, inset 0 -3px 13px #d41336; }
 
 .progress__time {
