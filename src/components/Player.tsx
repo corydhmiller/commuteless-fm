@@ -180,6 +180,9 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
       </div>
 
       <div className="player__section player__section--middle">
+        <div style={{ opacity: 0.7, marginBottom: '10px', marginLeft: '10px' }}>
+          <em>Playing Now:</em> {curEp.frontmatter.title}
+        </div>
         {/* eslint-disable */}
         <div
           className={`progress ${playing ? 'playing' : 'paused'}`}

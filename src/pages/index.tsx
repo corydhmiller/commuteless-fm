@@ -3,7 +3,7 @@ import { withSiteData } from 'react-static'
 // import { Link } from '@reach/router'
 import { Episode, FMType } from '../types'
 import Header from '@src/components/Header'
-// import Player from '@src/components/Player'
+import Player from '@src/components/Player'
 import ShowList from '@src/components/ShowList'
 import ShowNotes from '@src/components/ShowNotes'
 import Footer from '@src/components/Footer'
@@ -50,6 +50,7 @@ export default withSiteData(
           mostRecentEpisode={mostRecentEpisode}
         />
         <Main>
+        <Player mostRecentEpisode={mostRecentEpisode} />
           <ShowList frontmatters={frontmatters} />
           <ShowNotes mostRecentEpisode={mostRecentEpisode} />
         </Main>

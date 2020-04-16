@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import HeaderLeft from './HeaderLeft'
 import HeaderRight from './HeaderRight'
-import Player from '@src/components/Player'
 // import SubscribeBar from './SubscribeBar'
 import { Helmet } from 'react-helmet'
 import { withRouteData } from 'react-static'
@@ -33,9 +32,9 @@ const AHeader = styled('header')`
   display: grid;
   justify-items: center;
   grid-template-columns: 1fr;
-  padding: 1rem 3rem 4rem;
+  padding: 1rem 1rem 0;
   @media (max-width: 650px) {
-    padding: 1rem 0 4rem;
+    padding: 1rem 1rem 0;
   }
   width: 100%;
   color: white;
@@ -46,6 +45,8 @@ const HeaderNav = styled('div')`
 
 function Header({
   siteData,
+  content,
+  mostRecentEpisode,
 }: { siteData: SiteData } & Props) {
   const { description, myURL, image } = siteData
   const curEp = content || mostRecentEpisode
@@ -97,7 +98,6 @@ function Header({
         <HeaderLeft mostRecentEpisode={mostRecentEpisode} />
         <HeaderRight mostRecentEpisode={mostRecentEpisode} />
       </EpisodeInfo>
-      <Player mostRecentEpisode={mostRecentEpisode} />
       {/* <SubscribeBar /> */}
     </AHeader>
   )

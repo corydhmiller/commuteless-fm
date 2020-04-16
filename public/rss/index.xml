@@ -6,43 +6,8 @@
         <language>en</language>
         <description>A show about working from home with less stress and more freedom so you can live life on your terms.</description>
         <managingEditor>mail@commuteless.fm (mail@commuteless.fm)</managingEditor>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-        <pubDate>Thu, 16 Apr 2020 14:46:49 GMT</pubDate>
-        <lastBuildDate>Thu, 16 Apr 2020 14:46:49 GMT</lastBuildDate>
-=======
-        <pubDate>Tue, 14 Apr 2020 15:00:26 GMT</pubDate>
-        <lastBuildDate>Tue, 14 Apr 2020 15:00:26 GMT</lastBuildDate>
->>>>>>> Start adding support for scss
-=======
-        <pubDate>Wed, 15 Apr 2020 13:37:44 GMT</pubDate>
-        <lastBuildDate>Wed, 15 Apr 2020 13:37:44 GMT</lastBuildDate>
->>>>>>> Add sass, hosts, headers, and restyle
-=======
-        <pubDate>Wed, 15 Apr 2020 13:50:37 GMT</pubDate>
-        <lastBuildDate>Wed, 15 Apr 2020 13:50:37 GMT</lastBuildDate>
->>>>>>> Some adjustments to the progress bar
-=======
-        <pubDate>Thu, 16 Apr 2020 02:09:30 GMT</pubDate>
-        <lastBuildDate>Thu, 16 Apr 2020 02:09:30 GMT</lastBuildDate>
->>>>>>> Add volume slider
-=======
-        <pubDate>Thu, 16 Apr 2020 02:21:24 GMT</pubDate>
-        <lastBuildDate>Thu, 16 Apr 2020 02:21:24 GMT</lastBuildDate>
->>>>>>> Adjust volume styles
-=======
-        <pubDate>Thu, 16 Apr 2020 12:06:52 GMT</pubDate>
-        <lastBuildDate>Thu, 16 Apr 2020 12:06:52 GMT</lastBuildDate>
->>>>>>> Futz about with some more volume stuff
-=======
-        <pubDate>Thu, 16 Apr 2020 13:37:21 GMT</pubDate>
-        <lastBuildDate>Thu, 16 Apr 2020 13:37:21 GMT</lastBuildDate>
->>>>>>> Remove slider fill
+        <pubDate>Thu, 16 Apr 2020 16:05:04 GMT</pubDate>
+        <lastBuildDate>Thu, 16 Apr 2020 16:05:04 GMT</lastBuildDate>
         <docs>https://commuteless.fm</docs>
         <generator>https://github.com/sw-yx/react-static-typescript-starter</generator>
         <itunes:summary>Commuteless</itunes:summary>
@@ -67,42 +32,16 @@
             <guid>https://commuteless.fm/episodes/commuteless-001.mp3</guid>
             <pubDate>Sun, 05 Apr 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[<p>Welcome to Commuteless, a show about working from home with less stress and more freedom so you can live life on your terms.</p>
-<p>Who are we?
-Kyle
-Who you
-Cory
-Web developer at ConvertKit
-Been working remotely in various capacities for 5+ years
-Why are we making this podcast?
-Wanted to have another show! 😂
-We have X/Y years of experience working from home
-Cory: Lots of people have been asking me questions about it
-What can listeners expect to get out of this?
-Tangible, practical tips to help you figure out how to work from home if you’re just starting with it
-How to improve your workflow if you’ve been doing it a while
-Help listeners in management positions understand how to better help and support their team</p>
+<p>In this initial episode we talk about our experience of working from home and discuss our vision for this show. Grab yourself a cup of coffee, lean back in your office chair (or couch), and join us as we start this journey to help you work from home better.</p>
 ]]></description>
             <content:encoded><![CDATA[<p>Welcome to Commuteless, a show about working from home with less stress and more freedom so you can live life on your terms.</p>
-<p>Who are we?
-Kyle
-Who you
-Cory
-Web developer at ConvertKit
-Been working remotely in various capacities for 5+ years
-Why are we making this podcast?
-Wanted to have another show! 😂
-We have X/Y years of experience working from home
-Cory: Lots of people have been asking me questions about it
-What can listeners expect to get out of this?
-Tangible, practical tips to help you figure out how to work from home if you’re just starting with it
-How to improve your workflow if you’ve been doing it a while
-Help listeners in management positions understand how to better help and support their team</p>
+<p>In this initial episode we talk about our experience of working from home and discuss our vision for this show. Grab yourself a cup of coffee, lean back in your office chair (or couch), and join us as we start this journey to help you work from home better.</p>
 ]]></content:encoded>
             <author>mail@commuteless.fm (Commuteless)</author>
             <enclosure length="19659028" type="audio/mpeg" url="https://commuteless.fm/episodes/commuteless-001.mp3"/>
             <itunes:duration>20:10</itunes:duration>
             <itunes:explicit>no</itunes:explicit>
-            <itunes:subtitle><![CDATA[the first episode]]></itunes:subtitle>
+            <itunes:subtitle><![CDATA[Welcome to Commuteless, a show about working from home with less stress and more freedom so you can live life on your terms. In this initial episode we talk about our experience of working from home and discuss our vision for this show.]]></itunes:subtitle>
             <itunes:episodeType>full</itunes:episodeType>
             <itunes:episode>1</itunes:episode>
         </item>
