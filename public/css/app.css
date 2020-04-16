@@ -171,8 +171,8 @@ nav {
 .player__tooltip {
   position: absolute;
   z-index: 50;
-  bottom: -5px;
-  transform: translate(-50%);
+  top: -8px;
+  transform: translate(-20%);
   opacity: 0;
   background: #614f87;
   padding: 2px 3px;
@@ -185,12 +185,12 @@ nav {
 .player__tooltip:after {
   content: ' ';
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent #614f87 transparent; }
+  border-color: #614f87 transparent transparent transparent; }
 
 .player__speeddisplay {
   height: 1.5rem;
@@ -226,7 +226,7 @@ nav {
     fill: #fff;
     transition: 0.2s all ease; }
   .player__volume:hover svg {
-    opacity: 0.6; }
+    opacity: 0.5; }
 
 .progress {
   height: 100%;
@@ -241,10 +241,9 @@ nav {
     box-shadow: inset 2px 2px 3px #372d4d, inset 0 -3px 13px #58477a; }
   .progress.paused .progress__time {
     background: linear-gradient(0deg, #ee4060, #e6153b);
-    box-shadow: inset 2px 2px 3px #c11132, inset 0 -3px 13px #ec2d50; }
+    box-shadow: inset 2px 2px 3px #7f0b21, inset 0 -3px 13px #d41336; }
 
 .progress__time {
-  min-width: 8px;
   height: 100%;
   transition-property: box-shadow, background-color;
   transition-duration: 0.3s;
@@ -268,8 +267,8 @@ nav {
   width: calc(100% - 5px);
   z-index: 55;
   height: 10px;
-  background: linear-gradient(0deg, #999, gray);
-  box-shadow: inset 2px 2px 3px #6b6b6b, inset 0 -3px 13px #8f8f8f; }
+  background: linear-gradient(0deg, #777, #5e5e5e);
+  box-shadow: inset 1px 1px 2px #161616, inset 0 -3px 13px #8f8f8f; }
 
 .volume-slider {
   position: absolute;
@@ -311,6 +310,7 @@ nav {
   height: 10px;
   cursor: pointer;
   background: linear-gradient(0deg, #383838, #535353);
+  box-shadow: inset 2px 2px 3px #161616, inset 0 -3px 13px #292929;
   border-radius: 8px; }
 
 .volume-slider::-moz-range-thumb {
@@ -328,7 +328,7 @@ nav {
   width: 100%;
   height: 10px;
   cursor: pointer;
-  background: YELLOW;
+  background: transparent;
   border-radius: 8px; }
 
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
@@ -355,18 +355,19 @@ nav {
   width: 100%;
   height: 10px;
   cursor: pointer;
-  background: yellow;
+  background: transparent;
   border-radius: 8px;
   color: transparent;
   box-sizing: border-box; }
 
 .volume-slider::-ms-fill-lower {
-  background: linear-gradient(0deg, #999, gray);
-  box-shadow: inset 2px 2px 3px #6b6b6b, inset 0 -3px 13px #8f8f8f;
+  background: linear-gradient(0deg, #777, #5e5e5e);
+  box-shadow: inset 1px 1px 2px #161616, inset 0 -3px 13px #8f8f8f;
   border-radius: 8px; }
 
 .volume-slider::-ms-fill-upper {
-  background: linear-gradient(0deg, #383838, #535353); }
+  background: linear-gradient(0deg, #383838, #535353);
+  box-shadow: inset 2px 2px 3px #161616, inset 0 -3px 13px #292929; }
 
 .volume-slider::-ms-tooltip {
   display: none; }

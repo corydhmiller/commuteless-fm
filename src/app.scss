@@ -201,8 +201,8 @@ nav {
 .player__tooltip {
   position: absolute;
   z-index: 50;
-  bottom: -5px;
-  transform: translate(-50%);
+  top: -8px;
+  transform: translate(-20%);
   opacity: 0;
   background: $purple;
   padding: 2px 3px;
@@ -215,12 +215,12 @@ nav {
 .player__tooltip:after {
   content: ' ';
   position: absolute;
-  bottom: 100%;
+  top: 100%;
   left: 50%;
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent transparent $purple transparent;
+  border-color: $purple transparent transparent transparent;
 }
 .player__speeddisplay {
   height: 1.5rem;
@@ -258,7 +258,7 @@ nav {
   }
   &:hover {
     svg {
-      opacity: 0.6;
+      opacity: 0.5;
     }
   }
 }
@@ -281,13 +281,12 @@ nav {
   &.paused {
     .progress__time {
       background: linear-gradient(0deg, $red, darken($red, 10%));
-      box-shadow: inset 2px 2px 3px darken($red, 18%),
-        inset 0 -3px 13px darken($red, 4%);
+      box-shadow: inset 2px 2px 3px darken($red, 32%),
+        inset 0 -3px 13px darken($red, 14%);
     }
   }
 }
 .progress__time {
-  min-width: 8px;
   height: 100%;
   transition-property: box-shadow, background-color;
   transition-duration: 0.3s;
@@ -302,8 +301,10 @@ $height: 58px;
 $bar-height: 10px;
 $border-radius: 8px;
 $bar-color: linear-gradient(0deg, #383838, #535353);
-$bar-fill: linear-gradient(0deg, #999, darken(#999, 10%));
-$bar-shadow: inset 2px 2px 3px darken(#999, 18%),
+$bar-color-shadow: inset 2px 2px 3px darken(#444, 18%),
+inset 0 -3px 13px darken(#333, 4%);
+$bar-fill: linear-gradient(0deg, #777, darken(#777, 10%));
+$bar-shadow: inset 1px 1px 2px darken(#444, 18%),
   inset 0 -3px 13px darken(#999, 4%);
 
 $cursor-size: 30px;
@@ -391,6 +392,7 @@ $cursor-border: $background-color;
     height: $bar-height;
     cursor: pointer;
     background: $bar-color;
+    box-shadow: $bar-color-shadow;
     border-radius: $border-radius;
     //Track
   }
@@ -415,7 +417,7 @@ $cursor-border: $background-color;
     width: $width;
     height: $bar-height;
     cursor: pointer;
-    background: YELLOW;
+    background: transparent;
     border-radius: $border-radius;
     //Track
   }
@@ -452,7 +454,7 @@ $cursor-border: $background-color;
     width: $width;
     height: $bar-height;
     cursor: pointer;
-    background: yellow;
+    background: transparent;
     border-radius: $border-radius;
     //Track
     color: transparent;
@@ -468,6 +470,7 @@ $cursor-border: $background-color;
 
   &::-ms-fill-upper {
     background: $bar-color;
+    box-shadow: $bar-color-shadow;
   }
 
   &::-ms-tooltip {
