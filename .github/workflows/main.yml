@@ -2,6 +2,7 @@ name: Trigger Netlify Build
 on:
   schedule:
     - cron: '0 4 * * 2' # 4am every Tuesday Morning
+jobs:
   build:
     name: Request Netlify Webhook
     runs-on: ubuntu-latest
