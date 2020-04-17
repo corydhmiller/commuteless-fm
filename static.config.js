@@ -58,9 +58,24 @@ const filenames = fs.readdirSync(contentFolder).reverse() // reverse chron
 const filepaths = filenames.map((file) =>
   path.join(process.cwd(), contentFolder, file),
 )
-const contents = grabContents(filepaths, myURL)
+
+// This file is triggered every time `build` is enacted. We want to figure out the exact date this was triggered.
+let dateOfBuild = new Date();
+// Because this will add hours, minutes, seconds, and milliseconds from the date of the build, we need to reset those. The only way I know how to do this is with these methods.
+dateOfBuild.setHours("06");
+dateOfBuild.setMinutes("00");
+dateOfBuild.setSeconds("00");
+dateOfBuild.setMilliseconds("00");
+
+// Next, grab all of the contents in the episodes folder and arrange them into an object using podcats
+let contents = grabContents(filepaths, myURL)
+
+// Next we need to filter out all of the dates that are going to happen in the future because we don't want them appearing in the feed before we want them to.
+contents = contents.filter((c) => new Date(c.frontmatter["date"]) < dateOfBuild)
+
 const frontmatters = contents.map((c) => c.frontmatter)
-mkDir('/public/rss/')
+
+mkDir('/public/rss/') 
 
 // generate HTML
 export default {
