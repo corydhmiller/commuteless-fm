@@ -6,8 +6,8 @@
         <language>en</language>
         <description>A show about working from home with less stress and more freedom so you can live life on your terms.</description>
         <managingEditor>mail@commuteless.fm (mail@commuteless.fm)</managingEditor>
-        <pubDate>Thu, 16 Apr 2020 16:05:04 GMT</pubDate>
-        <lastBuildDate>Thu, 16 Apr 2020 16:05:04 GMT</lastBuildDate>
+        <pubDate>Fri, 17 Apr 2020 00:54:06 GMT</pubDate>
+        <lastBuildDate>Fri, 17 Apr 2020 00:54:06 GMT</lastBuildDate>
         <docs>https://commuteless.fm</docs>
         <generator>https://github.com/sw-yx/react-static-typescript-starter</generator>
         <itunes:summary>Commuteless</itunes:summary>
@@ -38,7 +38,7 @@
 <p>In this initial episode we talk about our experience of working from home and discuss our vision for this show. Grab yourself a cup of coffee, lean back in your office chair (or couch), and join us as we start this journey to help you work from home better.</p>
 ]]></content:encoded>
             <author>mail@commuteless.fm (Commuteless)</author>
-            <enclosure length="19659028" type="audio/mpeg" url="https://commuteless.fm/episodes/commuteless-001.mp3"/>
+            <enclosure length="19734257" type="audio/mpeg" url="https://commuteless.fm/episodes/commuteless-001.mp3"/>
             <itunes:duration>20:10</itunes:duration>
             <itunes:explicit>no</itunes:explicit>
             <itunes:subtitle><![CDATA[Welcome to Commuteless, a show about working from home with less stress and more freedom so you can live life on your terms. In this initial episode we talk about our experience of working from home and discuss our vision for this show.]]></itunes:subtitle>
@@ -50,13 +50,45 @@
             <link><![CDATA[https://commuteless.fm/episodes/commuteless-002.mp3]]></link>
             <guid>https://commuteless.fm/episodes/commuteless-002.mp3</guid>
             <pubDate>Mon, 06 Apr 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[<p>Looking at the overall schedule of working from home at a high level. How do we manage everything and get things done? The main premise here is that we divide our time up between work and rest.</p>
+            <description><![CDATA[<p>Timestamps:</p>
+<ul>
+<li>1:35 - How we work from home</li>
+<li>2:05 - Our work-from-home context.</li>
+<li>5:25 - Why it’s important to “name” the various .aspects of your working situation.</li>
+<li>8:40 - Looking at your house and evaluating what’s around you.</li>
+<li>9:24 - Defining your home and work spaces.</li>
+<li>10:15 - Communicating your work spaces to your living partners.</li>
+<li>13:46 - The dangers of mixing your contexts and not having a dedicated work space.</li>
+<li>16:11 - How to generate healthy separation to avoid feeling like you have to always work.</li>
+<li>18:08 - Make your work space your own. Add your own personal touch for your work space.</li>
+<li>18:30 - Establish rituals for the start and end of your work day to signal the change in context.</li>
+<li>25:11 - Adding structure to your work day ends up generating greater freedom.</li>
+<li>28:36 - Define your processes and what works for you and repeat that every time you go to work.</li>
+<li>32:04 - Figuring out how you work best is also benefits the others who live with you (if you don’t live alone).</li>
+<li>34:16 - Closing thoughts.</li>
+</ul>
 ]]></description>
-            <content:encoded><![CDATA[<p>Looking at the overall schedule of working from home at a high level. How do we manage everything and get things done? The main premise here is that we divide our time up between work and rest.</p>
+            <content:encoded><![CDATA[<p>Timestamps:</p>
+<ul>
+<li>1:35 - How we work from home</li>
+<li>2:05 - Our work-from-home context.</li>
+<li>5:25 - Why it’s important to “name” the various .aspects of your working situation.</li>
+<li>8:40 - Looking at your house and evaluating what’s around you.</li>
+<li>9:24 - Defining your home and work spaces.</li>
+<li>10:15 - Communicating your work spaces to your living partners.</li>
+<li>13:46 - The dangers of mixing your contexts and not having a dedicated work space.</li>
+<li>16:11 - How to generate healthy separation to avoid feeling like you have to always work.</li>
+<li>18:08 - Make your work space your own. Add your own personal touch for your work space.</li>
+<li>18:30 - Establish rituals for the start and end of your work day to signal the change in context.</li>
+<li>25:11 - Adding structure to your work day ends up generating greater freedom.</li>
+<li>28:36 - Define your processes and what works for you and repeat that every time you go to work.</li>
+<li>32:04 - Figuring out how you work best is also benefits the others who live with you (if you don’t live alone).</li>
+<li>34:16 - Closing thoughts.</li>
+</ul>
 ]]></content:encoded>
             <author>mail@commuteless.fm (Commuteless)</author>
-            <enclosure length="35602099" type="audio/mpeg" url="https://commuteless.fm/episodes/commuteless-002.mp3"/>
-            <itunes:duration>37:05</itunes:duration>
+            <enclosure length="35419400" type="audio/mpeg" url="https://commuteless.fm/episodes/commuteless-002.mp3"/>
+            <itunes:duration>36:49</itunes:duration>
             <itunes:explicit>no</itunes:explicit>
             <itunes:subtitle><![CDATA[the first episode]]></itunes:subtitle>
             <itunes:episodeType>full</itunes:episodeType>
