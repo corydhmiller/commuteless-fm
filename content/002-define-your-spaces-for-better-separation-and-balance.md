@@ -4,7 +4,8 @@ episode: 2
 date: 2020-04-06
 hosts: Kyle Adams & Cory Miller
 episodeimage: images/featured/002.jpg
-mp3URL: episodes/commuteless-002.mp3
+mp3URL: episodes/dummy.mp3
+libsynURL: https://commuteless.fm/episodes/commuteless-002.mp3
 description: the first episode
 ---
 

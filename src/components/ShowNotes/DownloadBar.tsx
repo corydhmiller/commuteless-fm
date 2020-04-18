@@ -42,7 +42,7 @@ export const DownloadBar: React.FC<DownloadBarProps> = ({ curEp }) => {
   //   React.useEffect(() => {}, [])
   return (
     <StyledDiv>
-      <a className="button" download="" href={curEp.frontmatter.mp3URL}>
+      <a className="button" download="" href={curEp.frontmatter.libsynURL}>
         Download MP3
       </a>
       <p id="date">{formattedDate}</p>

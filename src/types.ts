@@ -10,6 +10,7 @@ export interface Episode {
 export type FMType = {
   title: string
   mp3URL: string
+  libsynURL?: string
   date: string
   hosts?: string
   description: string

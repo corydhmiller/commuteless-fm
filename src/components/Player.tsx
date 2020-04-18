@@ -34,7 +34,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
     number: curEp.frontmatter.episode,
     displayNumber: '' + curEp.frontmatter.episode,
     title: curEp.frontmatter.title,
-    url: `/${curEp.frontmatter.mp3URL}`,
+    url: `${curEp.frontmatter.libsynURL}`,
   }
   let lastPlayed = 0
   // // for SSR
