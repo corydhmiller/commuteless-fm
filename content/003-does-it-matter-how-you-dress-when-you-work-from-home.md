@@ -5,12 +5,12 @@ date: 2020-04-06
 hosts: Kyle Adams & Cory Miller
 episodeimage: images/featured/003.jpg
 mp3URL: episodes/dummy.mp3
-libsynURL: https://commuteless.fm/episodes/commuteless-003.mp3
-description: the first episode
+libsynURL: https://traffic.libsyn.com/commuteless/commuteless-003.mp3
+description: Getting dressed and ready puts your brain in a different mode. It’s a clear distinction between sleep time and work time. Not only do you feel better, but you’ll also have more confidence as you go to get your work done.
+
 ---
 
-Timestamps:
-
-- 5:14 - Our morning routines to get ready for the day
-- 12:09 - It’s not really about “dressing nice”...so what is it about?
-- 
+- **05:14** - Our morning routines to get ready for the day
+- **12:09** - It’s not really about “dressing nice”...so what is it about?
+- **15:54** - There’s another benefit of getting ready for your day: anyone who lives with you will appreciate it.
+- **19:33** - Take care of yourself, especially if you want to bring positive energy to your work time.
