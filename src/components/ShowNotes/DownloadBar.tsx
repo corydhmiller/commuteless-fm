@@ -34,18 +34,13 @@ const StyledDiv = styled('div')`
 
 export type DownloadBarProps = { curEp: Episode }
 export const DownloadBar: React.FC<DownloadBarProps> = ({ curEp }) => {
-  const formattedDate = new Date(
+  const formattedDate =   new Date(
     Date.parse(curEp.frontmatter.date),
   ).toLocaleDateString('en-US', { timeZone: 'Etc/UTC' })
 
-  //   const [Bool, setBool] = React.useState(true)
-  //   React.useEffect(() => {}, [])
   return (
     <StyledDiv>
-      <a className="button" download="" href={curEp.frontmatter.libsynURL}>
-        Download MP3
-      </a>
-      <p id="date">{formattedDate}</p>
+      <p id="date">Published on {formattedDate}</p>
     </StyledDiv>
   )
 }

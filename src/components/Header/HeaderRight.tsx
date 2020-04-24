@@ -14,17 +14,23 @@ const EpisodeTitle = styled('h1')`
   margin: 0;
 `
 
+const HeaderRightDiv = styled('div')`
+@media screen and (max-width: 650px) {
+text-align:center;
+font-size:1rem;
+}`
+
 const EpisodeHosts = styled('p')``
 
 const HeaderSection = (mostRecentEpisode: Episode) => ({ content }: Props) => {
   const curEp = content || mostRecentEpisode
   return (
     <>
-      <div>
+      <HeaderRightDiv>
         <EpisodeNum>Episode {curEp.frontmatter.episode}</EpisodeNum>
         <EpisodeTitle>{curEp.frontmatter.title}</EpisodeTitle>
         <EpisodeHosts>{curEp.frontmatter.hosts}</EpisodeHosts>
-      </div>
+      </HeaderRightDiv>
     </>
   )
 }

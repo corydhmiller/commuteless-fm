@@ -94,7 +94,6 @@ export default {
       feedOptions,
       iTunesChannelFields,
     )
-    mkFile('/public/rss/index.xml', feed.rss2())
     return {
       title: 'Commuteless',
       description,

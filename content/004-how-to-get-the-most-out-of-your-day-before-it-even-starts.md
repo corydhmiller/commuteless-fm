@@ -1,7 +1,7 @@
 ---
 title: How to Get the Most Out of Your Day Before It Even Starts
 episode: 4
-date: 2020-04-06
+date: 2020-05-05
 hosts: Kyle Adams & Cory Miller
 episodeimage: images/featured/004.jpg
 mp3URL: episodes/dummy.mp3

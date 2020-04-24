@@ -29,6 +29,11 @@ h5 {
   font-family: $font_family_2;
   font-weight: 600;
 }
+h1 {
+  @media screen and (max-width: 650px) {
+    font-size: 1.4rem;
+  }
+}
 main {
   max-width: 1180px;
   margin: 0 auto;
@@ -94,16 +99,21 @@ nav {
   padding: 1rem;
   margin-bottom: 3rem;
   border-radius: 15px;
-  background:#333;
+  background: #333;
   box-shadow: 6px 4px 16px #111, -2px -4px 16px #555;
 }
 .player button {
+  width: 80px;
+  height: 80px;
+  @media screen and (max-width: 650px) {
+    width: 50px;
+    height: 50px;
+  }
   border: 0;
   position: relative;
   outline: 0;
   color: #fff;
   padding: 0;
-  height: 100%;
   border-radius: 150px;
   background: $red;
   background: linear-gradient(145deg, $red, darken($red, 10%));
@@ -153,6 +163,11 @@ nav {
   width: 80px;
   height: 80px;
   min-width: 80px;
+  display: flex;
+  align-items: center;
+  @media screen and (max-width: 650px) {
+    flex-grow: 1;
+  }
 }
 .player__section--left > * {
   width: 100%;
@@ -171,12 +186,13 @@ nav {
     order: 1;
     width: 100%;
     min-height: 30px;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     padding: 0;
   }
 }
 .player__section--right {
   display: flex;
+  justify-content: flex-end;
 }
 .player__section--right > * {
   width: 100%;
@@ -193,6 +209,10 @@ nav {
   margin: 1rem;
   position: relative;
   z-index: 5;
+  @media screen and (max-width: 650px) {
+    font-size: 1rem;
+
+  }
 }
 .player__title {
   font-size: 1rem;
@@ -278,14 +298,25 @@ nav {
   box-shadow: inset 2px 2px 5px #222, inset 0 -3px 13px #333;
   &.playing {
     .progress__time {
-      background: linear-gradient(0deg, darken($purple, 10%) 3px, #72599c 60%, lighten($purple, 15%) 21px, #886ab9);
+      background: linear-gradient(
+        0deg,
+        darken($purple, 10%) 3px,
+        #72599c 60%,
+        lighten($purple, 15%) 21px,
+        #886ab9
+      );
       box-shadow: inset 2px 2px 3px darken($purple, 18%),
         inset 0 -3px 13px darken($purple, 10%);
     }
   }
   &.paused {
     .progress__time {
-      background: linear-gradient(0deg, $red 50%, lighten($red, 12%), darken($red, 10%));
+      background: linear-gradient(
+        0deg,
+        $red 50%,
+        lighten($red, 12%),
+        darken($red, 10%)
+      );
       box-shadow: inset 2px 2px 3px darken($red, 32%),
         inset 0 -3px 13px darken($red, 14%);
     }
@@ -301,13 +332,13 @@ nav {
 $background-color: #282d32;
 
 $width: 100%;
-$height: 58px;
+$height: 48px;
 
 $bar-height: 10px;
 $border-radius: 8px;
 $bar-color: linear-gradient(0deg, #383838, #535353);
 $bar-color-shadow: inset 2px 2px 3px darken(#444, 18%),
-inset 0 -3px 13px darken(#333, 4%);
+  inset 0 -3px 13px darken(#333, 4%);
 $bar-fill: linear-gradient(0deg, #777, darken(#777, 10%));
 $bar-shadow: inset 1px 1px 2px darken(#444, 18%),
   inset 0 -3px 13px darken(#999, 4%);
@@ -468,9 +499,7 @@ $cursor-border: $background-color;
   }
 }
 
-
 //////////boop
-
 
 #volume {
   position: absolute;
@@ -494,7 +523,7 @@ $cursor-border: $background-color;
   width: 20px;
   height: 20px;
   border-radius: 20px;
-  background: #FFF;
+  background: #fff;
   position: absolute;
   margin-left: -8px;
   margin-top: -8px;

@@ -1,7 +1,7 @@
 ---
 title: Define Your Spaces for Better Separation and Balance
 episode: 2
-date: 2020-04-06
+date: 2020-04-23
 hosts: Kyle Adams & Cory Miller
 episodeimage: images/featured/002.jpg
 mp3URL: episodes/dummy.mp3

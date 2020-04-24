@@ -16,6 +16,10 @@ h5 {
   font-family: "Montserrat", sans-serif;
   font-weight: 600; }
 
+@media screen and (max-width: 650px) {
+  h1 {
+    font-size: 1.4rem; } }
+
 main {
   max-width: 1180px;
   margin: 0 auto; }
@@ -32,7 +36,8 @@ footer {
 a {
   text-decoration: none;
   color: #614f87;
-  transition: 0.25s all ease; }
+  transition: 0.25s all ease;
+  font-weight: 600; }
   a:hover {
     color: #ee4060; }
 
@@ -79,17 +84,22 @@ nav {
   box-shadow: 6px 4px 16px #111, -2px -4px 16px #555; }
 
 .player button {
+  width: 80px;
+  height: 80px;
   border: 0;
   position: relative;
   outline: 0;
   color: #fff;
   padding: 0;
-  height: 100%;
   border-radius: 150px;
   background: #ee4060;
   background: linear-gradient(145deg, #ee4060, #e6153b);
   box-shadow: 4px 5px 11px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(255, 255, 255, 0.3), -3px -3px 8px #505050;
   transition: 0.05s all ease-in-out; }
+  @media screen and (max-width: 650px) {
+    .player button {
+      width: 50px;
+      height: 50px; } }
   .player button:after {
     transition: 0.34s transform ease-in-out;
     content: '';
@@ -123,7 +133,12 @@ nav {
 .player__section--left {
   width: 80px;
   height: 80px;
-  min-width: 80px; }
+  min-width: 80px;
+  display: flex;
+  align-items: center; }
+  @media screen and (max-width: 650px) {
+    .player__section--left {
+      flex-grow: 1; } }
 
 .player__section--left > * {
   width: 100%; }
@@ -142,11 +157,12 @@ nav {
     order: 1;
     width: 100%;
     min-height: 30px;
-    margin-bottom: 2rem;
+    margin-bottom: 0;
     padding: 0; } }
 
 .player__section--right {
-  display: flex; }
+  display: flex;
+  justify-content: flex-end; }
 
 .player__section--right > * {
   width: 100%; }
@@ -162,6 +178,9 @@ nav {
   margin: 1rem;
   position: relative;
   z-index: 5; }
+  @media screen and (max-width: 650px) {
+    .player__icon {
+      font-size: 1rem; } }
 
 .player__title {
   font-size: 1rem;
@@ -257,7 +276,7 @@ nav {
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 58px; }
+  height: 48px; }
 
 .volume-slider {
   position: absolute;
@@ -265,7 +284,7 @@ nav {
   left: 0;
   -webkit-appearance: none;
   width: 100%;
-  height: 58px;
+  height: 48px;
   background: transparent;
   padding: 0;
   box-sizing: border-box;
@@ -384,7 +403,7 @@ nav {
   width: 20px;
   height: 20px;
   border-radius: 20px;
-  background: #FFF;
+  background: #fff;
   position: absolute;
   margin-left: -8px;
   margin-top: -8px;

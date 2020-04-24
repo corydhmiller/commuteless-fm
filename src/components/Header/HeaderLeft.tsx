@@ -7,7 +7,9 @@ import { withRouteData } from 'react-static'
 type Props = { content?: Episode; mostRecentEpisode?: Episode }
 
 const ImDiv = styled('div')`
+@media screen and (min-width: 738px) {
   padding: 1rem 3rem 1rem 0;
+}
   4px 5px 11px rgba(0, 0, 0, 0.3), -1px -1px 1px rgba(255, 255, 255, 0.3), -3px -3px 8px #505050
 `
 
@@ -17,6 +19,9 @@ const Image = styled('img')`
   height: auto;
   max-height: 300px;
   border-radius: 1rem;
+  @media screen and (max-width: 650px) {
+    width: 150px;
+  }
 `
 
 const HeaderSection = (mostRecentEpisode: Episode) => ({ content }: Props) => {

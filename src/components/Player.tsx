@@ -37,17 +37,11 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
     url: `${curEp.frontmatter.libsynURL}`,
   }
   let lastPlayed = 0
-  // // for SSR
-  // if (typeof window !== 'undefined') {
-  //   const { show } = this.props
-  //   const lp = localStorage.getItem(`lastPlayed${show.number}`)
-  //   // eslint-disable-next-line
-  //   if (lp) lastPlayed = JSON.parse(lp).lastPlayed
-  // }
+
   const [state, _setState] = React.useState({
-    progressTime: 1,
+    progressTime: 0,
     playing: false,
-    duration: 1,
+    duration: 0,
     currentTime: lastPlayed,
     playbackRate: 1,
     timeWasLoaded: lastPlayed !== 0,
@@ -142,29 +136,6 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
     audio.current.volume = volume
   }
 
-  // const speed = (change: number) => {
-  //   const playbackRateMax = 2.5
-  //   const playbackRateMin = 0.75
-  //   // eslint-disable-next-line
-  //   let playbackRate = state.playbackRate + change
-
-  //   if (playbackRate > playbackRateMax) {
-  //     playbackRate = playbackRateMin
-  //   }
-
-  //   if (playbackRate < playbackRateMin) {
-  //     playbackRate = playbackRateMax
-  //   }
-
-  //   setState({ playbackRate })
-  // }
-  // const speedUp = () => speed(0.25)
-
-  // const speedDown = () => speed(-0.25)
-
-  // // currently this is a bug only in produciton - duration is always infinity in git LFS
-  // const playerTime = `${formatTime(currentTime)}`
-  // const playerTime = `${formatTime(currentTime)} / ${formatTime(duration)}`
 
   return (
     <div className="player">
@@ -265,7 +236,7 @@ const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
           // this never seems to get called
         }
         src={show.url}
-        preload="auto"
+        preload="none"
       />
       {/* eslint-enable */}
     </div>
