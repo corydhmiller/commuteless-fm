@@ -1,9 +1,9 @@
 ---
 title: How to Get the Most Out of Your Day Before It Even Starts
 episode: 4
-date: 2020-05-05
+date: 2020-04-24
 hosts: Kyle Adams & Cory Miller
-episodeimage: images/featured/004.jpg
+episodeimage: images/featured/commuteless-004.jpg
 mp3URL: episodes/dummy.mp3
 libsynURL: https://traffic.libsyn.com/commuteless/commuteless-004.mp3
 description: Little chunks of time can be slowly eaten away when you work at home, but all of those little chunks have to go somewhere. How can you structure your day to accomplish meaningful work while staying far away from burnout? Let's talk about it.
