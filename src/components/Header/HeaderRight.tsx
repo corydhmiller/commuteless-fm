@@ -24,7 +24,7 @@ const HeaderRightDiv = styled('div')`
 const EpisodeHosts = styled('p')``
 
 const ListenOnDiv = styled('div')`
-  padding-top: 1rem;
+  padding-top: 1.5rem;
   opacity: 0.85;
   ul {
     list-style-type: none;
@@ -68,7 +68,6 @@ const HeaderSection = (mostRecentEpisode: Episode) => ({ content }: Props) => {
         <EpisodeHosts>{curEp.frontmatter.hosts}</EpisodeHosts>
         <PurpleDivider />
         <ListenOnDiv>
-          <h6 style={{ margin: 0, fontSize: '.85rem' }}>LISTEN ON</h6>
           <ul>
             <li>
               <a href="#">Apple Podcasts</a>

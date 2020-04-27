@@ -36,8 +36,7 @@ footer {
 a {
   text-decoration: none;
   color: #614f87;
-  transition: 0.25s all ease;
-  font-weight: 600; }
+  transition: 0.25s all ease; }
   a:hover {
     color: #ee4060; }
 
