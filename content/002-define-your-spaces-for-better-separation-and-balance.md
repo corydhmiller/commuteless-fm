@@ -3,7 +3,7 @@ title: Define Your Spaces for Better Separation and Balance
 episode: 2
 date: 2020-04-23
 hosts: Kyle Adams & Cory Miller
-episodeimage: images/featured/002.jpg
+episodeimage: images/featured/commuteless-002.jpg
 mp3URL: episodes/dummy.mp3
 libsynURL: https://traffic.libsyn.com/commuteless/commuteless-002.mp3
 description: Figuring out a good rhythm of work and life when working from home can be tricky. It takes time and intentionality to assign roles to your space, and how you view your working context is key to healthy and mindful separation.

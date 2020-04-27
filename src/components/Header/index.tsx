@@ -145,7 +145,7 @@ function Header({
         <meta name="theme-color" content="#614f87" />
         <link rel="manifest" href="/site.webmanifest" />
       </Helmet>
-      <HeaderNav>
+      <HeaderNav className="header-nav">
         <h2>
           <a href={myURL}>Commuteless.fm</a>
         </h2>

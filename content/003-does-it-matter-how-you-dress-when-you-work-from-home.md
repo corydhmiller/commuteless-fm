@@ -3,7 +3,7 @@ title: Does It Matter How You Dress When You Work From Home?
 episode: 3
 date: 2020-04-23
 hosts: Kyle Adams & Cory Miller
-episodeimage: images/featured/003.jpg
+episodeimage: images/featured/commuteless-003.jpg
 mp3URL: episodes/dummy.mp3
 libsynURL: https://traffic.libsyn.com/commuteless/commuteless-003.mp3
 description: Getting dressed and ready puts your brain in a different mode. It’s a clear distinction between sleep time and work time. Not only do you feel better, but you’ll also have more confidence as you go to get your work done.
