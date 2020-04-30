@@ -11,7 +11,7 @@ const description =
   'A show about working from home with less stress and more freedom so you can live life on your terms.'
 const image = 'images/commuteless-artwork.jpg'
 const ghURL = 'https://github.com/corydhmiller/commuteless-fm'
-const rss = myURL + '/rss/index.xml'
+const rss = 'https://lynx.commuteless.fm/rss/'
 const itURL =
   'https://itunes.apple.com/us/podcast/this-week-in-r-reactjs/id1448641675?mt=2&uo=4'
 const spotifyURL = 'https://open.spotify.com/show/null'
@@ -21,7 +21,7 @@ const overcastURL = 'https://overcast.fm/itunes1448641675/null'
 const contentFolder = 'content'
 const author = {
   name: 'Commuteless',
-  email: 'mail@commuteless.fm',
+  email: 'hello@commuteless.fm',
   link: 'https://commuteless.fm',
 }
 const feedOptions = {
@@ -30,7 +30,6 @@ const feedOptions = {
   description,
   link: myURL,
   id: myURL,
-  copyright: 'copyright REACTSTATICPODCAST_YOURNAMEHERE',
   feedLinks: {
     atom: safeJoin(myURL, 'atom.xml'),
     json: safeJoin(myURL, 'feed.json'),
