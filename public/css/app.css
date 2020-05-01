@@ -71,7 +71,7 @@ nav {
   width: 100%;
   color: #fff;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   position: relative;
   position: sticky;
   top: -9px;
@@ -135,9 +135,6 @@ nav {
   min-width: 80px;
   display: flex;
   align-items: center; }
-  @media screen and (max-width: 650px) {
-    .player__section--left {
-      flex-grow: 1; } }
 
 .player__section--left > * {
   width: 100%; }
@@ -153,7 +150,6 @@ nav {
 @media (max-width: 650px) {
   .player__section--middle {
     position: unset;
-    order: 1;
     width: 100%;
     min-height: 30px;
     margin-bottom: 0;
@@ -168,7 +164,7 @@ nav {
 
 @media (max-width: 650px) {
   .player__section--right {
-    flex: 2; } }
+    display: none; } }
 
 .player__icon {
   font-size: 1.25rem;
@@ -201,8 +197,7 @@ nav {
   border-radius: 2px; }
   @media (max-width: 650px) {
     .player__tooltip {
-      bottom: unset;
-      top: 35px; } }
+      display: none; } }
 
 .player__tooltip:after {
   content: ' ';
@@ -251,7 +246,7 @@ nav {
     opacity: 0.5; }
 
 .progress {
-  height: 100%;
+  height: 1rem;
   cursor: pointer;
   max-height: 25px;
   overflow: hidden;

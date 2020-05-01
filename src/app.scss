@@ -90,7 +90,7 @@ nav {
   width: 100%;
   color: #fff;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   position: relative;
   position: sticky;
   top: -9px;
@@ -164,9 +164,6 @@ nav {
   min-width: 80px;
   display: flex;
   align-items: center;
-  @media screen and (max-width: 650px) {
-    flex-grow: 1;
-  }
 }
 .player__section--left > * {
   width: 100%;
@@ -182,7 +179,6 @@ nav {
 @media (max-width: 650px) {
   .player__section--middle {
     position: unset;
-    order: 1;
     width: 100%;
     min-height: 30px;
     margin-bottom: 0;
@@ -198,7 +194,7 @@ nav {
 }
 @media (max-width: 650px) {
   .player__section--right {
-    flex: 2;
+    display: none;
   }
 }
 .player__icon {
@@ -210,7 +206,6 @@ nav {
   z-index: 5;
   @media screen and (max-width: 650px) {
     font-size: 1rem;
-
   }
 }
 .player__title {
@@ -232,8 +227,7 @@ nav {
   padding: 2px 3px;
   border-radius: 2px;
   @media (max-width: 650px) {
-    bottom: unset;
-    top: 35px;
+    display: none;
   }
 }
 .player__tooltip:after {
@@ -288,7 +282,7 @@ nav {
 }
 
 .progress {
-  height: 100%;
+  height: 1rem;
   cursor: pointer;
   max-height: 25px;
   overflow: hidden;
