@@ -1,7 +1,7 @@
 ---
 title: A New Show to Help You Work From Home
 episode: 1
-date: 2020-04-23
+date: 2020-04-30
 hosts: Kyle Adams & Cory Miller
 episodeimage: images/featured/commuteless-001.jpg
 mp3URL: episodes/dummy.mp3

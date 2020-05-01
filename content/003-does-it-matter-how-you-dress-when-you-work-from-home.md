@@ -1,7 +1,7 @@
 ---
 title: Does It Matter How You Dress When You Work From Home?
 episode: 3
-date: 2020-04-23
+date: 2020-04-30
 hosts: Kyle Adams & Cory Miller
 episodeimage: images/featured/commuteless-003.jpg
 mp3URL: episodes/dummy.mp3

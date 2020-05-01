@@ -70,17 +70,17 @@ const HeaderSection = (mostRecentEpisode: Episode) => ({ content }: Props) => {
         <ListenOnDiv>
           <ul>
             <li>
-              <a href="#">Apple Podcasts</a>
+              <a href="#">Apple Podcasts</a> <small>coming soon</small>
             </li>
             <li>
-              <a href="#">Spotify</a>
+              <a href="https://open.spotify.com/show/4gWjd6t6vTIXfb8IDHmgoZ?si=eTBAfw0aSVmktyvcoTvU0Q">Spotify</a>
             </li>
             <li>
-              <a href="#">Google Play</a>
+              <a href="#">Google Play</a> <small>coming soon</small>
             </li>
-            <li>
+            {/* <li>
               <a href="#">Overcast</a>
-            </li>
+            </li> */}
           </ul>
         </ListenOnDiv>
       </HeaderRightDiv>
