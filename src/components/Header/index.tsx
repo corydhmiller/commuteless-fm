@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import HeaderLeft from './HeaderLeft'
 import HeaderRight from './HeaderRight'
-// import SubscribeBar from './SubscribeBar'
 import { Helmet } from 'react-helmet'
 import { withRouteData } from 'react-static'
 import { Episode } from 'podcats'
@@ -184,6 +183,12 @@ function Header({
         <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
         <meta name="theme-color" content="#614f87" />
         <link rel="manifest" href="/site.webmanifest" />
+        <link
+          href="https://lynx.commuteless.fm/rss"
+          type="application/rss+xml"
+          rel="alternate"
+          title="Commuteless"
+        />
       </Helmet>
       <HeaderNav className="header-nav">
         <div>
