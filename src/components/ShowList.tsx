@@ -8,27 +8,13 @@ type A = { isActive: boolean }
 const LI = styled('div')`
   border-right: 1px solid #e4e4e4;
   border-bottom: 1px solid #e4e4e4;
-  border-left: 10px solid #e4e4e4;
   box-shadow: 0px 2px 8px rgba(0,0,0,.125);
-  background: ${({ isActive }: A) => (isActive ? '#fff' : '#f9f9f9')};
+  padding-left: 1rem;
+  background: ${({ isActive }: A) => (isActive ? '#fff' : '#efefef')};
   ${({ isActive }: A) =>
     isActive &&
     `
-  border-right-color: #fff;
-  border-left: 0;
-  padding-left: 1rem;
   :hover {
-    background: #fefefe;
-  }
-  :before {
-    display: block;
-    background: #309397;
-    width: 10px;
-    height: 100%;
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
   }
 
   `};
@@ -93,8 +79,8 @@ function ListItem({ frontmatter, isActive }: Props) {
 
 const UL = styled('div')`
   width: 38%;
-  overflow: hidden;
-  background: #efefef;
+
+
   display: flex;
   flex-direction: column;
   padding: 0;

@@ -3,16 +3,17 @@ import React from 'react'
 import { withSiteData } from 'react-static'
 import { Episode, FMType } from '../types'
 import Header from '@src/components/Header'
-import Player from '@src/components/Player'
+import EpisodeHeader from '@src/components/Header/EpisodeHeader'
 import Footer from '@src/components/Footer'
+import Player from '@src/components/Player'
 import ShowList from '@src/components/ShowList'
 import ShowNotes from '@src/components/ShowNotes'
 import styled from 'styled-components'
 
 const Main = styled('main')`
-  background: #fff;
   display: flex;
   flex-wrap: wrap;
+  padding:0 1rem;
 `
 
 type Props = {
@@ -43,6 +44,16 @@ export default withSiteData(
           }}
           mostRecentEpisode={mostRecentEpisode}
         />
+        <EpisodeHeader
+          siteData={{
+            title,
+            description,
+            myURL,
+            image,
+          }}
+          mostRecentEpisode={mostRecentEpisode}
+        />
+
         <Main>
           <Player mostRecentEpisode={mostRecentEpisode} />
           <ShowList frontmatters={frontmatters} />

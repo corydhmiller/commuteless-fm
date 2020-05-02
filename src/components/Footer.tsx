@@ -8,15 +8,9 @@ export default styled(Footer)`
 function Footer(props: any) {
   return (
     <footer {...props}>
-      <p>All content for Commuteless &copy; {(new Date().getFullYear())}. All rights reserved.</p>
-      <p>
-        <a
-          href="https://github.com/corydhmiller/commuteless-fm"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Contribute on GitHub
-        </a>
+      <p style={{opacity:.6}}>
+        All content for Commuteless &copy; {new Date().getFullYear()} - Present. All
+        rights reserved.
       </p>
     </footer>
   )

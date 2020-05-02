@@ -31,28 +31,16 @@ const StyledDiv = styled('div')`
     font-size: 1.2rem;
   }
 `
-export type DownloadBarProps = { curEp: Episode; ghURL: string }
-export const DownloadBar: React.FC<DownloadBarProps> = ({ curEp, ghURL }) => {
-  //   const [Bool, setBool] = React.useState(true)
-  //   React.useEffect(() => {}, [])
+
+export type DownloadBarProps = { curEp: Episode }
+export const DownloadBar: React.FC<DownloadBarProps> = ({ curEp }) => {
+  const formattedDate =   new Date(
+    Date.parse(curEp.frontmatter.date),
+  ).toLocaleDateString('en-US', { timeZone: 'Etc/UTC' })
+
   return (
     <StyledDiv>
-      {/* <button className="button">
-        <span className="icon">🎵</span> Play Episode{' '}
-        {curEp.frontmatter.episode}
-      </button> */}
-      <a className="button" download="" href={curEp.frontmatter.mp3URL}>
-        <span className="icon">👇</span> Download Show
-      </a>
-      <a
-        className="button"
-        href={`${ghURL}/edit/master/content/${curEp.frontmatter.slug}.md`}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <span className="icon">✏️</span> Edit Show Notes
-      </a>
-      <p id="date">{new Date(curEp.frontmatter.date).toLocaleDateString()}</p>
+      <p id="date">Published on {formattedDate}</p>
     </StyledDiv>
   )
 }

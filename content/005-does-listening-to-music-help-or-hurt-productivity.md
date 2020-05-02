@@ -1,0 +1,22 @@
+---
+title: Does Listening to Music Help or Hurt Productivity?
+episode: 5
+date: 2020-05-12
+hosts: Kyle Adams & Cory Miller
+episodeimage: images/featured/005.jpg
+mp3URL: episodes/dummy.mp3
+libsynURL: https://traffic.libsyn.com/commuteless/commuteless-005.mp3
+description: For many remote workers, the work day begins once the headphones come on and the playlist starts rolling. We turn the music up to 11 and get down to business. On today's episode we talk about the pros and cons of listening to music, podcasts, and other audio while trying to get work done.
+
+---
+
+- **00:54** - Do we listen to music more often than working in silence?
+- **03:59** - Ambient sound apps
+    - [Noizio]([https://noiz.io/](https://noiz.io/))
+    - [Noisli]([https://www.noisli.com/](https://www.noisli.com/))
+- **6:40** - Listen to music that helps you concentrate on your work instead of distracting you from it.
+- **7:20** - Thinking about the forgotten benefits of silence.
+    - [Silence by Erling Kagge]([https://amzn.to/34Mx6KE](https://amzn.to/34Mx6KE))
+- **14:06** - Music affects us physiologically, and it can be just as negative to your productivity as it can be positive.
+- **16:51** - Cory doesn't know if good focused work can happen while listening to podcasts...but then isn't really sure. Great stance to have, Cory. Real solid.
+- **17:50** - Figure out *where* you work well and see what things you can replicate in other environments.

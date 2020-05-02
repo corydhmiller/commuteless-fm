@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import HeaderRight from './HeaderRight'
-// import SubscribeBar from './SubscribeBar'
 import { Helmet } from 'react-helmet'
 import { withRouteData } from 'react-static'
 import { Episode } from 'podcats'
@@ -14,27 +12,70 @@ type SiteData = {
   myURL: string
   image: string
 }
-
-const HLDiv = styled('div')`
-  padding: 1rem;
-  text-align: center;
-  display: grid;
-  align-items: center;
-  font-size: 1.5rem;
-`
 const AHeader = styled('header')`
   display: grid;
+  justify-items: center;
   grid-template-columns: 1fr;
-  @media screen and (min-width: 740px) {
-    grid-template-columns: 1fr 1fr;
+  padding: 1rem 1rem 0;
+  @media (max-width: 650px) {
+    padding: 1rem 1rem 0;
+  }
+  width: 100%;
+  color: white;
+`
+const HeaderNav = styled('div')`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+`
+const ContactDiv = styled('div')`
+  text-align: right;
+  @keyframes shake {
+    0%,
+    100% {
+      transform: rotateZ(0deg);
+    }
+    20%,
+    50%,
+    80% {
+      transform: rotateZ(-15deg);
+    }
+    40%,
+    60% {
+      transform: rotateZ(15deg);
+    }
+  }
+  a {
+    display: inline-grid;
+    grid-template-columns: 1fr 28px;
+    & svg {
+      width: 20px;
+      stroke: white;
+      margin-left: 8px;
+      transition: 0.25s stroke ease;
+    }
+    &:hover {
+      & svg {
+        animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+        stroke: #ee4060;
+      }
+    }
   }
 `
+
 function Header({
   siteData,
+  content,
+  mostRecentEpisode =null,
 }: { siteData: SiteData } & Props) {
   const { description, myURL, image } = siteData
   const titleHead = "Commuteless"
-  const desc = description
+  // const curEp = content || mostRecentEpisode
+  const desc = content ? description : mostRecentEpisode.frontmatter.description
   return (
     <AHeader>
       <Helmet>
@@ -51,15 +92,114 @@ function Header({
         <meta name="twitter:image" content={image} />
         <meta name="twitter:site" content="@commutelessfm" />
         <meta name="twitter:creator" content="@commutelessfm" />
+        <link
+          rel="apple-touch-icon"
+          sizes="57x57"
+          href="/apple-icon-57x57.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="60x60"
+          href="/apple-icon-60x60.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="72x72"
+          href="/apple-icon-72x72.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="76x76"
+          href="/apple-icon-76x76.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="114x114"
+          href="/apple-icon-114x114.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="120x120"
+          href="/apple-icon-120x120.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="144x144"
+          href="/apple-icon-144x144.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="152x152"
+          href="/apple-icon-152x152.png"
+        />
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-icon-180x180.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="192x192"
+          href="/android-icon-192x192.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="96x96"
+          href="/favicon-96x96.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="msapplication-TileColor" content="#614f87" />
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+        <meta name="theme-color" content="#614f87" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link
+          href="https://lynx.commuteless.fm/rss"
+          type="application/rss+xml"
+          rel="alternate"
+          title="Commuteless"
+        />
       </Helmet>
-      <HLDiv>
-        <h1>
-          <a href={myURL}>Commuteless.fm</a>
-        </h1>
-        {/* <img src="https://sw-yx.tinytake.com/media/952085?filename=1548652201152_27-01-2019-19-10-00.png&sub_type=thumbnail_preview&type=attachment&width=282&height=207&&salt=MzI2MjE2OV85NzczMTg5" /> */}
-      </HLDiv>
-      <HeaderRight />
-      {/* <SubscribeBar /> */}
+      <HeaderNav className="header-nav">
+        <div>
+          <h2>
+            <a href={myURL}>Commuteless.fm</a>
+          </h2>
+        </div>
+        <ContactDiv>
+          <a href={`${myURL}/contact`}>
+            Get In Touch{' '}
+            <svg
+              className="ct-icons"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <title>envelope icon</title>
+              <path
+                d="M16,16H4a2,2,0,0,1-2-2V6A2,2,0,0,1,4,4H16a2,2,0,0,1,2,2v8A2,2,0,0,1,16,16ZM16,4H4A2,2,0,0,0,2,6v.83l6.94,4.33a2,2,0,0,0,2.12,0L18,6.83V6A2,2,0,0,0,16,4Z"
+                style={{
+                  fill: 'none',
+                  strokeMiterlimit: 10,
+                  strokeWidth: '1px',
+                }}
+              />
+            </svg>
+          </a>
+        </ContactDiv>
+      </HeaderNav>
     </AHeader>
   )
 }
