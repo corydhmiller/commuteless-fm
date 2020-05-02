@@ -37,7 +37,7 @@ export default withSiteData(
     myURL,
     image,
     episodeimage,
-    hosts,
+    hosts
   }: Props) => {
     return (
       <>
@@ -48,8 +48,9 @@ export default withSiteData(
             myURL,
             image,
             episodeimage,
-            hosts,
+            hosts
           }}
+          title="Leave a Review"
           mostRecentEpisode={mostRecentEpisode}
         />
         <Main>

@@ -6,7 +6,7 @@ import { Episode } from 'podcats'
 
 export default withRouteData(Header)
 
-type Props = { content?: Episode; mostRecentEpisode?: Episode }
+type Props = { content?: Episode; mostRecentEpisode?: Episode; title?: string }
 type SiteData = {
   description: string
   myURL: string
@@ -70,17 +70,22 @@ const ContactDiv = styled('div')`
 function Header({
   siteData,
   content,
-  mostRecentEpisode =null,
+  title,
+  mostRecentEpisode = null,
 }: { siteData: SiteData } & Props) {
   const { description, myURL, image } = siteData
-  const titleHead = "Commuteless"
-  // const curEp = content || mostRecentEpisode
+  const curEp = content || mostRecentEpisode
+  const titleHead = title
+    ? title
+    : `Episode ${curEp.frontmatter.episode}: ${curEp.frontmatter.title}`
+
   const desc = content ? description : mostRecentEpisode.frontmatter.description
+
   return (
     <AHeader>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Commuteless - A show about working from home</title>
+        <title>Commuteless - {titleHead}</title>
         <meta property="og:type" content="article" />
         <meta property="og:title" content={titleHead} />
         <meta property="og:description" content={desc} />
