@@ -3,6 +3,7 @@ import { withSiteData } from 'react-static'
 // import { Link } from '@reach/router'
 import { Episode, FMType } from '../types'
 import Header from '@src/components/Header'
+import EpisodeHeader from '@src/components/Header/EpisodeHeader';
 import Player from '@src/components/Player'
 import ShowList from '@src/components/ShowList'
 import ShowNotes from '@src/components/ShowNotes'
@@ -39,6 +40,17 @@ export default withSiteData(
     return (
       <>
         <Header
+          siteData={{
+            title,
+            description,
+            myURL,
+            image,
+            episodeimage,
+            hosts
+          }}
+          mostRecentEpisode={mostRecentEpisode}
+        />
+        <EpisodeHeader
           siteData={{
             title,
             description,

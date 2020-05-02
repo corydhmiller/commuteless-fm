@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import HeaderLeft from './HeaderLeft'
-import HeaderRight from './HeaderRight'
 import { Helmet } from 'react-helmet'
 import { withRouteData } from 'react-static'
 import { Episode } from 'podcats'
@@ -14,19 +12,6 @@ type SiteData = {
   myURL: string
   image: string
 }
-
-const EpisodeInfo = styled('div')`
-  padding: 3rem 1rem;
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  font-size: 1.5rem;
-  max-width: 1180px;
-  @media screen and (min-width: 740px) {
-    justify-items: left;
-    grid-template-columns: minmax(250px, 1fr) 2fr;
-  }
-`
 const AHeader = styled('header')`
   display: grid;
   justify-items: center;
@@ -85,7 +70,7 @@ const ContactDiv = styled('div')`
 function Header({
   siteData,
   content,
-  mostRecentEpisode,
+  mostRecentEpisode =null,
 }: { siteData: SiteData } & Props) {
   const { description, myURL, image } = siteData
   const curEp = content || mostRecentEpisode
@@ -217,11 +202,6 @@ function Header({
           </a>
         </ContactDiv>
       </HeaderNav>
-      <EpisodeInfo>
-        <HeaderLeft mostRecentEpisode={mostRecentEpisode} />
-        <HeaderRight mostRecentEpisode={mostRecentEpisode} />
-      </EpisodeInfo>
-      {/* <SubscribeBar /> */}
     </AHeader>
   )
 }

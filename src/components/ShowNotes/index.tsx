@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import DownloadBar from './DownloadBar'
 const SNDiv = styled('div')`
   width: 62%;
-  font-size: 1.25rem;
+  line-height:1.65rem;
   padding: 2rem;
   border-left: 1px solid #ddd;
   background: #fefefe;
@@ -15,6 +15,9 @@ const SNDiv = styled('div')`
   top: 102px;
   height: calc(100vh - 102px);
   overflow-y: scroll;
+  li {
+    margin-bottom:.5rem;
+  }
   h2 {
     border-bottom: 1px solid #e4e4e4;
     padding-bottom: 1rem;

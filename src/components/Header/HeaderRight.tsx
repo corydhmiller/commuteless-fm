@@ -70,13 +70,22 @@ const HeaderSection = (mostRecentEpisode: Episode) => ({ content }: Props) => {
         <ListenOnDiv>
           <ul>
             <li>
-              <a href="#">Apple Podcasts</a> <small>coming soon</small>
+              <a href="https://podcasts.apple.com/us/podcast/commuteless/id1510958925" target="_blank" rel="noopener">Apple Podcasts</a>
             </li>
             <li>
-              <a href="https://open.spotify.com/show/4gWjd6t6vTIXfb8IDHmgoZ?si=eTBAfw0aSVmktyvcoTvU0Q">Spotify</a>
+              <a href="https://open.spotify.com/show/4gWjd6t6vTIXfb8IDHmgoZ?si=eTBAfw0aSVmktyvcoTvU0Q" target="_blank" rel="noopener">Spotify</a>
             </li>
             <li>
-              <a href="#">Google Play</a> <small>coming soon</small>
+              <a href="https://playmusic.app.goo.gl/?ibi=com.google.PlayMusic&isi=691797987&ius=googleplaymusic&apn=com.google.android.music&link=https://play.google.com/music/m/Igv3juui3mcifaxkk6sf2vcskfi?t%3DCommuteless%26pcampaignid%3DMKT-na-all-co-pr-mu-pod-16" target="_blank" rel="noopener">Google Play</a>
+            </li>
+            <li>
+              <a href="http://tun.in/pjQHm" target="_blank" rel="noopener">TuneIn</a>
+            </li>
+            <li>
+              <a href="https://www.stitcher.com/podcast/commuteless" target="_blank" rel="noopener">Stitcher</a>
+            </li>
+            <li>
+              <a href=" https://lynx.commuteless.fm/rss" target="_blank" rel="noopener">RSS</a>
             </li>
             {/* <li>
               <a href="#">Overcast</a>

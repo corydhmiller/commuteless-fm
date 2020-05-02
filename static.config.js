@@ -126,7 +126,11 @@ export default {
             myURL,
           }),
         })),
-      }
+      },
+      {
+        path: 'review',
+        template: '@src/pages/review',
+      },
     ]
   },
 }
