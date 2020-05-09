@@ -42,7 +42,7 @@ class BlogPostTemplate extends React.Component {
                   <p style={{ fontSize: "1.5rem" }}>{post.frontmatter.hosts}</p>
                 </div>
               </Header>
-              <button onClick={()=> {context.changeEpisode({episodeurl:post.frontmatter.audiourl})}}>Clickme</button>
+              <button onClick={()=> {context.changeEpisode(post.frontmatter)}}>Play this episode</button>
               <p>{post.frontmatter.date}</p>
               <MDXRenderer>{post.body}</MDXRenderer>
               <hr />
