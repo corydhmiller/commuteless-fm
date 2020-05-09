@@ -2,6 +2,6 @@
 import 'typeface-montserrat'
 import 'typeface-merriweather'
 
-import { wrapRootElement as wrap } from './wrap-root-element'
+import Provider from './wrap-root-element'
 
-export const wrapRootElement = wrap
+export const wrapRootElement = Provider
