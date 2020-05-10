@@ -29,15 +29,14 @@ class BlogIndex extends React.Component<BlogProps> {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           description={data.site.siteMetadata.description}
-          title="All posts"
+          title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <h2 style={{ marginBottom: 0 }}>Latest Episodes</h2>
         <LatestEpisodes>
           {posts.map(({ node }: any) => {
-            const featuredImgFluid =
-              node.frontmatter.image.childImageSharp.fluid
-            // If for some reason we've loaded in
+            
+            // If for some reason we've loaded in an episode that is still in the future, get that garbage out of there.
             if (dateIsInFuture(node.frontmatter.date)) return
 
             const title = node.frontmatter.title || node.fields.slug
@@ -52,7 +51,7 @@ class BlogIndex extends React.Component<BlogProps> {
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={url}>
-                  <Img fluid={featuredImgFluid} style={{ maxWidth: 250 }} />
+                  {/* <Img fluid={featuredImgFluid} style={{ maxWidth: 250 }} /> */}
                   <h3 style={{ margin: 0 }}>{title}</h3>
                 </Link>
                 <small>{node.frontmatter.date}</small>
