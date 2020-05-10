@@ -1,12 +1,10 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
-
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import { dateIsInFuture } from '../utils/helpers'
-import styled from 'styled-components'
-import Img from 'gatsby-image'
+import React from "react"
+import { Link, graphql } from "gatsby"
+import SEO from "../components/seo"
+import Layout from "../components/Layout"
+import { dateIsInFuture } from "../utils/helpers"
+import styled from "styled-components"
+import Img from "gatsby-image"
 
 const LatestEpisodes = styled.div`
   display: grid;
@@ -16,7 +14,12 @@ const LatestEpisodes = styled.div`
   }
 `
 
-class BlogIndex extends React.Component {
+interface BlogProps {
+  data?: any
+  location: string
+}
+
+class BlogIndex extends React.Component<BlogProps> {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -25,14 +28,15 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
+          description={data.site.siteMetadata.description}
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <Bio />
         <h2 style={{ marginBottom: 0 }}>Latest Episodes</h2>
         <LatestEpisodes>
-          {posts.map(({ node }) => {
-            let featuredImgFluid = node.frontmatter.image.childImageSharp.fluid
+          {posts.map(({ node }: any) => {
+            const featuredImgFluid =
+              node.frontmatter.image.childImageSharp.fluid
             // If for some reason we've loaded in
             if (dateIsInFuture(node.frontmatter.date)) return
 
@@ -42,9 +46,9 @@ class BlogIndex extends React.Component {
               <div
                 key={node.fields.slug}
                 style={{
-                  backgroundColor: '#222',
-                  padding: '1rem',
-                  margin: '.5rem',
+                  backgroundColor: "#222",
+                  padding: "1rem",
+                  margin: ".5rem",
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={url}>

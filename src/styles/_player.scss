@@ -1,4 +1,4 @@
-@import 'vars';
+@import "vars";
 
 .player {
   max-width: 1180px;
@@ -35,7 +35,7 @@
     transition: 0.05s all ease-in-out;
     &:after {
       transition: 0.34s transform ease-in-out;
-      content: '';
+      content: "";
       background: $purple;
       background: linear-gradient(145deg, $purple, darken($purple, 10%));
       width: 100%;
@@ -147,7 +147,7 @@
   }
 }
 .player__tooltip:after {
-  content: ' ';
+  content: " ";
   position: absolute;
   top: 100%;
   left: 50%;

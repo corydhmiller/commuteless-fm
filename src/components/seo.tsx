@@ -1,9 +1,16 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
+import React from "react"
+import Helmet from "react-helmet"
+import { StaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, keywords, title }) {
+interface SEOProps {
+  description?: string
+  lang?: `en`
+  meta?: any
+  keywords?: string[]
+  title?: string
+}
+
+function SEO({ description, lang, meta, keywords, title }: SEOProps) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -50,35 +57,19 @@ function SEO({ description, lang, meta, keywords, title }) {
                 name: `twitter:description`,
                 content: metaDescription,
               },
-            ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                      name: `keywords`,
-                      content: keywords.join(`, `),
-                    }
-                  : []
-              )
-              .concat(meta)}
+            ].concat(
+              keywords.length > 0
+                ? {
+                    name: `keywords`,
+                    content: keywords.join(`, `),
+                  }
+                : []
+            )}
           />
         )
       }}
     />
   )
-}
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [],
-  keywords: [],
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.array,
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO

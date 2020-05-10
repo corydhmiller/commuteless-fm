@@ -1,14 +1,13 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-import { MDXRenderer } from "gatsby-plugin-mdx";
+import React from "react"
+import { Link, graphql } from "gatsby"
+import { MDXRenderer } from "gatsby-plugin-mdx"
 
-import Bio from "../components/Bio";
-import Layout from "../components/Layout";
-import SEO from "../components/seo";
-import Player from "../components/Player";
-import styled from "styled-components";
-import Img from "gatsby-image";
-import { myContext } from "../../wrap-root-element";
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
+import styled from "styled-components"
+import Img from "gatsby-image"
+import { myContext } from "../../wrap-root-element"
 
 const Header = styled.div`
   display: grid;
@@ -18,21 +17,31 @@ const Header = styled.div`
   @media screen and (min-width: 750px) {
     grid-template-columns: 250px 1fr;
   }
-`;
+`
 
-class BlogPostTemplate extends React.Component {
+interface BlogPostTypes {
+  data: any
+  pageContext: any
+  location: string
+}
+
+class BlogPostTemplate extends React.Component<BlogPostTypes> {
   render() {
-    const post = this.props.data.mdx;
-    const siteTitle = this.props.data.site.siteMetadata.title;
-    const { previous, next } = this.props.pageContext;
-    let featuredImgFluid = post.frontmatter.image.childImageSharp.fluid;
+    const post = this.props.data.mdx
+    const siteTitle = this.props.data.site.siteMetadata.title
+    const { previous, next } = this.props.pageContext
+    const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid
 
     return (
       <myContext.Consumer>
-        {(context) => (
+        {(context: any) => (
           <React.Fragment>
             <Layout location={this.props.location} title={siteTitle}>
-              <SEO title={post.frontmatter.title} description={post.excerpt} />
+              <SEO
+                description={post.excerpt}
+                keywords={[`commuteless`]}
+                title={post.frontmatter.title}
+              />
               <Header>
                 <div>
                   <Img fluid={featuredImgFluid} />
@@ -42,11 +51,15 @@ class BlogPostTemplate extends React.Component {
                   <p style={{ fontSize: "1.5rem" }}>{post.frontmatter.hosts}</p>
                 </div>
               </Header>
-              <button onClick={()=> {context.changeEpisode(post.frontmatter)}}>Play this episode</button>
+              <button
+                onClick={() => {
+                  context.changeEpisode(post.frontmatter)
+                }}
+              >
+                Play this episode
+              </button>
               <p>{post.frontmatter.date}</p>
               <MDXRenderer>{post.body}</MDXRenderer>
-              <hr />
-              <Bio />
 
               <ul
                 style={{
@@ -76,11 +89,11 @@ class BlogPostTemplate extends React.Component {
           </React.Fragment>
         )}
       </myContext.Consumer>
-    );
+    )
   }
 }
 
-export default BlogPostTemplate;
+export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query($slug: String!) {
@@ -120,4 +133,4 @@ export const pageQuery = graphql`
       body
     }
   }
-`;
+`

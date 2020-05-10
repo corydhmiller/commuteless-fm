@@ -1,12 +1,12 @@
-import React from 'react'
-import { Link, graphql } from 'gatsby'
+import React from "react"
+import { Link, graphql } from "gatsby"
 
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import { dateIsInFuture } from '../utils/helpers'
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import SEO from "../components/seo"
+import { dateIsInFuture } from "../utils/helpers"
 
-class BlogIndex extends React.Component {
+class BlogIndex extends React.Component<{ data: any; location: any }> {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -18,8 +18,7 @@ class BlogIndex extends React.Component {
           title="All posts"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
-        <Bio />
-        {posts.map(({ node }) => {
+        {posts.map(({ node }: any) => {
           // If for some reason we've loaded in all of the posts (why, GraphQL? Why?) just show posts that are today's date or beyond
           if (dateIsInFuture(node.frontmatter.date)) return
 
