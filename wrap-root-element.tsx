@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import Player from "./src/components/Player";
+import Player from "./src/components/Player"
 
 export const myContext = React.createContext(null)
 

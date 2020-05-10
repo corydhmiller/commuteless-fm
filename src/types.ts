@@ -11,4 +11,4 @@ export type FMType = {
   episodeimage?: string
   episode?: number
   slug?: string
-} 
+}
