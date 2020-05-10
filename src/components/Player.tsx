@@ -1,6 +1,7 @@
 import React, { Component, RefObject } from "react"
 import { FaPlay, FaPause } from "react-icons/fa"
 import "../styles/_player.scss"
+import styled from "styled-components"
 
 const formatTime = (timeInSeconds: number) => {
   const hours = Math.floor(timeInSeconds / (60 * 60))
@@ -35,6 +36,15 @@ interface State {
   tooltipTime: string
   volumeLevel: number
 }
+
+// Styles
+const PlayerDiv = styled.div`
+  top: 0;
+`
+const PlayerMeta = styled.div`
+opacity:.7;
+margin
+`
 class Player extends Component<PlayerProps, State> {
   audio: RefObject<HTMLAudioElement>
   progress: RefObject<HTMLDivElement>
@@ -78,17 +88,17 @@ class Player extends Component<PlayerProps, State> {
     const { currentTime = 0, duration = 1 } = this.audio.current
 
     // Progress time ends up being a percentage, so we'll do the math to figure out where we land
-    const progressTime = (currentTime / duration) * 100
+    const newProgressTime = (currentTime / duration) * 100
 
     // If all of this isn't returning a number, get out.
-    if (Number.isNaN(progressTime)) return
+    if (Number.isNaN(newProgressTime)) return
 
     // Otherwise, update componenet state with current time, duration, and progress
     this.setState(() => ({
       audioLoaded: true,
       currentTime: this.audio.current.currentTime,
       duration: this.audio.current.duration,
-      progressTime: progressTime,
+      progressTime: newProgressTime,
     }))
   }
 
@@ -102,13 +112,20 @@ class Player extends Component<PlayerProps, State> {
       this.audio.current.duration
     )
   }
-  changeVolume(event: React.MouseEvent<HTMLInputElement, MouseEvent>) {
-    const __Slider = event.currentTarget
+
+  changeVolume(e: React.FormEvent<HTMLInputElement>) {
+    const __Slider = e.currentTarget
     const volume = +__Slider.value / 100
     this.setState(() => ({
       volumeLevel: +__Slider.value,
     }))
     this.audio.current.volume = volume
+  }
+  seekTime = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    this.setState({
+      tooltipPosition: e.nativeEvent.offsetX,
+      tooltipTime: formatTime(this.scrubTime(e)),
+    })
   }
 
   render() {
@@ -116,7 +133,12 @@ class Player extends Component<PlayerProps, State> {
     const episode = this.props.episode
 
     return (
-      <div className="player">
+      <PlayerDiv
+        className="player"
+        style={{
+          display: this.state.audioLoaded ? "" : "none",
+        }}
+      >
         <div className="player__section player__section--left">
           <button
             onClick={this.togglePlayPause}
@@ -147,13 +169,13 @@ class Player extends Component<PlayerProps, State> {
               this.state.isPlaying ? "playing" : "paused"
             }`}
             onClick={this.scrub}
-            // onMouseMove={seekTime}
-            // onMouseEnter={() => {
-            //   setState({ showTooltip: true })
-            // }}
-            // onMouseLeave={() => {
-            //   setState({ showTooltip: false })
-            // }}
+            onMouseMove={this.seekTime}
+            onMouseEnter={() => {
+              this.setState({ showTooltip: true })
+            }}
+            onMouseLeave={() => {
+              this.setState({ showTooltip: false })
+            }}
             ref={this.progress}
           >
             <div
@@ -197,7 +219,7 @@ class Player extends Component<PlayerProps, State> {
             </svg>
             <div className="slider-container">
               <input
-                onChange={() => {this.changeVolume}}
+                onChange={this.changeVolume}
                 className="volume-slider"
                 type="range"
                 name="volume"
@@ -210,163 +232,9 @@ class Player extends Component<PlayerProps, State> {
             </div>
           </div>
         </div>
-      </div>
+      </PlayerDiv>
     )
   }
 }
 
 export default Player
-
-// import React from 'react'
-// import { FaPlay, FaPause } from 'react-icons/fa'
-// // import { formatTime } from '../utils/formatTime'
-// import { Episode } from '../types'
-
-// import { withRouteData } from 'react-static'
-
-// function usePrevious<T>(value: T) {
-//   const ref = React.useRef(value)
-//   React.useEffect(() => {
-//     ref.current = value
-//   })
-//   return ref.current
-// }
-// type ShowProps = {
-//   number: number
-//   displayNumber: string
-//   title: string
-//   /** url of the mp3 of the show */
-//   url: string
-// }
-
-// export default ({ mostRecentEpisode }: { mostRecentEpisode: Episode }) => {
-//   const Comp = withRouteData(Player(mostRecentEpisode))
-//   return <Comp />
-// }
-
-// type Props = { content?: Episode }
-
-// const Player = (mostRecentEpisode: Episode) => ({ content }: Props) => {
-//   const curEp = content || mostRecentEpisode
-//   if (!curEp) return 'no content'
-//   const show: ShowProps = {
-//     number: curEp.frontmatter.episode,
-//     displayNumber: '' + curEp.frontmatter.episode,
-//     title: curEp.frontmatter.title,
-//     url: `${curEp.frontmatter.audiourl}`,
-//   }
-//   let lastPlayed = 0
-
-// const timeUpdate = (e: React.SyntheticEvent<HTMLAudioElement, Event>) => {
-//   const { timeWasLoaded } = state
-//   // Check if the user already had a current time
-//   if (timeWasLoaded) {
-//     const lp = localStorage.getItem(`lastPlayed${show.number}`)
-//     if (lp) {
-//       e.currentTarget.currentTime = JSON.parse(lp).lastPlayed
-//     }
-//     setState({ timeWasLoaded: false })
-//   } else {
-//     const { currentTime = 0, duration = 1 } = e.currentTarget
-
-//     const progressTime = (currentTime / duration) * 100
-//     if (Number.isNaN(progressTime)) return
-//     setState({ progressTime, currentTime, duration })
-//   }
-// }
-
-// const togglePlay = () => {
-//   const method = playing ? 'pause' : 'play'
-//   audio.current[method]()
-// }
-
-//   const scrubTime = (eventData: React.MouseEvent<HTMLDivElement, MouseEvent>) =>
-//     (eventData.nativeEvent.offsetX / progress.current.offsetWidth) *
-//     audio.current.duration
-
-//   const scrub = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-//     audio.current.currentTime = +scrubTime(e)
-//   }
-
-//   const seekTime = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-//     setState({
-//       tooltipPosition: e.nativeEvent.offsetX,
-//       tooltipTime: formatTime(scrubTime(e)),
-//     })
-//   }
-
-//   const volume: React.ChangeEventHandler<HTMLInputElement> = (e) => {
-//     const __Slider = e.currentTarget
-//     const volume = +__Slider.value / 100
-//     setState({ volumeLevel: +__Slider.value })
-//     audio.current.volume = volume
-//   }
-
-//   return (
-//     <div className="player">
-//       <div className="player__section player__section--left">
-//         <button
-//           onClick={togglePlay}
-//           aria-label={playing ? 'pause' : 'play'}
-//           type="button"
-//           className={`${playing ? 'playing' : 'paused'}`}
-//         >
-//           <p className="player__icon">{playing ? <FaPause /> : <FaPlay />}</p>
-//         </button>
-//       </div>
-
-//       <div className="player__section player__section--middle">
-//         <div style={{ opacity: 0.7, marginBottom: '10px', marginLeft: '10px' }}>
-//           <em>Playing Now:</em> {curEp.frontmatter.title}
-//         </div>
-//         {/* eslint-disable */}
-//         <div
-//           className={`progress ${playing ? 'playing' : 'paused'}`}
-//           onClick={scrub}
-//           onMouseMove={seekTime}
-//           onMouseEnter={() => {
-//             setState({ showTooltip: true })
-//           }}
-//           onMouseLeave={() => {
-//             setState({ showTooltip: false })
-//           }}
-//           ref={progress}
-//         >
-//           {/* eslint-enable */}
-//           <div
-//             className="progress__time"
-//             style={{ width: `${progressTime}%` }}
-//           />
-//         </div>
-//         <div
-//           className="player__tooltip"
-//           style={{
-//             left: `${tooltipPosition}px`,
-//             opacity: showTooltip ? 1 : 0,
-//           }}
-//         >
-//           {tooltipTime}
-//         </div>
-//         <div style={{ opacity: 0.7, marginTop: '10px', marginLeft: '10px' }}>
-//           {formatTime(currentTime)} / {formatTime(duration)}
-//         </div>
-//       </div>
-
-//       {/* eslint-disable */}
-//       <audio
-//         ref={audio}
-//         onPlay={togglePlayPause}
-//         onPause={togglePlayPause}
-//         onTimeUpdate={timeUpdate}
-//         onLoadedMetadata={timeUpdate}
-//         onDurationChange={
-//           (e) => console.log('duration', e.currentTarget.duration)
-//           // this never seems to get called
-//         }
-//         src={show.url}
-//         preload="none"
-//       />
-//       {/* eslint-enable */}
-//     </div>
-//   )
-// }
