@@ -18,7 +18,7 @@ const Provider = (props: Props) => {
         changeEpisode: (e: React.SetStateAction<{}>) => setEpisode(e),
       }}
     >
-      <Player content={episode}/>
+      <Player episode={episode} />
       {props.children}
     </myContext.Provider>
   )

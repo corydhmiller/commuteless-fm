@@ -10,7 +10,7 @@ interface SEOProps {
   title?: string
 }
 
-function SEO({ description, lang, meta, keywords, title }: SEOProps) {
+function SEO({ description, lang, keywords, title }: SEOProps) {
   return (
     <StaticQuery
       query={detailsQuery}
