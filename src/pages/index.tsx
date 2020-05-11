@@ -4,7 +4,6 @@ import SEO from "../components/seo"
 import Layout from "../components/Layout"
 import { dateIsInFuture } from "../utils/helpers"
 import styled from "styled-components"
-import Img from "gatsby-image"
 
 const LatestEpisodes = styled.div`
   display: grid;
@@ -12,6 +11,16 @@ const LatestEpisodes = styled.div`
   @media screen and (min-width: 750px) {
     grid-template-columns: repeat(3, 1fr);
   }
+`
+
+const Episode = styled.div`
+  background-color: var(--color-lightblack);
+  padding: 1rem;
+  margin: 0.5rem;
+`
+
+const MainSection = styled.div`
+padding:1rem;
 `
 
 interface BlogProps {
@@ -32,30 +41,25 @@ class BlogIndex extends React.Component<BlogProps> {
           title="Home"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
+        <MainSection>
+          <p>Welcome to commuteless.</p>
+        </MainSection>
         <h2 style={{ marginBottom: 0 }}>Latest Episodes</h2>
         <LatestEpisodes>
           {posts.map(({ node }: any) => {
-            
             // If for some reason we've loaded in an episode that is still in the future, get that garbage out of there.
             if (dateIsInFuture(node.frontmatter.date)) return
 
             const title = node.frontmatter.title || node.fields.slug
             const url = `/episodes${node.fields.slug}`
             return (
-              <div
-                key={node.fields.slug}
-                style={{
-                  backgroundColor: "#222",
-                  padding: "1rem",
-                  margin: ".5rem",
-                }}
-              >
+              <Episode key={node.fields.slug}>
                 <Link style={{ boxShadow: `none` }} to={url}>
                   {/* <Img fluid={featuredImgFluid} style={{ maxWidth: 250 }} /> */}
                   <h3 style={{ margin: 0 }}>{title}</h3>
                 </Link>
                 <small>{node.frontmatter.date}</small>
-              </div>
+              </Episode>
             )
           })}
         </LatestEpisodes>
