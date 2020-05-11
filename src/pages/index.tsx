@@ -20,7 +20,7 @@ const Episode = styled.div`
 `
 
 const MainSection = styled.div`
-padding:1rem;
+  padding: 1rem;
 `
 
 interface BlogProps {
@@ -80,7 +80,7 @@ export const pageQuery = graphql`
     allMdx(
       sort: { fields: [frontmatter___episode], order: DESC }
       filter: { frontmatter: { date: { lte: $currentDate } } }
-      limit: 3
+      limit: 1
     ) {
       edges {
         node {

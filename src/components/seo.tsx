@@ -24,7 +24,7 @@ function SEO({ description, lang, keywords, title }: SEOProps) {
             }}
             title={title}
             titleTemplate={`%s - ${data.site.siteMetadata.title}`}
-            meta={[ 
+            meta={[
               {
                 name: `description`,
                 content: metaDescription,

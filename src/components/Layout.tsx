@@ -1,11 +1,98 @@
 import React from "react"
-import { Link } from "gatsby"
+import { Link, graphql, StaticQuery } from "gatsby"
 import "../styles/app.scss"
 import "../styles/header.scss"
-import AppleImage from "../../content/assets/badges/apple.svg"
-import SpotifyImage from "../../content/assets/badges/spotify.svg"
-import GoogleImage from "../../content/assets/badges/google.svg"
+import AppleImage from "../images/badges/apple.svg"
+import SpotifyImage from "../images/badges/spotify.svg"
+import GoogleImage from "../images/badges/google.svg"
 import styled from "styled-components"
+import BackgroundImage from "gatsby-background-image"
+
+const BackgroundSection = ({
+  className,
+  title,
+}: {
+  className: string
+  title: string
+}) => (
+  <StaticQuery
+    query={graphql`
+      query {
+        desktop: file(relativePath: { eq: "commuteless-banner.jpg" }) {
+          childImageSharp {
+            fluid(quality: 90, maxWidth: 1920) {
+              ...GatsbyImageSharpFluid_withWebp
+            }
+          }
+        }
+      }
+    `}
+    render={data => {
+      // Set ImageData.
+      const imageData = data.desktop.childImageSharp.fluid
+      return (
+        <BackgroundImage
+          Tag="header"
+          className={className}
+          fluid={imageData}
+          backgroundColor={`#040e18`}
+        >
+          <div style={{ maxWidth: 1180, textAlign: "center" }}>
+            <HeaderH1
+              style={{
+                marginTop: 0,
+              }}
+            >
+              <Link
+                style={{
+                  boxShadow: `none`,
+                  textDecoration: `none`,
+                  color: `inherit`,
+                }}
+                to={`/`}
+              >
+                {title}
+              </Link>
+            </HeaderH1>
+            <HeaderH2 style={{ color: "var(--color-lightpurple)" }}>
+              Work from home better.
+            </HeaderH2>
+            <PlatformsWrapper>
+              <PlatformList>
+                {Platforms.map(
+                  ({
+                    name,
+                    url,
+                    image,
+                  }: {
+                    name: string
+                    url: string
+                    image?: string
+                  }) => {
+                    if (image) {
+                      return (
+                        <li key={name}>
+                          <a href={url}>
+                            <PlatformImage src={image} alt={name} />
+                          </a>
+                        </li>
+                      )
+                    }
+                    return (
+                      <li key={title}>
+                        <a href={url}>{title}</a>
+                      </li>
+                    )
+                  }
+                )}
+              </PlatformList>
+            </PlatformsWrapper>
+          </div>
+        </BackgroundImage>
+      )
+    }}
+  />
+)
 
 const HeaderH1 = styled.h1`
   margin: 0;
@@ -40,32 +127,32 @@ const PlatformList = styled.ul`
 
 const Platforms = [
   {
-    title: "Apple Podcasts",
+    name: "Apple Podcasts",
     url: "https://podcasts.apple.com/us/podcast/commuteless/id1510958925",
     image: AppleImage,
   },
   {
-    title: "Spotify",
+    name: "Spotify",
     url:
       "https://open.spotify.com/album/5wsaSNJTS4x2XhO30SD3NL?si=Am9aZH-XRj2ltRoSxkCsHQ",
     image: SpotifyImage,
   },
   {
-    title: "Google Play",
+    name: "Google Play",
     url:
       "https://podcasts.google.com/?feed=aHR0cHM6Ly9seW54LmNvbW11dGVsZXNzLmZtL3Jzcw%3D%3D",
     image: GoogleImage,
   },
   // {
-  //   title: "TuneIn",
+  //   name: "TuneIn",
   //   url: "http://tun.in/pjQHm",
   // },
   // {
-  //   title: "Stitcher",
+  //   name: "Stitcher",
   //   url: "https://www.stitcher.com/podcast/commuteless",
   // },
   // {
-  //   title: "YouTube",
+  //   name: "YouTube",
   //   url: "https://www.youtube.com/channel/UCeisEao_HIiBETm4aK_ivVg",
   // },
   // {
@@ -90,59 +177,7 @@ class Layout extends React.Component<LayoutProps> {
 
     return (
       <>
-        <header className="header-wrap">
-          <div style={{ maxWidth: 1180, textAlign: "center" }}>
-            <HeaderH1
-              style={{
-                marginTop: 0,
-              }}
-            >
-              <Link
-                style={{
-                  boxShadow: `none`,
-                  textDecoration: `none`,
-                  color: `inherit`,
-                }}
-                to={`/`}
-              >
-                {title}
-              </Link>
-            </HeaderH1>
-            <HeaderH2 style={{ color: "var(--color-lightpurple)" }}>
-              Work from home better.
-            </HeaderH2>
-            <PlatformsWrapper>
-              <PlatformList>
-                {Platforms.map(
-                  ({
-                    title,
-                    url,
-                    image,
-                  }: {
-                    title: string
-                    url: string
-                    image?: string
-                  }) => {
-                    if (image) {
-                      return (
-                        <li key={title}>
-                          <a href={url}>
-                            <PlatformImage src={image} alt={title} />
-                          </a>
-                        </li>
-                      )
-                    }
-                    return (
-                      <li key={title}>
-                        <a href={url}>{title}</a>
-                      </li>
-                    )
-                  }
-                )}
-              </PlatformList>
-            </PlatformsWrapper>
-          </div>
-        </header>
+        <BackgroundSection className="header-wrap" title={title} />
         <main>
           {children}
           <footer>© {new Date().getFullYear()}. All rights reserved.</footer>
