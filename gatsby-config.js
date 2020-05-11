@@ -125,7 +125,7 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/commuteless-icon.png`,
+        icon: `content/images/commuteless-icon.png`,
       },
     },
     `gatsby-plugin-offline`,
