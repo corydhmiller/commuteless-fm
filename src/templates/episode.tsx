@@ -53,13 +53,17 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
                 </FeaturedImage>
                 <div style={{ padding: "1rem 2rem" }}>
                   <h1 style={{ marginTop: 0 }}>{post.frontmatter.title}</h1>
-                  <p style={{
-                    opacity:.5,
+                  <p
+                    style={{
+                      opacity: 0.5,
                       display:
                         context.episode.episode === post.frontmatter.episode
                           ? ""
                           : "none",
-                    }}><em>Playing</em></p>
+                    }}
+                  >
+                    <em>Playing</em>
+                  </p>
                   <button
                     style={{
                       display:

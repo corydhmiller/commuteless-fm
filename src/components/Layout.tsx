@@ -10,9 +10,7 @@ interface LayoutProps {
 
 class Layout extends React.Component<LayoutProps> {
   render() {
-    const {
-      children,
-    } = this.props
+    const { children } = this.props
 
     return (
       <>

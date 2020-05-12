@@ -162,7 +162,8 @@ class Player extends Component<PlayerProps, State> {
 
           <div className="player__section player__section--middle">
             <div style={{ opacity: 0.7, marginBottom: "10px" }}>
-              <em style={{fontSize:".9rem", opacity:.8}}>Now playing:</em> {episode.title}
+              <em style={{ fontSize: ".9rem", opacity: 0.8 }}>Now playing:</em>{" "}
+              {episode.title}
             </div>
             <div
               className={`progress ${

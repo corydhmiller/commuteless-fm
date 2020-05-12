@@ -48,11 +48,7 @@ interface PlatformsTypes {
   image?: string
 }
 
-const BackgroundSection = ({
-  title,
-}: {
-  title: string
-}) => (
+const BackgroundSection = ({ title }: { title: string }) => (
   <StaticQuery
     query={graphql`
       query {
@@ -137,9 +133,7 @@ const Header = styled(BackgroundSection)`
   padding: 5rem 2rem;
   @media screen and (min-width: 480px) {
     padding: 5rem 2rem 7rem;
-
   }
-  
 `
 
 const HeaderH1 = styled.h1`
