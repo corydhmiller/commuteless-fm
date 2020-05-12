@@ -44,9 +44,9 @@ h2 {
 main {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 1rem;
   @media screen and (min-width: 650px) {
-    padding: 0 2rem;
+    padding: 1rem 2rem 5rem;
   }
 }
 header {

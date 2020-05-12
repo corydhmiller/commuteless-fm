@@ -19,7 +19,7 @@ const Provider = (props: Props) => {
         changeEpisode: (e: React.SetStateAction<{}>) => setEpisode(e),
       }}
     >
-      <Header className="header-wrap" title="title" />
+      <Header className="header-wrap" />
       <Player episode={episode} />
       {props.children}
     </myContext.Provider>

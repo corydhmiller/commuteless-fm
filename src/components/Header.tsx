@@ -91,7 +91,7 @@ const BackgroundSection = ({
                 }}
                 to={`/`}
               >
-                {title}
+                Commuteless
               </Link>
             </HeaderH1>
             <HeaderH2 style={{ color: "var(--color-lightpurple)" }}>
@@ -131,7 +131,6 @@ const BackgroundSection = ({
 )
 
 const Header = styled(BackgroundSection)`
-  background-color: var(--color-darkpurple)
   display: grid;
   align-items: center;
   justify-content: center;
@@ -140,15 +139,7 @@ const Header = styled(BackgroundSection)`
     padding: 5rem 2rem 7rem;
 
   }
-  &:before {
-    background-size: 300%;
-    @media screen and (min-width: 480px) {
-      background-size: 200%;
-    }
-    @media screen and (min-width: 1000px) {
-      background-size: cover;
-    }
-  }
+  
 `
 
 const HeaderH1 = styled.h1`

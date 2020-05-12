@@ -11,10 +11,11 @@ const LatestEpisodes = styled.div`
   @media screen and (min-width: 750px) {
     grid-template-columns: repeat(3, 1fr);
   }
-`
-
-const Episode = styled.div`
-  background-color: var(--color-lightblack);
+  `
+  
+  const Episode = styled.div`
+  background:var(--color-black);
+  // background-color: var(--color-lightblack);
   padding: 1rem;
   margin: 0.5rem;
 `

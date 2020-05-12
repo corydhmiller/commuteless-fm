@@ -1,9 +1,21 @@
 @import 'vars';
 
 .header-wrap {
-  background-image: linear-gradient(45deg, $darkpurple, darken($darkpurple, 10%));
+  background-image: linear-gradient(45deg, #673C96, darken(#673C96, 10%));
   display: grid;
   align-items: center;
   justify-content: center;
   padding: 5rem 2rem;
+  &:before {
+    background-size: 300%;
+    @media screen and (max-width: 300px) {
+      background-size: cover;
+    }
+    @media screen and (min-width: 480px) {
+      background-size: 200%;
+    }
+    @media screen and (min-width: 1000px) {
+      background-size: cover;
+    }
+  }
 }
