@@ -183,7 +183,7 @@ class Player extends Component<PlayerProps, State> {
               style={{ width: `${this.state.progressTime}%` }}
             />
           </div>
-          <div style={{ opacity: 0.7 }}>
+          <div style={{ opacity: 0.7, marginTop: 10 }}>
             {// Simple ternary: has the audio loaded yet?
             this.state.audioLoaded
               ? // If so, display the time as `XX:XX | YY:YY`

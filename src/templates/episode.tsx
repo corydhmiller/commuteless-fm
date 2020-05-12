@@ -5,16 +5,23 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
+import { FaPlay } from "react-icons/fa"
 import { myContext } from "../../wrap-root-element"
 
-const Header = styled.div`
+const EpisodeHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   align-items: center;
+  margin-top: 1rem;
   margin-bottom: 2rem;
   @media screen and (min-width: 750px) {
     grid-template-columns: 250px 1fr;
   }
+`
+
+const FeaturedImage = styled.div`
+  border-radius: 1rem;
+  overflow: hidden;
 `
 
 interface BlogPostTypes {
@@ -40,24 +47,38 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
                 keywords={[`commuteless`]}
                 title={post.frontmatter.title}
               />
-              <Header>
-                <div>
+              <EpisodeHeader>
+                <FeaturedImage>
                   <Img fluid={featuredImgFluid} />
-                </div>
+                </FeaturedImage>
                 <div style={{ padding: "1rem 2rem" }}>
-                  <h1 style={{ margin: 0 }}>{post.frontmatter.title}</h1>
-                  <p style={{ fontSize: "1.5rem" }}>{post.frontmatter.hosts}</p>
+                  <h1 style={{ marginTop: 0 }}>{post.frontmatter.title}</h1>
+
+                  <button
+                    onClick={() => {
+                      context.changeEpisode(post.frontmatter)
+                    }}
+                  >
+                    <FaPlay style={{ marginRight: 8 }} />
+
+                    {context.episode.episode === post.frontmatter.episode
+                      ? "Playing"
+                      : "Play this episode"}
+                  </button>
+                  <p style={{ fontSize: "1rem" }}>{post.frontmatter.hosts}</p>
                 </div>
-              </Header>
-              <button
-                onClick={() => {
-                  context.changeEpisode(post.frontmatter)
+              </EpisodeHeader>
+              <div
+                style={{
+                  backgroundColor: "var(--color-white)",
+                  color: "var(--color-black)",
+                  padding: "1rem 2rem",
+                  borderRadius: ".5rem",
                 }}
               >
-                Play this episode
-              </button>
-              <p>{post.frontmatter.date}</p>
-              <MDXRenderer>{post.body}</MDXRenderer>
+                <p>{post.frontmatter.date}</p>
+                <MDXRenderer>{post.body}</MDXRenderer>
+              </div>
 
               <ul
                 style={{
@@ -71,14 +92,14 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
                 <li>
                   {previous && (
                     <Link to={`/episodes${previous.fields.slug}`} rel="prev">
-                      ← {previous.frontmatter.title}
+                      ← Prev Episode
                     </Link>
                   )}
                 </li>
                 <li>
                   {next && (
                     <Link to={`/episodes${next.fields.slug}`} rel="next">
-                      {next.frontmatter.title} →
+                      Next Episode →
                     </Link>
                   )}
                 </li>

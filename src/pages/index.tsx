@@ -20,7 +20,12 @@ const Episode = styled.div`
 `
 
 const MainSection = styled.div`
-  padding: 1rem;
+  position: relative;
+  padding: 1rem 2rem;
+  margin-top:2rem;
+  border-radius: 0.2rem;
+  background: var(--color-white);
+  color: var(--color-black);
 `
 
 interface BlogProps {
@@ -42,7 +47,21 @@ class BlogIndex extends React.Component<BlogProps> {
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <MainSection>
-          <p>Welcome to commuteless.</p>
+          <h3 style={{ textAlign: "center" }}>
+            A show about working from home with less stress and more freedom so
+            you can live life on your terms.
+          </h3>
+          <p>
+            Welcome to Commuteless.fm! We're excited to help you on your journey
+            of working from home.
+          </p>
+          <h4>The Hosts</h4>
+          <div>
+            <p>Kyle Adams</p>
+          </div>
+          <div>
+            <p>Cory Miller</p>
+          </div>
         </MainSection>
         <h2 style={{ marginBottom: 0 }}>Latest Episodes</h2>
         <LatestEpisodes>
@@ -80,7 +99,7 @@ export const pageQuery = graphql`
     allMdx(
       sort: { fields: [frontmatter___episode], order: DESC }
       filter: { frontmatter: { date: { lte: $currentDate } } }
-      limit: 1
+      limit: 3
     ) {
       edges {
         node {

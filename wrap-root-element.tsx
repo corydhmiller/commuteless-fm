@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Player from "./src/components/Player"
+import Header from "./src/components/Header"
 
 export const myContext = React.createContext(null)
 
@@ -18,6 +19,7 @@ const Provider = (props: Props) => {
         changeEpisode: (e: React.SetStateAction<{}>) => setEpisode(e),
       }}
     >
+      <Header className="header-wrap" title="title" />
       <Player episode={episode} />
       {props.children}
     </myContext.Provider>

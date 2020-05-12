@@ -1,27 +1,27 @@
 @import "vars";
 
 :root {
---color-darkgrey: #{$darkgrey};
---color-lightblack: #{$lightblack};
---color-black: #{$black};
---color-lightpurple: #{$lightpurple};
---color-purple: #{$purple};
---color-darkpurple: #{$darkpurple};
---color-white: #{$white};
---color-red: #{$red};
---color-yellow: #{$yellow};
+  --color-darkgrey: #{$darkgrey};
+  --color-lightblack: #{$lightblack};
+  --color-black: #{$black};
+  --color-lightpurple: #{$lightpurple};
+  --color-purple: #{$purple};
+  --color-darkpurple: #{$darkpurple};
+  --color-white: #{$white};
+  --color-red: #{$red};
+  --color-yellow: #{$yellow};
 }
 
 body {
   font-family: $font_family_1;
-  font-weight: 400;
+  font-weight: normal;
   min-height: 100vh;
   font-size: 112.5%;
   margin: 0;
   padding: 0;
   letter-spacing: 0.025em;
-  background: linear-gradient(135deg, #222 0%, #333 100%);
-  color: var(--color-white);
+  background: $lightblack;
+  color: $white;
 }
 h1,
 h2,
@@ -42,7 +42,7 @@ h2 {
   }
 }
 main {
-  max-width: 1180px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 1rem;
   @media screen and (min-width: 650px) {
@@ -62,9 +62,9 @@ footer {
   margin: 0 auto;
 }
 a {
-  text-decoration: none;
-  color: $purple;
+  color: $lightpurple;
   transition: 0.25s all ease;
+  font-weight: bold;
   &:hover {
     color: $red;
   }
@@ -83,4 +83,35 @@ nav {
 }
 .content {
   padding: 1rem;
+}
+button {
+  cursor:pointer;
+}
+main {
+  button {
+    border-radius: 0.3rem;
+    font-size: 1rem;
+    background: $red;
+    color: $white;
+    padding: 0.7rem 1rem;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s all ease-in-out;
+    &:hover,
+    &:focus,
+    &:active {
+      background: $purple;
+    }
+  }
+
+  ul {
+    & > li {
+      margin-bottom: 0.5rem;
+    }
+  }
 }
