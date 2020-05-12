@@ -131,7 +131,6 @@ class Player extends Component<PlayerProps, State> {
   render() {
     // Store episode as var
     const episode = this.props.episode
-
     return (
       <PlayerDiv
         className="player"
