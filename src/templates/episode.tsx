@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { FaPlay } from "react-icons/fa"
-import { myContext } from "../../wrap-root-element"
+import { myContext } from "../../App"
 
 const EpisodeHeader = styled.div`
   display: grid;
@@ -15,7 +15,7 @@ const EpisodeHeader = styled.div`
   margin-top: 1rem;
   margin-bottom: 2rem;
   @media screen and (min-width: 750px) {
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 400px 1fr;
   }
 `
 
@@ -86,10 +86,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
               </EpisodeHeader>
               <div
                 style={{
-                  backgroundColor: "var(--color-white)",
-                  color: "var(--color-black)",
                   padding: "1rem 2rem",
-                  borderRadius: ".5rem",
                 }}
               >
                 <p>{post.frontmatter.date}</p>
@@ -147,7 +144,7 @@ export const pageQuery = graphql`
         hosts
         image {
           childImageSharp {
-            fluid(maxWidth: 500) {
+            fluid(maxWidth: 700) {
               base64
               tracedSVG
               aspectRatio

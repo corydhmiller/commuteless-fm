@@ -1,3 +1,3 @@
-import Provider from "./wrap-root-element"
+import Provider from "./App"
 
 export const wrapRootElement = Provider

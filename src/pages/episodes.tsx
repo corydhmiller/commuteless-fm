@@ -4,7 +4,7 @@ import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { dateIsInFuture } from "../utils/helpers"
 
-class BlogIndex extends React.Component<{ data: any; location: any }> {
+class EpisodesPage extends React.Component<{ data: any; location: any }> {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -43,7 +43,7 @@ class BlogIndex extends React.Component<{ data: any; location: any }> {
   }
 }
 
-export default BlogIndex
+export default EpisodesPage
 
 export const pageQuery = graphql`
   query {

@@ -15,7 +15,6 @@ const LatestEpisodes = styled.div`
 
 const Episode = styled.div`
   background: var(--color-black);
-  // background-color: var(--color-lightblack);
   padding: 1rem;
   margin: 0.5rem;
 `
@@ -25,8 +24,7 @@ const MainSection = styled.div`
   padding: 1rem 2rem;
   margin-top: 2rem;
   border-radius: 0.2rem;
-  background: var(--color-white);
-  color: var(--color-black);
+  max-width: 777px;
 `
 
 interface BlogProps {
@@ -34,7 +32,7 @@ interface BlogProps {
   location: string
 }
 
-class BlogIndex extends React.Component<BlogProps> {
+class IndexPage extends React.Component<BlogProps> {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -88,7 +86,7 @@ class BlogIndex extends React.Component<BlogProps> {
   }
 }
 
-export default BlogIndex
+export default IndexPage
 
 export const pageQuery = graphql`
   query HomeQuery($currentDate: Date!) {

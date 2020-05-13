@@ -48,7 +48,12 @@ interface PlatformsTypes {
   image?: string
 }
 
-const BackgroundSection = ({ title }: { title: string }) => (
+interface HeaderProps {
+  title: string
+  episode?: any
+}
+
+const BackgroundSection = ({ title, episode }: HeaderProps) => (
   <StaticQuery
     query={graphql`
       query {

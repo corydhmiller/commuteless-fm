@@ -20,8 +20,8 @@ body {
   margin: 0;
   padding: 0;
   letter-spacing: 0.025em;
-  background: $lightblack;
-  color: $white;
+  background-color: var(--color-lightblack);
+  color: var(--color-white);
 }
 h1,
 h2,
@@ -42,7 +42,7 @@ h2 {
   }
 }
 main {
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 1rem;
   @media screen and (min-width: 650px) {
@@ -85,7 +85,7 @@ nav {
   padding: 1rem;
 }
 button {
-  cursor:pointer;
+  cursor: pointer;
 }
 main {
   button {
