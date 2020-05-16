@@ -53,93 +53,103 @@ interface HeaderProps {
   episode?: any
 }
 
-const BackgroundSection = ({ title, episode }: HeaderProps) => (
-  <StaticQuery
-    query={graphql`
-      query {
-        desktop: file(relativePath: { eq: "commuteless-banner.jpg" }) {
-          childImageSharp {
-            fluid(quality: 90, maxWidth: 1920) {
-              ...GatsbyImageSharpFluid_withWebp
+class Header extends React.Component<HeaderProps> {
+  constructor(props: HeaderProps) {
+    super(props)
+  }
+  render() {
+    return (
+      <StaticQuery
+        query={graphql`
+          query {
+            desktop: file(relativePath: { eq: "commuteless-banner.jpg" }) {
+              childImageSharp {
+                fluid(quality: 90, maxWidth: 1920) {
+                  ...GatsbyImageSharpFluid_withWebp
+                }
+              }
             }
           }
-        }
-      }
-    `}
-    render={data => {
-      // Set ImageData.
-      const imageData = data.desktop.childImageSharp.fluid
-      return (
-        <BackgroundImage
-          Tag="header"
-          className="header-wrap"
-          fluid={imageData}
-          backgroundColor={`#040e18`}
-          // Reset style here to handle responsive sizing
-          style={{ backgroundSize: "" }}
-        >
-          <div style={{ maxWidth: 1180, textAlign: "center" }}>
-            <HeaderH1
-              style={{
-                marginTop: 0,
-              }}
+        `}
+        render={data => {
+          // Set ImageData.
+          const imageData = data.desktop.childImageSharp.fluid
+          return (
+            <BackgroundImage
+              Tag="header"
+              className="header-wrap"
+              fluid={imageData}
+              backgroundColor={`#040e18`}
+              // Reset style here to handle responsive sizing
+              style={{ backgroundSize: "" }}
             >
-              <Link
-                style={{
-                  boxShadow: `none`,
-                  textDecoration: `none`,
-                  color: `inherit`,
-                }}
-                to={`/`}
-              >
-                Commuteless
-              </Link>
-            </HeaderH1>
-            <HeaderH2 style={{ color: "var(--color-lightpurple)" }}>
-              Work from home better.
-            </HeaderH2>
-            <PlatformsWrapper>
-              <MainPlatformsList>
-                {Platforms.map(({ ...props }: PlatformsTypes) => {
-                  if (props.image) {
-                    return (
-                      <li key={props.name}>
-                        <a href={props.url}>
-                          <PlatformImage src={props.image} alt={props.name} />
-                        </a>
-                      </li>
-                    )
-                  }
-                })}
-              </MainPlatformsList>
-              <PlatformList>
-                {Platforms.map(({ ...props }: PlatformsTypes) => {
-                  if (!props.image) {
-                    return (
-                      <li key={props.name}>
-                        <a href={props.url}>{props.name}</a>
-                      </li>
-                    )
-                  }
-                })}
-              </PlatformList>
-            </PlatformsWrapper>
-          </div>
-        </BackgroundImage>
-      )
-    }}
-  />
-)
-
-const Header = styled(BackgroundSection)`
-  display: grid;
-  align-items: center;
-  justify-content: center;
-  padding: 5rem 2rem;
-  @media screen and (min-width: 480px) {
-    padding: 5rem 2rem 7rem;
+              <div style={{ maxWidth: 1180, textAlign: "center" }}>
+                <HeaderH1
+                  style={{
+                    marginTop: 0,
+                  }}
+                >
+                  <Link
+                    style={{
+                      boxShadow: `none`,
+                      textDecoration: `none`,
+                      color: `inherit`,
+                    }}
+                    to={`/`}
+                  >
+                    Commuteless
+                  </Link>
+                </HeaderH1>
+                <HeaderH2 style={{ color: "var(--color-lightpurple)" }}>
+                  Work from home better.
+                </HeaderH2>
+                <PlatformsWrapper>
+                  <MainPlatformsList>
+                    {Platforms.map(({ ...props }: PlatformsTypes) => {
+                      if (props.image) {
+                        return (
+                          <li key={props.name}>
+                            <a href={props.url}>
+                              <PlatformImage
+                                src={props.image}
+                                alt={props.name}
+                              />
+                            </a>
+                          </li>
+                        )
+                      }
+                    })}
+                  </MainPlatformsList>
+                  <PlatformList>
+                    {Platforms.map(({ ...props }: PlatformsTypes) => {
+                      if (!props.image) {
+                        return (
+                          <li key={props.name}>
+                            <a href={props.url}>{props.name}</a>
+                          </li>
+                        )
+                      }
+                    })}
+                  </PlatformList>
+                </PlatformsWrapper>
+              </div>
+            </BackgroundImage>
+          )
+        }}
+      />
+    )
   }
-`
+}
+
+// const Header = styled(BackgroundSection)`
+//   display: grid;
+//   align-items: center;
+//   justify-content: center;
+//   padding: 5rem 2rem;
+//   @media screen and (min-width: 480px) {
+//     padding: 5rem 2rem 7rem;
+//   }
+// `
 
 const HeaderH1 = styled.h1`
   margin: 0;

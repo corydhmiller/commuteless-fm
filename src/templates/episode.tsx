@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { FaPlay } from "react-icons/fa"
-import { myContext } from "../../App"
+import { siteContext } from "../../App"
 
 const EpisodeHeader = styled.div`
   display: grid;
@@ -31,6 +31,9 @@ interface BlogPostTypes {
 }
 
 class BlogPostTemplate extends React.Component<BlogPostTypes> {
+  constructor(props: BlogPostTypes) {
+    super(props)
+  }
   render() {
     const post = this.props.data.mdx
     const siteTitle = this.props.data.site.siteMetadata.title
@@ -38,7 +41,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
     const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid
 
     return (
-      <myContext.Consumer>
+      <siteContext.Consumer>
         {(context: any) => (
           <React.Fragment>
             <Layout location={this.props.location} title={siteTitle}>
@@ -120,7 +123,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
             </Layout>
           </React.Fragment>
         )}
-      </myContext.Consumer>
+      </siteContext.Consumer>
     )
   }
 }

@@ -1,9 +1,10 @@
-import React from "react"
+import React, { useContext } from "react"
 import { Link, graphql } from "gatsby"
 import SEO from "../components/seo"
 import Layout from "../components/Layout"
 import { dateIsInFuture } from "../utils/helpers"
 import styled from "styled-components"
+import { siteContext } from "../../App"
 
 const LatestEpisodes = styled.div`
   display: grid;
@@ -33,6 +34,7 @@ interface BlogProps {
 }
 
 class IndexPage extends React.Component<BlogProps> {
+  
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
