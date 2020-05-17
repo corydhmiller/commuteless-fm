@@ -6,7 +6,7 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import { FaPlay } from "react-icons/fa"
-import { siteContext } from "../../App"
+import SiteContext, { SiteConsumer } from "../../SiteContext"
 
 const EpisodeHeader = styled.div`
   display: grid;
@@ -31,8 +31,16 @@ interface BlogPostTypes {
 }
 
 class BlogPostTemplate extends React.Component<BlogPostTypes> {
+  static contextType = SiteContext
   constructor(props: BlogPostTypes) {
     super(props)
+  }
+  componentDidMount() {
+    const post = this.props.data.mdx
+    this.context.setCurrentPage({
+      title: post.frontmatter.title,
+      image: post.frontmatter.image,
+    })
   }
   render() {
     const post = this.props.data.mdx
@@ -41,7 +49,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
     const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid
 
     return (
-      <siteContext.Consumer>
+      <SiteConsumer>
         {(context: any) => (
           <React.Fragment>
             <Layout location={this.props.location} title={siteTitle}>
@@ -75,7 +83,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
                           : "",
                     }}
                     onClick={() => {
-                      context.changeEpisode(post.frontmatter)
+                      context.setEpisode(post.frontmatter)
                     }}
                   >
                     <FaPlay style={{ marginRight: 8 }} />
@@ -123,7 +131,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
             </Layout>
           </React.Fragment>
         )}
-      </siteContext.Consumer>
+      </SiteConsumer>
     )
   }
 }

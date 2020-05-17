@@ -5,6 +5,7 @@ import SpotifyImage from "../../content/images/badges/spotify.svg"
 import GoogleImage from "../../content/images/badges/google.svg"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+import SiteContext from "../../SiteContext"
 
 const Platforms = [
   {
@@ -53,7 +54,44 @@ interface HeaderProps {
   episode?: any
 }
 
+const HeaderWithBackground = styled(BackgroundImage)`
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 2rem 1rem;
+  @media screen and (min-width: 700px) {
+    padding-top: 30vh;
+  }
+  &:after {
+    background: linear-gradient(
+      0,
+      var(--color-lightblack) 0,
+      transparent 25%
+    ) !important;
+    z-index: 2 !important;
+    opacity: 1 !important;
+  }
+  &:before {
+    background-size: 300%;
+    @media screen and (max-width: 300px) {
+      background-size: cover;
+    }
+
+    @media screen and (min-width: 1000px) {
+      background-size: cover;
+    }
+  }
+`
+
+const HeaderContent = styled.div`
+  position: relative;
+  z-index: 20;
+  max-width: 1180px;
+  text-align: center;
+`
+
 class Header extends React.Component<HeaderProps> {
+  static contextType = SiteContext
   constructor(props: HeaderProps) {
     super(props)
   }
@@ -62,7 +100,9 @@ class Header extends React.Component<HeaderProps> {
       <StaticQuery
         query={graphql`
           query {
-            desktop: file(relativePath: { eq: "commuteless-banner.jpg" }) {
+            desktop: file(
+              relativePath: { eq: "commuteless-site-background.jpg" }
+            ) {
               childImageSharp {
                 fluid(quality: 90, maxWidth: 1920) {
                   ...GatsbyImageSharpFluid_withWebp
@@ -75,30 +115,19 @@ class Header extends React.Component<HeaderProps> {
           // Set ImageData.
           const imageData = data.desktop.childImageSharp.fluid
           return (
-            <BackgroundImage
+            <HeaderWithBackground
               Tag="header"
-              className="header-wrap"
               fluid={imageData}
-              backgroundColor={`#040e18`}
               // Reset style here to handle responsive sizing
-              style={{ backgroundSize: "" }}
+              // style={{ backgroundPosition: "center top" }}
             >
-              <div style={{ maxWidth: 1180, textAlign: "center" }}>
+              <HeaderContent>
                 <HeaderH1
                   style={{
                     marginTop: 0,
                   }}
                 >
-                  <Link
-                    style={{
-                      boxShadow: `none`,
-                      textDecoration: `none`,
-                      color: `inherit`,
-                    }}
-                    to={`/`}
-                  >
-                    Commuteless
-                  </Link>
+                  {this.context.currentPage.title}
                 </HeaderH1>
                 <HeaderH2 style={{ color: "var(--color-lightpurple)" }}>
                   Work from home better.
@@ -132,8 +161,8 @@ class Header extends React.Component<HeaderProps> {
                     })}
                   </PlatformList>
                 </PlatformsWrapper>
-              </div>
-            </BackgroundImage>
+              </HeaderContent>
+            </HeaderWithBackground>
           )
         }}
       />
@@ -153,9 +182,15 @@ class Header extends React.Component<HeaderProps> {
 
 const HeaderH1 = styled.h1`
   margin: 0;
+  font-weight: 400;
+  font-size: 3rem;
+  @media screen and (min-width: 700px) {
+    font-size: 6rem;
+  }
 `
 const HeaderH2 = styled.h2`
   margin: 0;
+  font-size: 2rem;
 `
 
 const PlatformsWrapper = styled.div`

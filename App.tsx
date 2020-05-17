@@ -1,29 +1,20 @@
 import React, { useState } from "react"
 import Player from "./src/components/Player"
 import Header from "./src/components/Header"
+import { SiteProvider } from "./SiteContext"
 
-export const siteContext = React.createContext(null)
-
-interface Props {
-  episode?: any
-  children?: any
-  currentPage: {
-    pageTitle: string
-    url: string
-  }
-}
-
-const Provider = (props: Props) => {
+const Provider = (props: any) => {
   // Init the state as an empty object. Frontmatters is passed in upon "play episode"
   const [episode, setEpisode] = useState({})
   const [currentPage, setCurrentPage] = useState({})
 
   return (
-    <siteContext.Provider
+    <SiteProvider
       value={{
         episode,
-        changeEpisode: (e: React.SetStateAction<{}>) => setEpisode(e),
-        currentPage: (e: React.SetStateAction<{}>) => setCurrentPage(e),
+        currentPage,
+        setEpisode,
+        setCurrentPage,
       }}
     >
       <Header
@@ -33,7 +24,7 @@ const Provider = (props: Props) => {
       />
       <Player episode={episode} />
       {props.children}
-    </siteContext.Provider>
+    </SiteProvider>
   )
 }
 
