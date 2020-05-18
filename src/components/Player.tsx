@@ -132,7 +132,15 @@ class Player extends Component<PlayerProps, State> {
     // Store episode as var
     const episode = this.props.episode
     return (
-      <div style={{ backgroundColor: "var(--color-black)" }}>
+      <div
+        style={{
+          backgroundColor: "var(--color-black)",
+          position: "fixed",
+          bottom: 0,
+          width: "100%",
+          zIndex:55
+        }}
+      >
         <PlayerDiv
           className="player"
           style={{
