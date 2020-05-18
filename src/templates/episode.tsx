@@ -11,7 +11,6 @@ import SiteContext, { SiteConsumer } from "../../SiteContext"
 const EpisodeHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
   margin-top: 1rem;
   margin-bottom: 2rem;
   @media screen and (min-width: 750px) {
@@ -40,6 +39,9 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
     this.context.setCurrentPage({
       title: post.frontmatter.title,
       image: post.frontmatter.image,
+      type: "episode",
+      hosts: post.frontmatter.hosts,
+      date: post.frontmatter.date,
     })
   }
   render() {
@@ -62,19 +64,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
                 <FeaturedImage>
                   <Img fluid={featuredImgFluid} />
                 </FeaturedImage>
-                <div style={{ padding: "1rem 2rem" }}>
-                  <h1 style={{ marginTop: 0 }}>{post.frontmatter.title}</h1>
-                  <p
-                    style={{
-                      opacity: 0.5,
-                      display:
-                        context.episode.episode === post.frontmatter.episode
-                          ? ""
-                          : "none",
-                    }}
-                  >
-                    <em>Playing</em>
-                  </p>
+                <div style={{ padding: "0 1rem 2rem" }}>
                   <button
                     style={{
                       display:
@@ -92,17 +82,12 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
                       ? "Playing"
                       : "Play this episode"}
                   </button>
-                  <p style={{ fontSize: "1rem" }}>{post.frontmatter.hosts}</p>
+                  <h2>Shownotes</h2>
+                  <div>
+                    <MDXRenderer>{post.body}</MDXRenderer>
+                  </div>
                 </div>
               </EpisodeHeader>
-              <div
-                style={{
-                  padding: "1rem 2rem",
-                }}
-              >
-                <p>{post.frontmatter.date}</p>
-                <MDXRenderer>{post.body}</MDXRenderer>
-              </div>
 
               <ul
                 style={{
@@ -111,6 +96,7 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
                   justifyContent: `space-between`,
                   listStyle: `none`,
                   padding: 0,
+                  marginTop:"5rem"
                 }}
               >
                 <li>

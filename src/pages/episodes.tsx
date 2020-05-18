@@ -3,8 +3,26 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import { dateIsInFuture } from "../utils/helpers"
+import SiteContext from "../../SiteContext"
+import Img from "gatsby-image"
+import styled from "styled-components"
+
+const Episode = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin-bottom: 3rem;
+`
+
+const EpisodeImage = styled(Img)`
+  max-width: 250px;
+  border-radius: 1rem;
+`
 
 class EpisodesPage extends React.Component<{ data: any; location: any }> {
+  static contextType = SiteContext
+  componentDidMount() {
+    this.context.setCurrentPage({ title: "All Episodes", type: "page" })
+  }
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -23,19 +41,24 @@ class EpisodesPage extends React.Component<{ data: any; location: any }> {
           const title = node.frontmatter.title || node.fields.slug
           const url = `/episodes${node.fields.slug}`
           return (
-            <div key={node.fields.slug}>
-              <h3>
-                <Link style={{ boxShadow: `none` }} to={url}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description,
-                }}
+            <Episode key={node.fields.slug}>
+              <EpisodeImage
+                fluid={node.frontmatter.image.childImageSharp.fluid}
               />
-            </div>
+              <div className="">
+                <h2 style={{ marginTop: 0 }}>
+                  <Link style={{ boxShadow: `none` }} to={url}>
+                    {title}
+                  </Link>
+                </h2>
+                <small style={{ opacity: 0.7 }}>{node.frontmatter.date}</small>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description,
+                  }}
+                />
+              </div>
+            </Episode>
           )
         })}
       </Layout>
@@ -63,6 +86,22 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            image {
+              childImageSharp {
+                fluid(maxWidth: 200) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                }
+              }
+            }
           }
         }
       }

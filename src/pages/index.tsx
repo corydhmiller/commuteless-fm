@@ -20,11 +20,11 @@ const Episode = styled(BackgroundImage)`
   display: flex;
   flex-direction: column;
   border-radius: 1.25rem;
-  overflow:hidden;
+  overflow: hidden;
   padding: 1rem;
   margin: 1rem 0.5rem;
   background-color: var(--color-darkpurple);
-  border:2px solid vaR(--color-purple);
+  border: 2px solid vaR(--color-purple);
   a {
     flex-grow: 1;
     color: var(--color-white);
@@ -32,7 +32,7 @@ const Episode = styled(BackgroundImage)`
   }
   &:before,
   &:after {
-    background-color:black;
+    background-color: black;
     border-radius: 1.25 !important;
     opacity: 0.15 !important;
   }
@@ -78,7 +78,7 @@ interface BlogProps {
 class IndexPage extends React.Component<BlogProps> {
   static contextType = SiteContext
   componentDidMount() {
-    this.context.setCurrentPage({ title: "Commuteless" })
+    this.context.setCurrentPage({ title: "Commuteless", type: "home" })
   }
   render() {
     const { data } = this.props
@@ -120,7 +120,7 @@ class IndexPage extends React.Component<BlogProps> {
 
             const title = node.frontmatter.title || node.fields.slug
             const url = `/episodes${node.fields.slug}`
-            console.log(node)
+
             return (
               <Episode
                 key={node.fields.slug}
@@ -131,7 +131,7 @@ class IndexPage extends React.Component<BlogProps> {
                   backgroundSize: "cover",
                   opacity: ".2",
                   borderRadius: "",
-                  backgroundColor:""
+                  backgroundColor: "",
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={url}>
