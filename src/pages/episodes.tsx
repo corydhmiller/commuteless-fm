@@ -40,6 +40,16 @@ class EpisodesPage extends React.Component<{ data: any; location: any }> {
 
           const title = node.frontmatter.title || node.fields.slug
           const url = `/episodes${node.fields.slug}`
+
+          function pad(n: string, width: number, z = "0") {
+            n = n + ""
+            return n.length >= width
+              ? n
+              : new Array(width - n.length + 1).join(z) + n
+          }
+
+          const episodeNum = pad(node.frontmatter.episode, 3)
+
           return (
             <Episode key={node.fields.slug}>
               <EpisodeImage
@@ -51,6 +61,7 @@ class EpisodesPage extends React.Component<{ data: any; location: any }> {
                     {title}
                   </Link>
                 </h2>
+                <h4 style={{marginBottom:0}}>Episode {episodeNum}</h4>
                 <small style={{ opacity: 0.7 }}>{node.frontmatter.date}</small>
                 <p
                   dangerouslySetInnerHTML={{
@@ -86,6 +97,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            episode
             image {
               childImageSharp {
                 fluid(maxWidth: 200) {

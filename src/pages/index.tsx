@@ -112,7 +112,7 @@ class IndexPage extends React.Component<BlogProps> {
             </HostsDiv>
           </div>
         </MainSection>
-        <h2 style={{ marginBottom: 0 }}>Latest Episodes</h2>
+        <h2 style={{ textAlign: "center" }}>Latest Episodes</h2>
         <LatestEpisodes>
           {posts.map(({ node }: any) => {
             // If for some reason we've loaded in an episode that is still in the future, get that garbage out of there.
@@ -145,6 +145,11 @@ class IndexPage extends React.Component<BlogProps> {
             )
           })}
         </LatestEpisodes>
+          <div style={{ width: "100%", textAlign: "right" }}>
+            <p>
+              <Link to="/episodes">View All Episodes →</Link>
+            </p>
+          </div>
       </Layout>
     )
   }
