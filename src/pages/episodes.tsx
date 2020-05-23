@@ -20,7 +20,7 @@ const EpisodeImage = styled(Img)`
 
 class EpisodesPage extends React.Component<{ data: any; location: string }> {
   static contextType = SiteContext
-  componentDidMount() {
+  componentWillMount() {
     this.context.setCurrentPage({ title: "All Episodes", type: "page" })
   }
   render() {

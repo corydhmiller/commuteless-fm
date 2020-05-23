@@ -77,7 +77,7 @@ interface BlogProps {
 
 class IndexPage extends React.Component<BlogProps> {
   static contextType = SiteContext
-  componentDidMount() {
+  componentWillMount() {
     this.context.setCurrentPage({ title: "Commuteless", type: "home" })
   }
   render() {
