@@ -18,7 +18,7 @@ const EpisodeImage = styled(Img)`
   border-radius: 1rem;
 `
 
-class EpisodesPage extends React.Component<{ data: any; location: any }> {
+class EpisodesPage extends React.Component<{ data: any; location: string }> {
   static contextType = SiteContext
   componentDidMount() {
     this.context.setCurrentPage({ title: "All Episodes", type: "page" })
@@ -31,7 +31,7 @@ class EpisodesPage extends React.Component<{ data: any; location: any }> {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
-          title="All posts"
+          title="All Episodes"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         {posts.map(({ node }: any) => {
@@ -61,7 +61,7 @@ class EpisodesPage extends React.Component<{ data: any; location: any }> {
                     {title}
                   </Link>
                 </h2>
-                <h4 style={{marginBottom:0}}>Episode {episodeNum}</h4>
+                <h4 style={{ marginBottom: 0 }}>Episode {episodeNum}</h4>
                 <small style={{ opacity: 0.7 }}>{node.frontmatter.date}</small>
                 <p
                   dangerouslySetInnerHTML={{

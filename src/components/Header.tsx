@@ -9,8 +9,8 @@ import SiteContext from "../../SiteContext"
 
 // Determine if the page is home or not
 
-const isHome = () => {
-  return location.pathname === "/"
+const isHome = (location: {}) => {
+  return true
 }
 
 const Platforms = [
@@ -58,6 +58,7 @@ interface PlatformsTypes {
 interface HeaderProps {
   title: string
   episode?: any
+  location: any
 }
 
 const HeaderWithBackground = styled(BackgroundImage)`
@@ -217,7 +218,7 @@ const HeaderTitleSection = ({ ...props }) => {
       </>
     )
   }
-  if (isHome()) {
+  if (context.currentPage.type === "home") {
     return (
       <>
         <HeaderH1
@@ -280,7 +281,7 @@ const HeaderContent = styled.div`
   max-width: 1180px;
   text-align: center;
   padding: 5rem 2rem 1rem;
-  &.header-episode{
+  &.header-episode {
     @media screen and (min-width: 700px) {
       padding: 20vh 0 5vh;
     }
@@ -376,7 +377,10 @@ class Header extends React.Component<HeaderProps> {
                 <HeaderContent
                   className={`header-${this.context.currentPage.type}`}
                 >
-                  <HeaderTitleSection context={this.context} />
+                  <HeaderTitleSection
+                    location={this.props.location}
+                    context={this.context}
+                  />
                 </HeaderContent>
               </HeaderWithBackground>
             </>

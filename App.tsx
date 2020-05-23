@@ -3,7 +3,7 @@ import Player from "./src/components/Player"
 import Header from "./src/components/Header"
 import { SiteProvider } from "./SiteContext"
 
-const Provider = (props: any) => {
+const App = (props: any) => {
   // Init the state as an empty object. Frontmatters is passed in upon "play episode"
   const [episode, setEpisode] = useState({})
   const [currentPage, setCurrentPage] = useState({})
@@ -28,4 +28,4 @@ const Provider = (props: any) => {
   )
 }
 
-export default ({ element }: any) => <Provider>{element}</Provider>
+export default ({ element }: any) => <App>{element}</App>

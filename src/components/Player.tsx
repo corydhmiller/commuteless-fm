@@ -138,7 +138,7 @@ class Player extends Component<PlayerProps, State> {
           position: "fixed",
           bottom: 0,
           width: "100%",
-          zIndex:55
+          zIndex: 55,
         }}
       >
         <PlayerDiv

@@ -1,3 +1,3 @@
-import Provider from './App'
+import App from './App'
 
-export const wrapRootElement = Provider
+export const wrapRootElement = App

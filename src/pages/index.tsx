@@ -145,11 +145,11 @@ class IndexPage extends React.Component<BlogProps> {
             )
           })}
         </LatestEpisodes>
-          <div style={{ width: "100%", textAlign: "right" }}>
-            <p>
-              <Link to="/episodes">View All Episodes →</Link>
-            </p>
-          </div>
+        <div style={{ width: "100%", textAlign: "right" }}>
+          <p>
+            <Link to="/episodes">View All Episodes →</Link>
+          </p>
+        </div>
       </Layout>
     )
   }
