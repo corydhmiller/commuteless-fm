@@ -143,6 +143,7 @@ const MainPlatformsList = styled.ul`
   padding: 0;
   margin-top: 1.5rem;
   list-style-type: none;
+  padding: 0 1rem;
   li {
     display: inline-block;
     &:not(:last-child) {

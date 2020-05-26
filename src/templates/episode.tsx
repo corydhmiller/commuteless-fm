@@ -34,6 +34,7 @@ const Subnav = styled.div`
   justify-content: center;
   max-width: 1180px;
   margin: 2rem auto;
+  padding: 0 1rem;
   .subnav-link {
     flex-grow: 1;
     &:nth-child(2) {
