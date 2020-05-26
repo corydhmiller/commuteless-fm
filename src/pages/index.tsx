@@ -89,7 +89,7 @@ class IndexPage extends React.Component<BlogProps> {
       <Layout location={this.props.location} title={siteTitle}>
         <SEO
           description={data.site.siteMetadata.description}
-          title="Home"
+          title="Commuteless.fm - Work from home better"
           keywords={[`blog`, `gatsby`, `javascript`, `react`]}
         />
         <MainSection>

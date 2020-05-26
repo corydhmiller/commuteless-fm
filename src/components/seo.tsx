@@ -18,7 +18,7 @@ function SEO({ description, lang, keywords, title, image }: SEOProps) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description
-        const ogImageUrl = image || defaultOpenGraphImage
+        const ogImageUrl = data.site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)
         return (
           <Helmet
             htmlAttributes={{
@@ -50,6 +50,10 @@ function SEO({ description, lang, keywords, title, image }: SEOProps) {
               {
                 name: `twitter:creator`,
                 content: data.site.siteMetadata.author,
+              },
+              {
+                name: `twitter:site`,
+                content: '@Commutelessfm',
               },
               {
                 name: `twitter:title`,
@@ -93,6 +97,7 @@ const detailsQuery = graphql`
     site {
       siteMetadata {
         title
+        siteUrl
         description
         author
         siteImage
