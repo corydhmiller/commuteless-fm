@@ -4,7 +4,6 @@ import Header from "./src/components/Header"
 import { SiteProvider } from "./SiteContext"
 
 const App = (props: any) => {
-
   const [episode, setEpisode] = useState({})
   const [currentPage, setCurrentPage] = useState({})
   const [isPlaying, setIsPlaying] = useState(false)
@@ -20,11 +19,7 @@ const App = (props: any) => {
         setIsPlaying,
       }}
     >
-      <Header
-        episode={episode}
-        currentPage={currentPage}
-
-      />
+      <Header episode={episode} currentPage={currentPage} />
       <Player
         episode={episode}
         isPlaying={isPlaying}

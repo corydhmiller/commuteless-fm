@@ -56,8 +56,8 @@ interface PlatformsTypes {
 interface HeaderProps {
   episode?: any
   currentPage: any
-  setEpisode: Function
-  setIsPlaying: Function
+  setEpisode: () => void
+  setIsPlaying: () => void
 }
 
 const HeaderWithBackground = styled(BackgroundImage)`
