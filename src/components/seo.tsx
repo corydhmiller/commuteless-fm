@@ -18,8 +18,7 @@ function SEO({ description, lang, keywords, title, image }: SEOProps) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description
-        const ogImageUrl =
-          +data.site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)
+        const ogImageUrl = image || defaultOpenGraphImage
         return (
           <Helmet
             htmlAttributes={{
