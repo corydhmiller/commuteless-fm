@@ -7,6 +7,7 @@ module.exports = {
     social: {
       twitter: `commutelessfm`,
     },
+    siteImage: 'images/commuteless-artwork.jpg'
   },
   plugins: [
     `gatsby-transformer-sharp`,

@@ -1,11 +1,11 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import SiteContext, { SiteConsumer } from "../../SiteContext"
+import SiteContext from "../../SiteContext"
 
 const EpisodeHeader = styled.div`
   display: grid;
@@ -70,9 +70,10 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
     return (
       <>
         <SEO
-          description={post.excerpt}
+          description={post.frontmatter.description}
           keywords={[`commuteless`]}
           title={post.frontmatter.title}
+          image={post.frontmatter.image.childImageSharp.fluid.src}
         />
         <Subnav>
           <div className="subnav-link">

@@ -1,22 +1,25 @@
 import React from "react"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
-
+import defaultOpenGraphImage from "../../content/images/commuteless-artwork.jpg"
 interface SEOProps {
   description?: string
   lang?: `en`
   meta?: any
   keywords?: string[]
   title?: string
+  image?: string
 }
 
-function SEO({ description, lang, keywords, title }: SEOProps) {
+function SEO({ description, lang, keywords, title, image }: SEOProps) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description
+        const ogImageUrl =
+          +data.site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)
         return (
           <Helmet
             htmlAttributes={{
@@ -57,6 +60,18 @@ function SEO({ description, lang, keywords, title }: SEOProps) {
                 name: `twitter:description`,
                 content: metaDescription,
               },
+              {
+                property: `og:image`,
+                content: ogImageUrl,
+              },
+              {
+                property: `twitter:image`,
+                content: ogImageUrl,
+              },
+              {
+                property: `image`,
+                content: ogImageUrl,
+              },
             ].concat(
               keywords.length > 0
                 ? {
@@ -81,6 +96,7 @@ const detailsQuery = graphql`
         title
         description
         author
+        siteImage
       }
     }
   }
