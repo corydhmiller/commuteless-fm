@@ -9,7 +9,7 @@ exports.createPages = ({ graphql, actions }) => {
     `
       {
         allMdx(
-          sort: { fields: [frontmatter___episode], order: DESC }
+          sort: { fields: [frontmatter___number], order: DESC }
           limit: 1000
         ) {
           edges {

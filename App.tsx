@@ -4,9 +4,10 @@ import Header from "./src/components/Header"
 import { SiteProvider } from "./SiteContext"
 
 const App = (props: any) => {
-  // Init the state as an empty object. Frontmatters is passed in upon "play episode"
+
   const [episode, setEpisode] = useState({})
   const [currentPage, setCurrentPage] = useState({})
+  const [isPlaying, setIsPlaying] = useState(false)
 
   return (
     <SiteProvider
@@ -15,14 +16,22 @@ const App = (props: any) => {
         currentPage,
         setEpisode,
         setCurrentPage,
+        isPlaying,
+        setIsPlaying,
       }}
     >
       <Header
-        className="header-wrap"
         episode={episode}
         currentPage={currentPage}
+
       />
-      <Player episode={episode} />
+      <Player
+        episode={episode}
+        isPlaying={isPlaying}
+        onPlayPause={(a: boolean) => {
+          setIsPlaying(a)
+        }}
+      />
       {props.children}
     </SiteProvider>
   )

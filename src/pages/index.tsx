@@ -179,7 +179,7 @@ export const pageQuery = graphql`
       }
     }
     allMdx(
-      sort: { fields: [frontmatter___episode], order: DESC }
+      sort: { fields: [frontmatter___number], order: DESC }
       filter: { frontmatter: { date: { lte: $currentDate } } }
       limit: 3
     ) {

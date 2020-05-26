@@ -1,17 +1,15 @@
 import React from "react"
-import { Link, graphql, StaticQuery } from "gatsby"
+import { graphql, StaticQuery } from "gatsby"
+
 import AppleImage from "../../content/images/badges/apple.svg"
 import SpotifyImage from "../../content/images/badges/spotify.svg"
 import GoogleImage from "../../content/images/badges/google.svg"
+import { FaPlay } from "react-icons/fa"
+
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
 import SiteContext from "../../SiteContext"
-
-// Determine if the page is home or not
-
-const isHome = (location: {}) => {
-  return true
-}
+import Menu from "./Menu"
 
 const Platforms = [
   {
@@ -56,9 +54,10 @@ interface PlatformsTypes {
 }
 
 interface HeaderProps {
-  title: string
   episode?: any
-  location: any
+  currentPage: any
+  setEpisode: Function
+  setIsPlaying: Function
 }
 
 const HeaderWithBackground = styled(BackgroundImage)`
@@ -87,61 +86,17 @@ const HeaderWithBackground = styled(BackgroundImage)`
   }
 `
 
-const MenuStyled = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: var(--color-red);
-  z-index: 555;
-  padding: 1.5rem 3rem 3rem 1.5rem;
-  border-bottom-right-radius: 8rem;
-  box-shadow: 4px 4px 10px var(--color-black);
-  position: fixed;
-  width: 2rem;
-  height: 1rem;
-  transition: 0.35s all ease-in-out;
-  &[data-menu-toggled="true"] {
-    padding: 0.5rem 0 0 0.5rem;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
-    background-color: rgba(29, 29, 29, 0.97);
-    .menu-content {
-      display: flex;
-      opacity: 1;
-    }
-  }
-  .menu-toggle {
-    cursor: pointer;
-  }
-`
-
-const MenuContent = styled.div`
-  height: 100%;
-  width: 100%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transition: 0.25s all ease;
-`
-const MenuList = styled.ul`
-  width: 100%;
-  list-style-type: none;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-  font-size: 2rem;
-  & li {
-    padding: 1rem 0;
-  }
-`
-
 const HeaderH1 = styled.h1`
   margin: 0;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2rem;
+  @media screen and (min-width: 400px) {
+    font-size: 10vw;
+  }
   @media screen and (min-width: 700px) {
+    font-size: 8vw;
+  }
+  @media screen and (min-width: 900px) {
     font-size: 6rem;
   }
 `
@@ -215,6 +170,27 @@ const HeaderTitleSection = ({ ...props }) => {
         <h3 style={{ fontWeight: 400, opacity: 0.6 }}>
           {context.currentPage.date}
         </h3>
+        <div style={{ margin: "0 auto" }}>
+          <button
+            style={{
+              marginBottom: "1rem",
+              display:
+                context.episode.number === context.currentPage.number
+                  ? "none"
+                  : "",
+            }}
+            onClick={() => {
+              context.setIsPlaying(false)
+              context.setEpisode(context.currentPage)
+            }}
+          >
+            <FaPlay style={{ marginRight: 8 }} />
+
+            {context.episode.number === context.currentPage.number
+              ? "Playing"
+              : "Play this episode"}
+          </button>
+        </div>
       </>
     )
   }
@@ -283,7 +259,7 @@ const HeaderContent = styled.div`
   padding: 5rem 2rem 1rem;
   &.header-episode {
     @media screen and (min-width: 700px) {
-      padding: 20vh 0 5vh;
+      padding: 20vh 0 0;
     }
   }
   &.header-page {
@@ -293,53 +269,10 @@ const HeaderContent = styled.div`
   }
   &.header-home {
     @media screen and (min-width: 700px) {
-      padding: 30vh 0 0;
+      padding: 20vh 0 0;
     }
   }
 `
-
-const Menu = () => {
-  const [toggled, setToggled] = React.useState(false)
-
-  return (
-    <MenuStyled className="menu" data-menu-toggled={toggled}>
-      <div
-        className="menu-toggle"
-        onClick={() => {
-          setToggled(!toggled)
-        }}
-      >
-        Menu
-      </div>
-      <MenuContent className="menu-content">
-        <MenuList>
-          <li>
-            <Link
-              to="/"
-              onClick={() => {
-                setToggled(!toggled)
-              }}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              to="/episodes"
-              onClick={() => {
-                setToggled(!toggled)
-              }}
-            >
-              All Episodes
-            </Link>
-          </li>
-          <li>Contact Us</li>
-          <li>Sponsor the Show</li>
-        </MenuList>
-      </MenuContent>
-    </MenuStyled>
-  )
-}
 
 class Header extends React.Component<HeaderProps> {
   static contextType = SiteContext

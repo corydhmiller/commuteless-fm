@@ -48,7 +48,7 @@ class EpisodesPage extends React.Component<{ data: any; location: string }> {
               : new Array(width - n.length + 1).join(z) + n
           }
 
-          const episodeNum = pad(node.frontmatter.episode, 3)
+          const episodeNum = pad(node.frontmatter.number, 3)
 
           return (
             <Episode key={node.fields.slug}>
@@ -86,7 +86,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___episode], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___number], order: DESC }) {
       edges {
         node {
           excerpt
@@ -97,7 +97,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
-            episode
+            number
             image {
               childImageSharp {
                 fluid(maxWidth: 200) {

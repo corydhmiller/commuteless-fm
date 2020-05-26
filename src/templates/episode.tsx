@@ -1,26 +1,45 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
-import { FaPlay } from "react-icons/fa"
 import SiteContext, { SiteConsumer } from "../../SiteContext"
 
 const EpisodeHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr;
+  grid-column-gap: 1rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
   @media screen and (min-width: 750px) {
-    grid-template-columns: 400px 1fr;
+    grid-template-columns: 300px 1fr;
   }
 `
 
 const FeaturedImage = styled.div`
   border-radius: 1rem;
-  overflow: hidden;
+  max-width: 250px;
+  margin-bottom: 1rem;
+`
+const Shownotes = styled.div`
+  padding: 0 1rem 2rem;
+  @media screen and (max-width: 749px) {
+    order: 2;
+  }
+`
+const Subnav = styled.div`
+  display: flex;
+  justify-content: center;
+  max-width: 1180px;
+  margin: 2rem auto;
+  .subnav-link {
+    flex-grow: 1;
+    &:nth-child(2) {
+      text-align: right;
+    }
+  }
 `
 
 interface BlogPostTypes {
@@ -37,11 +56,8 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
   componentDidMount() {
     const post = this.props.data.mdx
     this.context.setCurrentPage({
-      title: post.frontmatter.title,
-      image: post.frontmatter.image,
       type: "episode",
-      hosts: post.frontmatter.hosts,
-      date: post.frontmatter.date,
+      ...post.frontmatter,
     })
   }
   render() {
@@ -51,73 +67,42 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
     const featuredImgFluid = post.frontmatter.image.childImageSharp.fluid
 
     return (
-      <SiteConsumer>
-        {(context: any) => (
-          <React.Fragment>
-            <Layout location={this.props.location} title={siteTitle}>
-              <SEO
-                description={post.excerpt}
-                keywords={[`commuteless`]}
-                title={post.frontmatter.title}
-              />
-              <EpisodeHeader>
-                <FeaturedImage>
-                  <Img fluid={featuredImgFluid} />
-                </FeaturedImage>
-                <div style={{ padding: "0 1rem 2rem" }}>
-                  <button
-                    style={{
-                      display:
-                        context.episode.episode === post.frontmatter.episode
-                          ? "none"
-                          : "",
-                    }}
-                    onClick={() => {
-                      context.setEpisode(post.frontmatter)
-                    }}
-                  >
-                    <FaPlay style={{ marginRight: 8 }} />
-
-                    {context.episode.episode === post.frontmatter.episode
-                      ? "Playing"
-                      : "Play this episode"}
-                  </button>
-                  <h2>Shownotes</h2>
-                  <div>
-                    <MDXRenderer>{post.body}</MDXRenderer>
-                  </div>
-                </div>
-              </EpisodeHeader>
-
-              <ul
-                style={{
-                  display: `flex`,
-                  flexWrap: `wrap`,
-                  justifyContent: `space-between`,
-                  listStyle: `none`,
-                  padding: 0,
-                  marginTop: "5rem",
-                }}
-              >
-                <li>
-                  {previous && (
-                    <Link to={`/episodes${previous.fields.slug}`} rel="prev">
-                      ← Prev Episode
-                    </Link>
-                  )}
-                </li>
-                <li>
-                  {next && (
-                    <Link to={`/episodes${next.fields.slug}`} rel="next">
-                      Next Episode →
-                    </Link>
-                  )}
-                </li>
-              </ul>
-            </Layout>
-          </React.Fragment>
-        )}
-      </SiteConsumer>
+      <>
+        <SEO
+          description={post.excerpt}
+          keywords={[`commuteless`]}
+          title={post.frontmatter.title}
+        />
+        <Subnav>
+          <div className="subnav-link">
+            {previous && (
+              <Link to={`/episodes${previous.fields.slug}`} rel="prev">
+                ← Prev Episode
+              </Link>
+            )}
+          </div>
+          <div className="subnav-link">
+            {next && (
+              <Link to={`/episodes${next.fields.slug}`} rel="next">
+                Next Episode →
+              </Link>
+            )}
+          </div>
+        </Subnav>
+        <Layout location={this.props.location} title={siteTitle}>
+          <EpisodeHeader>
+            <FeaturedImage>
+              <Img fluid={featuredImgFluid} />
+            </FeaturedImage>
+            <Shownotes>
+              <h2 style={{ marginTop: 0 }}>Shownotes</h2>
+              <div>
+                <MDXRenderer>{post.body}</MDXRenderer>
+              </div>
+            </Shownotes>
+          </EpisodeHeader>
+        </Layout>
+      </>
     )
   }
 }
@@ -136,7 +121,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       frontmatter {
         title
-        episode
+        number
         date(formatString: "MMMM DD, YYYY")
         hosts
         image {

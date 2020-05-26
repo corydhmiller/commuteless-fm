@@ -42,11 +42,11 @@ h2 {
   }
 }
 main {
-  max-width: 1080px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 1rem;
   @media screen and (min-width: 650px) {
-    padding: 1rem 2rem 5rem;
+    padding: 1rem 0 5rem;
   }
 }
 header {
@@ -90,28 +90,27 @@ nav {
 button {
   cursor: pointer;
 }
-main {
-  button {
-    border-radius: 0.3rem;
-    font-size: 1rem;
-    background: $red;
-    color: $white;
-    padding: 0.7rem 1rem;
-    border: 0;
-    outline: none;
-    cursor: pointer;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s all ease-in-out;
-    &:hover,
-    &:focus,
-    &:active {
-      background: $purple;
-    }
-  }
+button {
+  border-radius: 0.3rem;
+  font-size: 1rem;
+  background: $red;
+  color: $white;
+  padding: 0.7rem 1rem;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
 
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s all ease-in-out;
+  &:hover,
+  &:focus,
+  &:active {
+    background: $purple;
+  }
+}
+main {
   ul {
     & > li {
       margin-bottom: 0.5rem;

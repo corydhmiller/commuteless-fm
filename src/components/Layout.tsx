@@ -1,6 +1,5 @@
 import React from "react"
 import "../styles/app.scss"
-import "../styles/header.scss"
 
 interface LayoutProps {
   location: string
