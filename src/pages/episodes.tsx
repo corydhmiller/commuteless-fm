@@ -9,13 +9,19 @@ import styled from "styled-components"
 
 const Episode = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-column-gap: 2rem;
+  grid-template-columns: 1fr;
+  @media screen and (min-width: 750px) {
+    grid-template-columns: 1fr 2fr;
+  }
   margin-bottom: 3rem;
 `
 
 const EpisodeImage = styled(Img)`
-  max-width: 250px;
   border-radius: 1rem;
+  max-width: 250px;
+  max-height: 250px;
+  margin-bottom: 2rem;
 `
 
 class EpisodesPage extends React.Component<{ data: any; location: string }> {

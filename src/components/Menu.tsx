@@ -88,6 +88,16 @@ const Menu = () => {
             </Link>
           </li>
           <li>
+            <Link
+              to="/review"
+              onClick={() => {
+                setToggled(!toggled)
+              }}
+            >
+              Leave a Review
+            </Link>
+          </li>
+          <li>
             <a href="/contact">Contact Us</a>
           </li>
           {/* <li>Sponsor the Show</li> */}

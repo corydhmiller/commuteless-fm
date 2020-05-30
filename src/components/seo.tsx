@@ -18,7 +18,8 @@ function SEO({ description, lang, keywords, title, image }: SEOProps) {
       render={data => {
         const metaDescription =
           description || data.site.siteMetadata.description
-        const ogImageUrl = data.site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)
+        const ogImageUrl =
+          data.site.siteMetadata.siteUrl + (image || defaultOpenGraphImage)
         return (
           <Helmet
             htmlAttributes={{
@@ -53,7 +54,7 @@ function SEO({ description, lang, keywords, title, image }: SEOProps) {
               },
               {
                 name: `twitter:site`,
-                content: '@Commutelessfm',
+                content: "@Commutelessfm",
               },
               {
                 name: `twitter:title`,
