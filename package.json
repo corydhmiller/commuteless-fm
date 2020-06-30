@@ -2,7 +2,7 @@
   "name": "commuteless-fm",
   "private": true,
   "description": "Website for Commuteless.fm using Gatsby and MDX",
-  "version": "1.0",
+  "version": "1.0.0",
   "repository": "https://github.com/corydhmiller/commuteless-fm",
   "author": "Cory Miller <corydhmiller@gmail.com>",
   "license": "MIT",
