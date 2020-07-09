@@ -1,6 +1,4 @@
 import React from "react"
-import { render } from "react-dom"
-
 class SubscribeForm extends React.Component {
   componentDidMount() {
     const script = document.createElement("script")
@@ -12,7 +10,7 @@ class SubscribeForm extends React.Component {
   render() {
     return (
       <>
-        <div id="subscribe_form"></div>
+        <div id="subscribe_form" />
       </>
     )
   }
