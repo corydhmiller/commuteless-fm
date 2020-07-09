@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import styled from "styled-components"
 import Img from "gatsby-image"
 import SiteContext from "../../SiteContext"
+import SubscribeForm from "../components/SubscribeForm"
 
 const EpisodeHeader = styled.div`
   display: grid;
@@ -97,6 +98,9 @@ class BlogPostTemplate extends React.Component<BlogPostTypes> {
               <Img fluid={featuredImgFluid} />
             </FeaturedImage>
             <Shownotes>
+              <div style={{ marginBottom: 50 }}>
+                <SubscribeForm />
+              </div>
               <h2 style={{ marginTop: 0 }}>Shownotes</h2>
               <div>
                 <MDXRenderer>{post.body}</MDXRenderer>

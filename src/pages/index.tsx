@@ -7,6 +7,7 @@ import { dateIsInFuture } from "../utils/helpers"
 import styled from "styled-components"
 import SiteContext from "../../SiteContext"
 import BackgroundImage from "gatsby-background-image"
+import SubscribeForm from "../components/SubscribeForm"
 
 const LatestEpisodes = styled.div`
   display: grid;
@@ -112,6 +113,15 @@ class IndexPage extends React.Component<BlogProps> {
             </HostsDiv>
           </div>
         </MainSection>
+        <div
+          style={{
+            marginBottom: 50,
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <SubscribeForm />
+        </div>
         <h2 style={{ textAlign: "center" }}>Latest Episodes</h2>
         <LatestEpisodes>
           {posts.map(({ node }: any) => {
