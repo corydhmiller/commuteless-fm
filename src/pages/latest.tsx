@@ -7,15 +7,16 @@ class LatestPage extends React.Component<{ data: any; location: string }> {
     const { data } = this.props
     const posts = data.allMdx.edges
 
-    let postArray = []
+    const postArray = []
     for (const post of posts) {
       if (dateIsInFuture(post.node.frontmatter.date)) continue
       postArray.push(post.node.frontmatter.number)
     }
 
     const lmao = posts[posts.length - Math.max(...postArray)]
-
-    navigate("/episodes" + lmao.node.fields.slug)
+    if (typeof window !== "undefined") {
+      navigate("/episodes" + lmao.node.fields.slug)
+    }
 
     return <></>
   }

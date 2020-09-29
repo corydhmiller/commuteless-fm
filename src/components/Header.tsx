@@ -267,20 +267,20 @@ const HeaderContent = styled.div`
 `
 
 const HeaderOverlay = styled.div`
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background: linear-gradient(
-  0,
-  var(--color-lightblack) 0,
- transparent 25%
-) !important;
-z-index: 2 !important;
-opacity: 1 !important;
-&:after {
-}
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    0,
+    var(--color-lightblack) 0,
+    transparent 25%
+  ) !important;
+  z-index: 2 !important;
+  opacity: 1 !important;
+  &:after {
+  }
 `
 
 class Header extends React.Component<HeaderProps> {
@@ -316,7 +316,7 @@ class Header extends React.Component<HeaderProps> {
                 // Reset style here to handle responsive sizing
                 // style={{ backgroundPosition: "center top" }}
               >
-                <HeaderOverlay/>
+                <HeaderOverlay />
                 <HeaderContent
                   className={`header-${this.context.currentPage.type}`}
                 >
