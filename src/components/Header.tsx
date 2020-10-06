@@ -20,7 +20,7 @@ const Platforms = [
   {
     name: "Spotify",
     url:
-      "https://open.spotify.com/album/5wsaSNJTS4x2XhO30SD3NL?si=Am9aZH-XRj2ltRoSxkCsHQ",
+      "https://open.spotify.com/show/4gWjd6t6vTIXfb8IDHmgoZ?si=YQpF9raVSAiMHUlVB7yVGA",
     image: SpotifyImage,
   },
   {
