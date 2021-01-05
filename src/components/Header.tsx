@@ -144,7 +144,8 @@ const MainPlatformsList = styled.ul`
 `
 
 const HeaderTitleSection = ({ ...props }) => {
-  const context = props.context
+  const { context } = props
+
   if (context.currentPage.type === "episode") {
     return (
       <>
