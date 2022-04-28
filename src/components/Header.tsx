@@ -43,7 +43,7 @@ const Platforms = [
   },
   {
     name: "RSS",
-    url: "https://lynx.commuteless.fm/rss",
+    url: "https://feeds.libsyn.com/264770/rss",
   },
 ]
 
